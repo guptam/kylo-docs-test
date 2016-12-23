@@ -1,0 +1,719 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<blockquote>
+<p><img src="media/image02.png" width="292" height="192" /></p>
+</blockquote>
+<p>Kylo</p>
+<p>Manual Deployment Guide</p>
+<p>December 12, 2016</p>
+<p><strong>Table of contents</strong></p>
+<p><a href="#preface"><em>Preface</em></a></p>
+<p><a href="#audience"><em>Audience</em></a></p>
+<p><a href="#_1fob9te"><em>System Requirements</em></a></p>
+<p><a href="#_ej4ypcix9vmt"><em>Kylo Dependencies</em></a></p>
+<p><a href="#_2r5ztmx56j"><em>Prerequisites for Installation</em></a></p>
+<p><a href="#_3znysh7"><em>Obtaining Documentation and Submitting a Service Request</em></a></p>
+<p><a href="#_2et92p0"><em>Installation Locations</em></a></p>
+<p><a href="#_5nrxn2z5zuc5"><em>Installation</em></a></p>
+<p><a href="#step-1-setup-directory"><em>Step 1: Setup Directory</em></a></p>
+<p><a href="#optional---offline-mode"><em>Optional - Offline Mode</em></a></p>
+<p><a href="#step-2-create-linux-users-and-groups"><em>Step 2: Create Linux Users and Groups</em></a></p>
+<p><a href="#step-3-install-think-big-services"><em>Step 3: Install Think Big Services</em></a></p>
+<p><a href="#step-4-run-the-database-scripts"><em>Step 4: Run the database scripts</em></a></p>
+<p><a href="#step-5-install-and-configure-elasticsearch"><em>Step 5: Install and Configure Elasticsearch</em></a></p>
+<p><a href="#step-6-install-activemq"><em>Step 6: Install ActiveMQ</em></a></p>
+<p><a href="#step-7-install-java-8"><em>Step 7: Install Java 8</em></a></p>
+<p><a href="#step-8-install-java-cryptographic-extension"><em>Step 8: Install Java Cryptographic Extension</em></a></p>
+<p><a href="#step-9-install-nifi"><em>Step 9: Install NiFi</em></a></p>
+<p><a href="#step-10-set-permissions-for-hdfs"><em>Step 10: Set Permissions for HDFS</em></a></p>
+<p><a href="#step-11-create-a-dropzone-folder-on-the-edge-node-for-file-ingest-for-example"><em>Step 11: Create a dropzone folder on the edge node for file ingest, for example:</em></a></p>
+<p><a href="#complete-this-step-for-cloudera-installations-only"><em>Complete this step for Cloudera installations ONLY</em></a></p>
+<p><a href="#step-12-edit-the-properties-files"><em>Step 12: Edit the Properties Files</em></a></p>
+<p><a href="#step-13-final-step-start-the-3-think-big-services"><em>Step 13: Final Step: Start the 3 Think Big services</em></a></p>
+<p><a href="#_2xcytpi"><em>Configuration</em></a></p>
+<p><a href="#_1ci93xb"><em>Database Changes</em></a></p>
+<p><a href="#_3whwml4"><em>MySQL</em></a></p>
+<p><a href="#_2bn6wsx"><em>Postgres</em></a></p>
+<p><a href="#_qsh70q"><em>Appendix: Cloudera Configuration File Changes</em></a></p>
+<h1 id="section"></h1>
+<h1 id="preface">Preface</h1>
+<p>This document explains how to install each component of the framework manually. This is useful for when you are installing across multiple edge nodes. Use this link to the install wizard if you would prefer not to do the installation manually.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Tip</strong></td>
+<td>Many of the steps below are similar to running the wizard-based install. If you want to take advantage of the same scripts as the wizard you can tar up the /opt/thinkbig/setup folder and untar it to a temp directory on each node.</td>
+</tr>
+</tbody>
+</table>
+<p>Information on the operation and maintenance of the Kylo solution is available at <a href="https://www.thinkbiganalytics.com/kylo/"><em>https://www.thinkbiganalytics.com/kylo/</em></a>.</p>
+<h1 id="audience">Audience</h1>
+<p>This guide provides step-by-step instruction for installing the Kylo application on your computer. The reader is assumed to be an IT Administrator knowledgeable of IT terms and trained with the appropriate skillset.</p>
+<p>Refer to the Kylo Operations and Maintenance (O&amp;M) guide for detailed instruction on how to effectively manage:</p>
+<blockquote>
+<p>• Production processing</p>
+<p>• Ongoing maintenance</p>
+<p>• Performance monitoring</p>
+</blockquote>
+<p>Guides on the Continuous Integration and Deployment of Kylo, including instructions for maintaining, supporting, and using the solution in day-to-day operational basis, are available at at <a href="https://www.thinkbiganalytics.com/kylo/"><em>https://www.thinkbiganalytics.com/kylo/</em></a>.</p>
+<h1 id="installation-components">Installation Components</h1>
+<p>Installing Kylo installs the following software:</p>
+<ul>
+<li><blockquote>
+<p>Thinkbig Applications: Kylo provides services to produce Hive tables, generate a schema based on data brought into Hadoop, perform Spark-based transformations, track metadata, monitor feeds and SLA policies, and to publish to target systems.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Java 8: Kylo uses the Java 8 development platform.</p>
+</blockquote></li>
+<li><blockquote>
+<p>NiFi: Kylo uses Apache NiFi for orchestrating data pipelines.</p>
+</blockquote></li>
+<li><blockquote>
+<p>ActiveMQ: Kylo uses Apache ActiveMQ to manage communications with clients and servers.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Elasticsearch: Kylo uses Elasticsearch, a distributed, multitenant-capable full-text search engine.</p>
+</blockquote></li>
+</ul>
+<h1 id="installation-locations">Installation Locations</h1>
+<p>Installing Kylo installs the following software at these Linux file system locations:</p>
+<ul>
+<li><blockquote>
+<p>Thinkbig Applications - /opt/thinkbig</p>
+</blockquote></li>
+<li><blockquote>
+<p>Java 8 - /opt/java/current</p>
+</blockquote></li>
+<li><blockquote>
+<p>NiFi - /opt/nifi/current</p>
+</blockquote></li>
+<li><blockquote>
+<p>ActiveMQ - /opt/activemq</p>
+</blockquote></li>
+</ul>
+<h1 id="elasticsearch---rpm-installation-default-location">Elasticsearch - RPM installation default location</h1>
+<h1 id="installation">Installation</h1>
+<p>For each step below you will need to login to your network with root access permissions. Installation commands will be executed from the command-line interface (CLI).</p>
+<h1 id="step-1-setup-directory">Step 1: Setup Directory</h1>
+<p>Kylo is most often installed on one edge node. If you are deploying everything to one node, the setup directory would typically be:</p>
+<p>SETUP_DIR=/opt/thinkbig/setup</p>
+<p>Sometimes administrators install NiFi on a second edge node to communicate with a Hortonworks or Cloudera cluster. In this case, copy the setup folder to nodes that do not have the Think Big applications installed. In that case, use this SETUP_DIR command:</p>
+<p>SETUP_DIR=/tmp/thinkbig-install</p>
+<h1 id="optional---offline-mode">Optional - Offline Mode</h1>
+<p>If an edge node has no internet access, you can generate a TAR file that contains everything in the /opt/thinkbig/setup folder, including the downloaded application binaries.</p>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Install the Kylo RPM on a node that has internet access.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Run &quot;/opt/thinkbig/setup/generate-offline-install.sh.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Copy the /opt/thinkbig/setup/thinkbig-install.tar file to the node you install the RPM on. This can be copied to a temp directory. It doesn’t have to be put in the /opt/thinkbig/setup folder.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Run &quot;tar -xvf thinkbig-install.tar&quot;.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Note the directory name where you untar’d the files. This will be referred to in the rest of the doc by OFFLINE_SETUP_DIR.</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>The script will download all application binaries and puts them in their respective directory in the setup folder. Last it will TAR up the setup folder.</p>
+</blockquote>
+<h1 id="section-1"></h1>
+<h1 id="section-2"></h1>
+<h1 id="step-2-create-linux-users-and-groups">Step 2: Create Linux Users and Groups</h1>
+<p>Creation of users and groups is done manually because many organizations have their own user and group management system. Therefore we cannot script it as part of the RPM install.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Note:</strong></td>
+<td>Each of these should be run on the node on which the software will be installed.</td>
+</tr>
+</tbody>
+</table>
+<p>$ useradd -r -m -s /bin/bash nifi</p>
+<p>$ useradd -r -m -s /bin/bash thinkbig</p>
+<p>$ useradd -r -m -s /bin/bash activemq</p>
+<p>Confirm that the above commands created groups as intended by looking at /etc/group level in the directory. Some operating systems may not create them by default.</p>
+<p>$ cat /etc/group</p>
+<p>If the groups are missing, then run the following:</p>
+<p>$ groupadd thinkbig</p>
+<p>$ groupadd nifi</p>
+<p>$ groupadd activemq</p>
+<h1 id="step-3-install-think-big-services">Step 3: Install Think Big Services</h1>
+<ol style="list-style-type: decimal">
+<li><blockquote>
+<p>Find and download the RPM file from the artifactory and place it on the host linux machine that you want to install Kylo services on.</p>
+</blockquote></li>
+</ol>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Note:</strong></td>
+<td>To use wget instead, right-click the download link and copy the url.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>http://52.203.91.75:8080/artifactory/webapp/search/artifact/?7&amp;q=thinkbig-datalake-accelerator (requires VPN)</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><blockquote>
+<p>Run the Kylo RPM install.</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>$ rpm -ivh thinkbig-datalake-accelerator-&lt;version&gt;.noarch.rpm</p>
+</blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Note:</strong></td>
+<td>The RPM is hard coded at this time to install to /opt/thinkbig.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="step-4-run-the-database-scripts">Step 4: Run the database scripts</h1>
+<p>The database scripts will create one schema called &quot;thinkbig&quot; and install to that schema. Run the following script:</p>
+<p>$ &lt;SETUP_DIR&gt;/sql/mysql/setup-mysql.sh [db_host_or_ip] [db_user] [db_password]</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Note:</strong></td>
+<td>The HDP sandbox doesn't have a password set for the root user so you would run &quot;&lt;SETUP_DIR&gt;/sql/mysql/setup-mysql.sh localhost root&quot;.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="step-5-install-and-configure-elasticsearch">Step 5: Install and Configure Elasticsearch</h1>
+<p>To get Kylo installed and up and running quickly, a script is provided to stand up a single node Elasticsearch instance. You can also leverage an existing Elasticsearch instance. For example, if you stand up an ELK stack you will likely want to leverage the same instance.</p>
+<ol style="list-style-type: decimal">
+<li><blockquote>
+<p>Option 1: Install Elasticsearch from our script.</p>
+</blockquote></li>
+</ol>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Note:</strong></td>
+<td>The included Elasticsearch script was meant to speed up installation in a sandbox or DEV environment.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>..</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Online Mode</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>$ &lt;SETUP_DIR&gt;/elasticsearch/install-elasticsearch.sh</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Offline Mode</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>$ &lt;SETUP_DIR&gt;/elasticsearch/install-elasticsearch.sh -o &lt;SETUP_DIR&gt;</p>
+<p>ex. /tmp/thinkbig-install/setup/elasticsearch/install-elasticsearch.sh -o /tmp/thinkbig-install/setup</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><blockquote>
+<p>Option 2: Use an existing Elasticsearch</p>
+</blockquote></li>
+<li><blockquote>
+<p>To leverage an existing Elasticsearch instance, you must update all feed templates that you created with the correct Elasticsearch URL.You can do this by going to the &quot;Additional Properties&quot; tab for that feed. If you added any re-usable flow templates you will need to modify the Elasticsearch processors in NiFI.</p>
+</blockquote></li>
+</ol>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Tip:</strong></td>
+<td>To test that Elasticsearch is running type &quot;curl localhost:9200&quot;. You should see a JSON response.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="step-6-install-activemq">Step 6: Install ActiveMQ</h1>
+<p>Another script has been provided to stand up a single node ActiveMQ instance. You can also leverage an existing ActiveMQ instance.</p>
+<ol style="list-style-type: decimal">
+<li><blockquote>
+<p>Option 1: Install ActiveMQ from the script</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>The included ActiveMQ script was meant to speed up installation in a sandbox or DEV environment. It is not a production ready configuration.</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Online Mode</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>$ /opt/thinkbig/setup/activemq/install-activemq.sh</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Offline Mode</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>$ &lt;SETUP_DIR&gt;/activemq/install-activemq.sh -o &lt;SETUP_DIR&gt;</p>
+<p>ex. /opt/thinkbig/setup/activemq/install-activemq.sh -o /opt/thinkbig/setup</p>
+</blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Note:</strong></td>
+<td>If installing on a different node than NiFi and thinkbig-services you will need to update the following properties:</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>/opt/nifi/ext-config/config.properties</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>spring.activemq.broker-url</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>/opt/thinkbig/thinkbig-services/conf/application.properties</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>jms.activemq.broker.url</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><blockquote>
+<p>Option 2: Leverage an existing ActiveMQ instance</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>Update the below properties so that NiFI and thinkbig-services can communicate with the existing server.</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>/opt/nifi/ext-config/config.properties</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>spring.activemq.broker-url</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>/opt/thinkbig/thinkbig-services/conf/application.properties</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>jms.activemq.broker.url</p>
+</blockquote>
+<p><span id="_35nkun2" class="anchor"></span><strong>Installing on SUSE</strong></p>
+<blockquote>
+<p>The deployment guide currently addresses installation in a Redhat based environment. There are a couple of issues installing Elasticsearch and ActiveMQ on SUSE. Below are some instructions on how to install these two on SUSE.</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><strong>ActiveMQ</strong></p>
+</blockquote></li>
+</ul>
+<blockquote>
+<p>When installing ActiveMQ, you might see the following error:</p>
+<p>ERROR: Configuration variable JAVA_HOME or JAVACMD is not defined correctly.</p>
+<p>(JAVA_HOME='', JAVACMD='java')</p>
+<p>This indicates that ActiveMQ isn’t properly using Java as it is set in the system. To fix this issue, use the following steps to set the JAVA_HOME directly.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><blockquote>
+<p>Edit /etc/default/activemq and set JAVA_HOME at the bottom</p>
+</blockquote></li>
+<li><blockquote>
+<p>Restart ActiveMQ (service activemq restart)</p>
+</blockquote></li>
+</ol>
+<ul>
+<li><blockquote>
+<p><strong>Elasticsearch</strong></p>
+</blockquote></li>
+</ul>
+<blockquote>
+<p>RPM installation isn’t supported on SUSE. To work around this issue, we created a custom init.d service script and wrote up a manual procedure to install Elasticsearch on a single node.</p>
+<p><a href="https://www.elastic.co/support/matrix"><em>https://www.elastic.co/support/matrix</em></a></p>
+<p>We have created a service script to make it easy to start and stop Elasticsearch, as well as leverage chkconfig to automatically start Elasticsearch when booting up the machine. Below are the instructions on how we installed Elasticsearch on a SUSE box.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><blockquote>
+<p>Make sure Elasticsearch service user/group exists</p>
+</blockquote></li>
+<li><blockquote>
+<p>mkdir /opt/elasticsearch</p>
+</blockquote></li>
+<li><blockquote>
+<p>cd /opt/elasticsearch</p>
+</blockquote></li>
+<li><blockquote>
+<p>mv /tmp/elasticsearch-2.3.5.tar.gz</p>
+</blockquote></li>
+<li><blockquote>
+<p>tar -xvf elasticsearch-2.3.5.tar.gz</p>
+</blockquote></li>
+<li><blockquote>
+<p>rm elasticsearch-2.3.5.tar.gz</p>
+</blockquote></li>
+<li><blockquote>
+<p>ln -s elasticsearch-2.3.5 current</p>
+</blockquote></li>
+<li><blockquote>
+<p>cp elasticsearch.yml elasticsearch.yml.orig</p>
+</blockquote></li>
+<li><blockquote>
+<p>Modify elasticsearch.yml if you want to change the cluster name. Our copy that is installed the wizard scripts is located in /opt/thinkbig/setup/elasticsearch</p>
+</blockquote></li>
+<li><blockquote>
+<p>chown -R elasticsearch:elasticsearch /opt/elasticsearch/</p>
+</blockquote></li>
+<li><blockquote>
+<p>vi /etc/init.d/elasticsearch - paste in the values from /opt/thinkbig/setup/elasticsearch/init.d/sles/elasticsearch</p>
+</blockquote></li>
+<li><blockquote>
+<p>Uncomment and set the java home on line 44 of the init.d file in step #10</p>
+</blockquote></li>
+<li><blockquote>
+<p>chmod 755 /etc/init.d/elasticsearch</p>
+</blockquote></li>
+<li><blockquote>
+<p>chkconfig elasticsearch on</p>
+</blockquote></li>
+<li><blockquote>
+<p>service elasticsearch start</p>
+</blockquote></li>
+</ol>
+<h1 id="section-3"></h1>
+<h1 id="step-7-install-java-8">Step 7: Install Java 8</h1>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Note:</strong></td>
+<td>If you are installing NiFI and the thinkbig services on two separate nodes , you may need to perform this step on each node.</td>
+</tr>
+</tbody>
+</table>
+<p>There are 3 scenarios for configuring the applications with Java 8.</p>
+<ol style="list-style-type: decimal">
+<li><blockquote>
+<p>Scenario 1: Java 8 is installed on the system and is already in the classpath.</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>In this case you need to remove the default JAVA_HOME used as part of the install. Run the following script:</p>
+<p>For thinkbig-ui and thinkbig-services</p>
+<p>$ &lt;SETUP_DIR&gt;/java/remove-default-thinkbig-java-home.sh</p>
+<p>To test this you can look at each file referenced in the scripts for thinkbig-ui and thinkbig-services to validate the 2 lines setting and exporting the JAVA_HOME are gone.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><blockquote>
+<p>Scenario 2: Install Java in the default /opt/java/current location.</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Install Java 8 - You can modify and use the following script if you want:</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Online Mode</p>
+</blockquote></li>
+</ol></li>
+</ol></li>
+</ol>
+<blockquote>
+<p>$ &lt;SETUP_DIR&gt;/java/install-java8.sh</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Offline Mode</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>$ &lt;SETUP_DIR&gt;/java/install-java8.sh -o &lt;SETUP_DIR&gt;</p>
+<p>ex. /opt/thinkbig/setup/java/install-java8.sh -o /opt/thinkbig/setup</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><blockquote>
+<p>Scenario 3: Java 8 is installed on the node, but it’s not in the default JAVA_HOME path.</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>If you already have Java 8 installed and want to reference that one one there is a script to remove the existing path and another script to set the new path for the thinkbig apps.</p>
+<p>For thinkbig-ui and thinkbig-services</p>
+<p>$ /opt/thinkbig/setup/java/remove-default-thinkbig-java-home.sh</p>
+<p>$ /opt/thinkbig/setup/java/change-thinkbig-java-home.sh &lt;PATH_TO_JAVA_HOME&gt;</p>
+</blockquote>
+<h1 id="step-8-install-java-cryptographic-extension">Step 8: Install Java Cryptographic Extension</h1>
+<p>The Java 8 install script above will automatically download and install the <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html"><em>Java Cryptographic Extension</em></a>. This extension is required to allow encrypted property values in the Kylo configuration files. If you already have a Java 8 installed on the system, you can install the Java Cryptographic Extension by running the following script:</p>
+<p>$ &lt;SETUP_DIR&gt;/java/install-java-crypt-ext.sh &lt;PATH_TO_JAVA_HOME&gt;</p>
+<p>This script downloads the extension zip file and extracts the replacement jar files into the JRE security directory ($JAVA_HOME/jre/lib/security). It will first make backup copies of the original jars it is replacing.</p>
+<h1 id="step-9-install-nifi">Step 9: Install NiFi</h1>
+<p>You can leverage an existing NiFi installation or follow the steps in the setup directory that are used by the wizard. Note that Java 8 is required to run NiFi with our customizations. Make sure Java 8 is installed on the node.</p>
+<ol style="list-style-type: decimal">
+<li><blockquote>
+<p>Option 1: Install NiFi from our scripts</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>This method downloads and installs NiFi, and also installs and configures the Think Big specific libraries. This instance of NiFi is configured to store persistent data outside of the NiFi installation folder in /opt/nifi/data. This makes it easy to upgrade since you can change the version of NiFi without migrating data out of the old version.</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Install NiFi</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Online Mode</p>
+</blockquote></li>
+</ol></li>
+</ol>
+<blockquote>
+<p>$ &lt;SETUP_DIR&gt;/nifi/install-nifi.sh</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Offline Mode</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>$ &lt;SETUP_DIR&gt;/nifi/install-nifi.sh -o &lt;SETUP_DIR&gt;</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Update JAVA_HOME (default is /opt/java/current).</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>$ &lt;SETUP_DIR&gt;/java/change-nifi-java-home.sh &lt;path to JAVA_HOME&gt;</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Install Think Big specific components.</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>$ &lt;SETUP_DIR&gt;/nifi/install-thinkbig-components.sh</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><blockquote>
+<p>Option 2: Leverage an existing NiFi instance</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>In some cases you may have a separate instance of NiFi or Hortonworks Data Flow you want to leverage. Follow the steps below to include the Think Big resources.</p>
+</blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Note:</strong></td>
+<td>If Java 8 isn't being used for the existing instance then you will be required to change it.</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Copy the &lt;SETUP_DIR&gt;/nifi/thinkbig- *.nar and thinkbig-spark- *.jar files to the node NiFi is running on. If it’s on the same node you can skip this step.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Shutdown the NiFi instance.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Create folders for the jar files. You may choose to store the jars in another location if you want.</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>$ mkdir -p &lt;NIFI_HOME&gt;/thinkbig/lib/app</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Copy the thinkbig-*.nar files to the &lt;NIFI_HOME&gt;/thinkbig/lib directory.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Create a directory called &quot;app&quot; in the &lt;NIFI_HOME&gt;/lib directory.</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>$ mkdir &lt;NIFI_HOME&gt;/lib/app</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Copy the thinkbig-spark-*.jar files to the &lt;NIFI_HOME&gt;/thinkbig/lib/app directory.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Create symbolic links for all of the jars. Below is an example of how to create it for one NAR file and one JAR file. At the time of this writing there are 8 NAR files and 3 spark JAR files.</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>$ ln -s &lt;NIFI_HOME&gt;/thinkbig/lib/thinkbig-nifi-spark-nar-*.nar &lt;NIFI_HOME&gt;/lib/thinkbig-nifi-spark-nar.nar</p>
+<p>$ ln -s &lt;NIFI_HOME&gt;/thinkbig/lib/app/thinkbig-spark-interpreter-*-jar-with-dependencies.jar &lt;NIFI_HOME&gt;/lib/app/thinkbig-spark-interpreter-jar-with-dependencies.jar</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Modify &lt;NIFI_HOME&gt;/conf/nifi.properties and update the following property. This modifies NiFI to use our custom provenance repository to send data to the thinkbig-services application.</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>nifi.provenance.repository.implementation=com.thinkbiganalytics.nifi.provenance.v2.ThinkbigProvenanceEventRepository</p>
+<p>nifi.web.http.port=8079</p>
+</blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Note:</strong></td>
+<td>If you decide to leave the port number set to the current value you must update the &quot;nifi.rest.port&quot; property in the thinkbig-services application.properties file.</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>There is a controller service that requires a MySQL database connection. You will need to copy the MySQL connector jar to a location on the NiFI node. The pre-defined templates have the default location set to /opt/nifi/mysql.</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Create a folder to store the MySQL jar in.</p>
+</blockquote></li>
+<li><blockquote>
+<p>SCP the /opt/thinkbig/thinkbig-services/lib/mysql-connector-java-&lt;version&gt;.jar to the folder in step #1</p>
+</blockquote></li>
+<li><blockquote>
+<p>If you created a folder name other than the /opt/nifi/mysql default folder you will need to update the &quot;MySQL&quot; controller service and set the new location. You can do this by logging into NiFi and going to the Controller Services section on the top right.</p>
+</blockquote></li>
+</ol></li>
+<li><blockquote>
+<p>Create H2 folder for fault tolerance. If the JMS queue goes down for some reason our custom Provenance library will startup a local H2 database and store provenance events until JMS comes back up. Once back up, it will send all of the events stored in the database then shut down the local H2 instance. Below are steps to configure the H2 folder.</p>
+</blockquote></li>
+</ol>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Note:</strong></td>
+<td>Right now the plugin is hard coded to use the /opt/nifi/ext-config directory to load the properties file. There is a Jira to address this PC-261.</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>Create the folders.</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>$ mkdir /opt/nifi/h2</p>
+<p>$ mkdir /opt/nifi/ext-config</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><blockquote>
+<p>SCP the /opt/thinkbig/setup/nifi/config.properties file to the /opt/nifi/ext-config folder.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Change the ownership of the above folders to the same owner that nifi runs under. For example, if nifi runs as the &quot;nifi&quot; user:</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>$ chown -R nifi:users /opt/nifi</p>
+<p>OPTIONAL: The /opt/thinkbig/setup/nifi/install-thinkbig-components.sh contains steps to install NiFi as a service so that NiFi can startup automatically if you restart the node. This might be useful to add if it doesn't already exist for the NiFi instance.</p>
+</blockquote>
+<p><span id="_2jxsxqh" class="anchor"></span></p>
+<h1 id="step-10-set-permissions-for-hdfs">Step 10: Set Permissions for HDFS</h1>
+<p>This step is required on the node that NiFi is installed on to set the correct permissions for the &quot;nifi&quot; user to access HDFS.</p>
+<ol style="list-style-type: decimal">
+<li><blockquote>
+<p>NiFi Node - Add nifi user to the HDFS supergroup or the group defined in hdfs-site.xml, for example:</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>Hortonworks</p>
+<p>$ usermod -a -G hdfs nifi</p>
+<p>Cloudera</p>
+<p>$ groupadd supergroup</p>
+<p># Add nifi and hdfs to that group:</p>
+<p>$ usermod -a -G supergroup nifi</p>
+<p>$ usermod -a -G supergroup hdfs</p>
+</blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Note:</strong></td>
+<td>If you want to perform actions as a root user in a development environment, run the below command.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>$ usermod -a -G supergroup root</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><blockquote>
+<p>thinkbig-services node - Add thinkbig user to the HDFS supergroup or the group defined in hdfs-site.xml, for example:</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>Hortonworks</p>
+<p>$ usermod -a -G hdfs thinkbig</p>
+<p>Cloudera</p>
+<p>$ groupadd supergroup</p>
+<p># Add nifi and hdfs to that group:</p>
+<p>$ usermod -a -G supergroup hdfs</p>
+</blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Note:</strong></td>
+<td>If you want to perform actions as a root user in a development environment run the below command.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>$ usermod -a -G supergroup root</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><blockquote>
+<p>For Clusters:</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>In addition to adding the nifi/thinkbig user to the supergroup on the edge node you also need to add the users/groups to the name nodes on a cluster.</p>
+<p>Hortonworks</p>
+<p>$ useradd thinkbig</p>
+<p>$ useradd nifi</p>
+<p>$ usermod -G hdfs nifi</p>
+<p>$ usermod -G hdfs thinkbig</p>
+<p>Cloudera - &lt;Fill me in after testing &gt;</p>
+</blockquote>
+<h1 id="step-11-create-a-dropzone-folder-on-the-edge-node-for-file-ingest-for-example">Step 11: Create a dropzone folder on the edge node for file ingest, for example:</h1>
+<p>Perform the following step on the node on which NiFI is installed:</p>
+<blockquote>
+<p>$ mkdir -p /var/dropzone</p>
+<p>$ chown nifi /var/dropzone</p>
+</blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Note:</strong></td>
+<td>Files should be copied into the dropzone such that user nifi can read and remove. Do not copy files with permissions set as root.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="complete-this-step-for-cloudera-installations-only">Complete this step for Cloudera installations ONLY</h1>
+<p>See the appendix section in the deployment guide &quot;Cloudera Configuration File Changes&quot; link:deployment-guide{outfilesuffix}[Deployment Guide],</p>
+<h1 id="step-12-edit-the-properties-files">Step 12: Edit the Properties Files</h1>
+<h1 id="step-13-final-step-start-the-3-think-big-services">Step 13: Final Step: Start the 3 Think Big services</h1>
+<p>$ /opt/thinkbig/start-thinkbig-apps.sh</p>
+<p>At this point all services should be running.</p>
+</body>
+</html>

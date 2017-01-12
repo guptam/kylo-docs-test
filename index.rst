@@ -3,14 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Kylo Operations Guide's documentation!
+Welcome to the Kylo documentation!
 =================================================
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-   KyloOperationsGuide.rst
 
 Indices and tables
 ==================
@@ -18,3 +12,11 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   KyloOperationsGuide.rst
+

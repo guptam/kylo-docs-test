@@ -6,17 +6,17 @@
 Welcome to the Kylo documentation!
 =================================================
 
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Kylo Operations Guide:
+
+   KyloOperationsGuide.rst
+
+
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-   KyloOperationsGuide.rst
-

@@ -13,6 +13,7 @@ Welcome to the Kylo documentation!
 
    KyloFeatures
    KyloTerminoligy
+   KyloFrequentlyAskedQuestions
 
 .. toctree::
     :maxdepth: 2
@@ -27,6 +28,10 @@ Welcome to the Kylo documentation!
     :caption: Operations Documentation
 
        KyloOperationsGuide
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Developer Documentation
 
 Indices and tables
 ==================

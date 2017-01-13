@@ -8,14 +8,25 @@ Welcome to the Kylo documentation!
 
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Operational Guide
+   :maxdepth: 2
+   :caption: Getting Started
 
-   KyloOperationsGuide
+   KyloFeatures
+   KyloTerminoligy
 
 .. toctree::
-      :maxdepth: 2
-      :caption: User Guides
+    :maxdepth: 2
+    :caption: User Documentation
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Designer Documentation
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Operations Documentation
+
+       KyloOperationsGuide
 
 Indices and tables
 ==================

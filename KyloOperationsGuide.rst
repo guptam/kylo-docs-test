@@ -56,7 +56,7 @@ Abbreviations and Definitions
 | **ES**                       | ElasticSearch                                                                               |
 +------------------------------+---------------------------------------------------------------------------------------------+
 
-System Overview 
+System Overview
 ================
 
 This section provides an overview of the network, servers and service
@@ -331,7 +331,7 @@ The Exit Code is the state of the Job.
 -  ABANDONED – The Job was manually abandoned
 
 Controlling Jobs
-~~~~~~~~~~~~~~~~     
+~~~~~~~~~~~~~~~~
 
 The image below illustrates the different *actions* that can be
 performed based on its Job Status:
@@ -539,7 +539,7 @@ Application Properties
 The *application.properties* file in thinkbig-services specifies most of
 the standard configuration in pipeline.
 
-**NOTE:** Any change to the application properties will require an application restart.                                                                            
+**NOTE:** Any change to the application properties will require an application restart.
 
 Below is a sample properties file with Spring Datasource properties for spring batch and the default data source:
 
@@ -903,7 +903,7 @@ directory in a default Kylo installation. Place the .jar files for
 custom plugins in this directory and manually start and stop the
 thinkbig-services service.
 
-Operational Considerations 
+Operational Considerations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When considering promoting Kylo/NiFi metatdata you will need to restart
@@ -961,7 +961,7 @@ administrator’s guide is the authority.
 
     `*https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html* <https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html>`__
 
-.. |image0| image:: media/operations-guide/image1.png
+.. |image0| image:: media/common/thinkbig-logo.png
    :width: 3.09891in
    :height: 2.03724in
 .. |image1| image:: media/operations-guide/image2.png

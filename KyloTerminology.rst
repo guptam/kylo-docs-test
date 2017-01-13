@@ -223,6 +223,6 @@ A service that Kylo has been configured to monitor
    services, such as HDFS and Kafka, that Kylo will monitor using either
    Ambari’s API or Cloudera’s REST client.
 
-.. |image0| image:: media/image1.png
+.. |image0| image:: media/common/thinkbig-logo.png
    :width: 3.09891in
    :height: 2.03724in

@@ -16,18 +16,18 @@ Welcome to the Kylo documentation!
    KyloFrequentlyAskedQuestions
 
 .. toctree::
-    :maxdepth: 1
-    :caption: User Documentation
+   :maxdepth:
+   :caption: User Documentation
 
 .. toctree::
-    :maxdepth: 1
-    :caption: Designer Documentation
+   :maxdepth: 1
+   :caption: Designer Documentation
 
 .. toctree::
-    :maxdepth: 1
-    :caption: Operations Documentation
+   :maxdepth: 1
+   :caption: Operations Documentation
 
-       KyloOperationsGuide
+    KyloOperationsGuide
 
 .. toctree::
     :maxdepth: 1

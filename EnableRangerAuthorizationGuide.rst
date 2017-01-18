@@ -1,0 +1,100 @@
+|image0|
+
+Pre-requisite
+=============
+
+Java
+====
+
+All client node should have java installed on it.
+
+    $ java -version
+
+    $ java version "1.8.0\_92"
+
+    $ OpenJDK Runtime Environment (rhel-2.6.4.0.el6\_7-x86\_64 u95-b00)
+
+    $ OpenJDK 64-Bit Server VM (build 24.95-b01, mixed mode)
+
+    $ echo $JAVA\_HOME
+
+    $ /opt/java/jdk1.8.0\_92/
+
+PCNG
+====
+
+This documenation assumes that you have PCNG installed and running on
+cluster.
+
+Optional: Delete/Disable HDFS/HIVE Global Policy.
+=================================================
+
+If your are using HDP sandbox then remove all HDFS/HIVE global policy.
+
+Disable HDFS Policy.
+
+|image1|
+
+Disable HIVE policy
+
+|image2|
+
+Create NIFI Super User Policy in Hive.
+======================================
+
+1. Login to Ranger UI
+
+2. Select Hive Repository.
+
+3. Click on Add Policy.
+
+4. Create policy as shown in image below.
+
+    Policy Name : ranger\_superuser\_policy
+
+    Select user : nifi
+
+    Permission : All
+
+|image3|
+========
+
+Create hive user policy in HDFS repository.
+===========================================
+
+1. Login to Ranger UI
+
+2. Select HDFS Repository.
+
+3. Click on Add Policy.
+
+4. Create policy as shown in image below.
+
+    Policy Name : hive\_user\_policy\_kylo
+
+    Resource Path : /model.db/
+
+    /app/warehouse/
+
+    /etl/
+
+|image4|
+
+Ranger authorization is configured successfully. Now create a feed from
+ThinkBig UI and create feed for testing.
+
+.. |image0| image:: media/common/thinkbig-logo.png
+   :width: 3.09375in
+   :height: 2.03385in
+.. |image1| image:: media/image2.png
+   :width: 6.50000in
+   :height: 1.24861in
+.. |image2| image:: media/image3.png
+   :width: 6.50000in
+   :height: 1.96250in
+.. |image3| image:: media/image4.png
+   :width: 6.50000in
+   :height: 3.28403in
+.. |image4| image:: media/image5.png
+   :width: 6.50000in
+   :height: 3.08194in

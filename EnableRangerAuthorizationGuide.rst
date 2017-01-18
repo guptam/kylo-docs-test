@@ -86,15 +86,15 @@ ThinkBig UI and create feed for testing.
 .. |image0| image:: media/common/thinkbig-logo.png
    :width: 3.09375in
    :height: 2.03385in
-.. |image1| image:: media/image2.png
+.. |image1| image:: media/ranger-enable-auth/R1.png
    :width: 6.50000in
    :height: 1.24861in
-.. |image2| image:: media/image3.png
+.. |image2| image:: media/ranger-enable-auth/R2.png
    :width: 6.50000in
    :height: 1.96250in
-.. |image3| image:: media/image4.png
+.. |image3| image:: media/ranger-enable-auth/R3.png
    :width: 6.50000in
    :height: 3.28403in
-.. |image4| image:: media/image5.png
+.. |image4| image:: media/ranger-enable-auth/R4.png
    :width: 6.50000in
    :height: 3.08194in

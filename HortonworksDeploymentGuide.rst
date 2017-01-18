@@ -4,10 +4,10 @@ About
 =====
 
 This guide will help you understand the steps involved with deploying
-Kylo to a kerberos cluster with minimal admin privileges. No super user
+Kylo to a Kerberos cluster with minimal admin privileges. No super user
 privileges will be provided to the "nifi" or "thinkbig" user. The only
 usage for an administrative account will be for thinkbig-services to
-access the Ranger REST API
+access the Ranger REST API.
 
 There are two ways you can configure hive to manage users on the
 cluster.
@@ -158,9 +158,7 @@ Prepare the Kylo Edge Node
     | GRANT select ON hive.DBS TO 'kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';
     | GRANT select ON hive.COLUMNS\_V2 TO 'kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';   
 
-   **NOTE:** If the hive database is installed in a separate MySQL instance then you will need to create the "kylo" non privileged user in that database before running the grants.
-
-
+ **NOTE:** If the hive database is installed in a separate MySQL instance then you will need to create the "kylo" non privileged user in that database before running the grants.
 5. Make sure the spark client and hive client is installed.
 
 6. Create the "thinkbig" user on edge node. 
@@ -225,7 +223,7 @@ Prepare the NiFi Edge Node
     | [hdfs]$ hdfs dfs -chown nifi:nifi /user/nifi
     | [hdfs]$ hdfs dfs -ls /user   
 
-    **TIP:** If you don't know the HDFS Kerberos principal name run "klist -kt /etc/security/keytabs/hdfs.headless.keytab"  
+  **TIP:** If you don't know the HDFS Kerberos principal name run "klist -kt /etc/security/keytabs/hdfs.headless.keytab"  .
 
 Create the Keytabs for "nifi" and "thinkbig" users
 ==================================================
@@ -362,10 +360,10 @@ Install the Kylo Application on the Kylo Edge Node
 
 4. Install the following using the wizard (everything but NiFi).
 
-   -  MySQL database scripts
-   -  Elasticsearch
-   -  ActiveMQ
-   -  Java (Option #2 most likely)
+      -  MySQL database scripts
+      -  Elasticsearch
+      -  ActiveMQ
+      -  Java (Option #2 most likely)
 
 5. Update Elasticsearch configuration. 
 

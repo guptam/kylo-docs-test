@@ -1,6 +1,8 @@
     |image0|
 
+============================================
 Cloudera Docker Sandbox Deployment Guide
+============================================
 
 Contents
 

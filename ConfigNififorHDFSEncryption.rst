@@ -1,6 +1,5 @@
 |image0|
 
-Configure Nifi for HDFS Encryption
 
 Key Creation Process
 ====================

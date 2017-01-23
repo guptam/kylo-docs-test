@@ -1,5 +1,8 @@
 |image0|
 
+============
+Postgres Hive Metadata Configuration
+============
 
 Introduction
 ============

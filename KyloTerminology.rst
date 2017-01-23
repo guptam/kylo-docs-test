@@ -1,8 +1,11 @@
 |image0|
 
+============
+Kylo Terminology
+============
 
 Introduction
-============
+---------------------
 
 There are a lot of new terms with Kylo and NiFi, and trying to learn
 them all, including distinctions between Kylo and NiFi usage, can be
@@ -19,7 +22,7 @@ Additional Resources:
    However, some of the terms will be outlined here in the context of Kylo.
 
 Apache NiFi Terminology
-=======================
+---------------------
 
 Processor
 ---------

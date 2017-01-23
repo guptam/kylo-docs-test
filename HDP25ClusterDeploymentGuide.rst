@@ -1,5 +1,9 @@
     |image0|
 
+=====
+HDP 2.5 Kerberos/Ranger Cluster Deployment Guide
+=====
+
 About
 =====
 

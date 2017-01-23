@@ -1,5 +1,9 @@
 |image0|
 
+=============
+Enable Ranger Authorization
+=============
+
 Pre-requisite
 =============
 

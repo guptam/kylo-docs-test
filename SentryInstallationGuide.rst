@@ -1,6 +1,8 @@
 |image0|
 
+=====================
 Sentry Installation Guide
+=====================
 
 Installation Steps
 ==================

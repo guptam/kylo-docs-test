@@ -1,5 +1,8 @@
 |image0|
 
+=============
+Enable Sentry Authorization
+=============
 
 Prerequisite
 =============

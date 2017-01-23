@@ -13,6 +13,7 @@ The main documentation for the site is organized into a few sections:
 * :ref:`user-docs`
 * :ref:`designer-docs`
 * :ref:`operations-docs`
+* :ref:`installation-docs`
 * :ref:`developer-docs`
 
 .. _getting-started:
@@ -20,47 +21,70 @@ The main documentation for the site is organized into a few sections:
 .. toctree::
    :maxdepth: 1
    :caption: Getting Started
-   :includehidden:
+   :titlesonly:
 
    KyloFeatures
-   KyloTerminoligy
+   KyloTerminology
    KyloFrequentlyAskedQuestions
+   KyloBestPractices
+   KyloDependencies
 
 .. _user-docs:
 
 .. toctree::
    :maxdepth: 1
    :caption: User Documentation
-   :includehidden:
+   :titlesonly:
 
-   KyloFrequentlyAskedQuestions
+
 
 .. _designer-docs:
 
 .. toctree::
    :maxdepth: 1
    :caption: Designer Documentation
-   :includehidden:
+   :titlesonly:
 
-   KyloFrequentlyAskedQuestions
+   ImportSqoop_Processor
+   Postgres_Hive_Metadata_Configuration
 
 .. _operations-docs:
 
 .. toctree::
    :maxdepth: 1
    :caption: Operations Documentation
-   :includehidden:
+   :titlesonly:
 
    KyloOperationsGuide
+   KyloConfiguration
+
+.. _installation-docs:
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Installation Documentation
+   :titlesonly:
+
+   KyloDeploymentChecklist
+   EnableRangerAuthorizationGuide
+   EnableSentryAuthorizationGuide
+   SentryInstallationGuide
+
+   ClouderaDockerSandboxDeploymentGuide
+   HDP25ClusterDeploymentGuide
+   KyloManualDeploymentGuide
+   KyloDeploymentGuide
+   KyloSetupWizardDeploymentGuide
+   KyloTARFileInstallation
 
 .. _developer-docs:
 
 .. toctree::
    :maxdepth: 1
    :caption: Developer Documentation
-   :includehidden:
+   :titlesonly:
 
-    KyloFrequentlyAskedQuestions
+   KyloDeveloperGuide
 
 Indices and tables
 ==================

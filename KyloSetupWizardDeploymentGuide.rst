@@ -56,24 +56,32 @@ have their own user and group management system. Therefore, it cannot be
 scripted as part of the RPM install. Here is an example of how to create
 the users and groups:
 
+.. code-block:: shell
+
     $ useradd -r -m -s /bin/bash nifi
 
     $ useradd -r -m -s /bin/bash thinkbig
 
     $ useradd -r -m -s /bin/bash activemq
 
+
 Validate that the above commands created a group by looking at
 /etc/group. Some operating systems may not create them by default.
+
+.. code-block:: shell
 
     $ cat /etc/group
 
 If the groups are missing then run the following:
+
+.. code-block:: shell
 
     $ groupadd thinkbig
 
     $ groupadd nifi
 
     $ groupadd activemq
+
 
 Step 3: Run the Kylo RPM Install
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -116,9 +124,13 @@ Step 5: Run the Setup Wizard
 
 a. From the /opt/thinkbig/setup directory
 
+.. code-block:: shell
+
     $ /opt/thinkbig/setup/setup-wizard.sh
 
 b. Offline mode from another directory (using TAR file)
+
+.. code-block:: shell
 
     $ <PathToSetupFolder>/setup/setup-wizard.sh -o
 
@@ -147,13 +159,17 @@ Step 6: Add "nifi" and "thinkbig" Users
 In this step, add “nifi” and “thinkbig” users to the HDFS supergroup, or
 to the group defined in hdfs-site.xml. For example:
 
-    **Hortonworks**
+**Hortonworks**
+
+.. code-block:: shell
 
     $ usermod -a -G hdfs nifi
 
     $ usermod -a -G hdfs thinkbig
 
-    **Cloudera**
+**Cloudera**
+
+.. code-block:: shell
 
     $ groupadd supergroup
 
@@ -163,8 +179,10 @@ to the group defined in hdfs-site.xml. For example:
 
     $ usermod -a -G supergroup hdfs
 
-    **Optional:** If you want to perform actions as a root user in a
-    development environment run the below command
+**Optional:** If you want to perform actions as a root user in a
+ development environment run the below command
+
+.. code-block:: shell
 
     $ usermod -a -G supergroup root
 
@@ -174,7 +192,9 @@ Step 7: Additional Cluster Configuration
 In addition to adding the nifi/thinkbig user to the supergroup on the
 edge node, add the users/groups to the name nodes on a cluster.
 
-    **Hortonworks**
+**Hortonworks**
+
+.. code-block:: shell
 
     $ useradd thinkbig
 
@@ -184,7 +204,9 @@ edge node, add the users/groups to the name nodes on a cluster.
 
     $ usermod -G hdfs thinkbig
 
-    **Cloudera**
+**Cloudera**
+
+.. code-block:: shell
 
     TBD (need to test this out)
 
@@ -192,6 +214,8 @@ Step 8: Create a Dropzone Folder
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For example:
+
+.. code-block:: shell
 
     $ mkdir -p /var/dropzone
 
@@ -212,6 +236,8 @@ Step 10: Edit the Properties Files
 Step 11: Start the Three Think Big Services
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. code-block:: shell
+
     $ /opt/thinkbig/start-thinkbig-apps.sh
 
 At this point, all services should be running. Note that services are
@@ -226,7 +252,9 @@ for Cloudera.
 
 1. /opt/thinkbig/thinkbig-services/conf/application.properties
 
-   a. Update the 3 MySQL password values to "cloudera":
+a. Update the 3 MySQL password values to "cloudera":
+
+.. code-block:: shell
 
         spring.datasource.password=cloudera
 
@@ -236,20 +264,26 @@ for Cloudera.
 
         modeshape.datasource.password=cloudera
 
-   b. Update the Hive username:
+b. Update the Hive username:
+
+.. code-block:: shell
 
         hive.datasource.username=hive
 
-   c. Update the Hive Metastore URL:
+c. Update the Hive Metastore URL:
+
+.. code-block:: shell
 
         hive.metastore.datasource.url=jdbc:mysql://localhost:3306/metastore
 
-   d. Update the following parameters:
+d. Update the following parameters:
+
+.. code-block:: shell
 
         config.hive.schema=metastore
 
         nifi.executesparkjob.sparkhome=/usr/lib/spark
 
-.. |image0| image:: media/image1.png
+.. |image0| image:: media/common/thinkbig-logo.png
    :width: 3.04822in
    :height: 2.00392in

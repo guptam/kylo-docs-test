@@ -538,54 +538,54 @@ standard-ingest template, pass the JSON policy file as well. 
 .. |image0| image:: media/common/thinkbig-logo.png
    :width: 3.04822in
    :height: 2.00392in
-.. |image1| image:: media/image2.png
+.. |image1| image:: media/kylo-config/KC1.png
    :width: 4.87500in
    :height: 1.91667in
-.. |image2| image:: media/image3.png
+.. |image2| image:: media/kylo-config/KC2.png
    :width: 4.87500in
    :height: 0.67708in
-.. |image3| image:: media/image4.png
+.. |image3| image:: media/kylo-config/KC3.png
    :width: 4.81250in
    :height: 0.50000in
-.. |image4| image:: media/image5.png
+.. |image4| image:: media/kylo-config/KC4.png
    :width: 4.87500in
    :height: 1.63542in
-.. |image5| image:: media/image6.png
+.. |image5| image:: media/kylo-config/KC5.png
    :width: 4.37500in
    :height: 3.16667in
-.. |image6| image:: media/image7.png
+.. |image6| image:: media/kylo-config/KC6.png
    :width: 3.12500in
    :height: 1.43750in
-.. |image7| image:: media/image8.png
+.. |image7| image:: media/kylo-config/KC7.png
    :width: 3.12500in
    :height: 1.92708in
-.. |image8| image:: media/image9.png
+.. |image8| image:: media/kylo-config/KC8.png
    :width: 3.12500in
    :height: 2.41667in
-.. |image9| image:: media/image10.png
+.. |image9| image:: media/kylo-config/KC9.png
    :width: 3.12500in
    :height: 2.15625in
-.. |image10| image:: media/image11.png
+.. |image10| image:: media/kylo-config/KC10.png
    :width: 4.87500in
    :height: 2.62500in
-.. |image11| image:: media/image12.png
+.. |image11| image:: media/kylo-config/KC11.png
    :width: 3.12500in
    :height: 2.32292in
-.. |image12| image:: media/image13.png
+.. |image12| image:: media/kylo-config/KC12.png
    :width: 3.12500in
    :height: 1.35417in
-.. |image13| image:: media/image14.png
+.. |image13| image:: media/kylo-config/KC13.png
    :width: 3.12500in
    :height: 1.41667in
-.. |image14| image:: media/image15.png
+.. |image14| image:: media/kylo-config/KC14.png
    :width: 3.12500in
    :height: 2.32292in
-.. |image15| image:: media/image16.png
+.. |image15| image:: media/kylo-config/KC15.png
    :width: 5.92426in
    :height: 1.91146in
-.. |image16| image:: media/image17.png
+.. |image16| image:: media/kylo-config/KC16.png
    :width: 5.33825in
    :height: 3.07839in
-.. |image17| image:: media/image18.png
+.. |image17| image:: media/kylo-config/KC17.png
    :width: 6.59028in
    :height: 0.76042in

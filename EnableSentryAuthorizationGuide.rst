@@ -1,16 +1,18 @@
 |image0|
 
-=============
+===========================
 Enable Sentry Authorization
-=============
+===========================
 
 Prerequisite
-=============
+============
 
 Java
 ----
 
 All client nodes should have java installed.
+
+.. code-block:: shell
 
     $ java -version
 
@@ -27,10 +29,10 @@ All client nodes should have java installed.
 Cluster Requirements
 --------------------
 
--  This documenation assumes that you have Kylo installed and running on
+-  This documentation assumes that you have Kylo installed and running on
    a cluster.
 
--  Kerberos is mandatory. For testing purposes we can set
+-  Kerberos is mandatory. For testing purposes, we can set
    sentry.hive.testing.mode to true.
 
 -  It works with Only Hive Server2.
@@ -82,15 +84,19 @@ The Hive warehouse directory (/user/hive/warehouse or any path you
 specify as hive.metastore.warehouse.dir in your hive-site.xml) must be
 owned by the Hive user and group.
 
+.. code-block:: shell
+
     $ sudo -u hdfs hdfs dfs -chmod -R 771 /user/hive/warehouse
 
     $ sudo -u hdfs hdfs dfs -chown -R hive:hive /user/hive/warehouse
 
 If you have Kerberos enabled cluster.
 
-    sudo -u hdfs kinit -kt <hdfs.keytab> hdfs
+.. code-block:: shell
 
-    sudo -u hdfs hdfs dfs -chmod -R 771 /user/hive/warehouse
+    $ sudo -u hdfs kinit -kt <hdfs.keytab> hdfs
+
+    $ sudo -u hdfs hdfs dfs -chmod -R 771 /user/hive/warehouse
 
     $ sudo -u hdfs hdfs dfs -chown -R hive:hive /user/hive/warehouse
 
@@ -149,12 +155,12 @@ Enabled Sentry
 
 |image2|
 
-Administrative Priviledge
+Administrative Privilege
 -------------------------
 
 Once sentryAdmin is group is part of Sentry Admin list ,it will be able
 to create policies in Sentry but it sentryAdmin will not be allowed to
-read/write any table. We need to grant priviledges to sentryAdmin group.
+read/write any table. We need to grant privileges to sentryAdmin group.
 
     CREATE ROLE admin\_role
 

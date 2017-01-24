@@ -56,6 +56,8 @@ Edit ~/.bashrc and add the following:
 
 To test, run the following:
 
+.. code-block:: shell
+
     $ mvn -v
 
     $ java -version
@@ -73,6 +75,8 @@ Install the RPM Tool on your Mac
 
 The RPM library is required for building the RPM file as part of the
 maven build. This can be done using Home Brew or Mac Ports.
+
+.. code-block:: shell
 
     $ brew install rpm
 
@@ -108,6 +112,8 @@ Perform a Maven Build
 Perform a Maven build to download all of the artifacts and verify that
 everything is setup correctly.
 
+.. code-block:: shell
+
     $ mvn clean install
 
 **TIP:** For faster maven builds you can run in offline mode by typing:
@@ -136,6 +142,8 @@ VM you can use the deployment wizard instructions found here.
 Instead of downloading the RPM file on the first step from Artifactory,
 copy the RPM file from your project folder after running a maven build.
 
+.. code-block:: shell
+
     $ cd /opt
 
     $ cp
@@ -160,6 +168,8 @@ Running in the IDE
 You can run thinkbig-ui and thinbig-services in the IDE. If you plan to
 run the apps in the IDE, you should shut down the services in your
 sandbox so you aren’t running two instances at the same time.
+
+.. code-block:: shell
 
     $ service thinkbig-services stop
 

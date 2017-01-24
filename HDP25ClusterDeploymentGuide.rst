@@ -124,10 +124,14 @@ Before installing the Kylo stack the below needs to be done on the cluster.
 
     **Master Nodes:**
 
+.. code-block:: shell
+
       $ useradd -r -m -s /bin/bash nifi
       $ useradd -r -m -s /bin/bash thinkbig   
 
     **Data Nodes:** In some cases it isn't required on data nodes.
+
+.. code-block:: shell
 
       $ useradd -r -m -s /bin/bash nifi
       $ useradd -r -m -s /bin/bash thinkbig  
@@ -136,6 +140,8 @@ Prepare the Kylo Edge Node
 ==========================
 
 1. Install the MySQL client on the edge node, if not already there: 
+
+.. code-block:: shell
 
       $ yum install mysql  
 
@@ -168,7 +174,11 @@ Prepare the Kylo Edge Node
 6. Create the "thinkbig" user on edge node. 
 
     Kylo Edge Node:
+
+.. code-block:: shell
+
     $ useradd -r -m -s /bin/bash thinkbig
+
     $ useradd -r -m -s /bin/bash activemq  
 
 7. Optional - Create offline TAR file for an offline Kylo installation. 
@@ -199,6 +209,8 @@ Prepare the NiFi Edge Node
 
 1. Install the MySQL client on the edge node, if not already there. 
 
+.. code-block:: shell
+
     $ yum install mysql  
 
 2. Grant MySQL access from the NiFi edge node. 
@@ -213,6 +225,9 @@ Prepare the NiFi Edge Node
 4. Create the "nifi" user on edge node, master nodes, and data nodes. 
 
     Edge Nodes:
+
+.. code-block:: shell
+
     $ useradd -r -m -s /bin/bash nifi  
 
 5. Optional - Copy the offline TAR file created above to this edge node, if necessary.
@@ -322,6 +337,8 @@ Install NiFi on the NiFi Edge Node
 
 4. Stop NiFi. 
 
+.. code-block:: shell
+
     $ service nifi stop  
 
 5. Edit nifi.properties to set Kerberos setting.
@@ -348,6 +365,8 @@ Install the Kylo Application on the Kylo Edge Node
 ==================================================
 
 1. Install the RPM. 
+
+.. code-block:: shell
 
     $ rpm -ivh /tmp/thinkbig-datalake-accelerator-<VERSION>.noarch.rpm  
 
@@ -479,7 +498,10 @@ Create Folders for NiFi standard-ingest Feed
 
 1. Create the dropzone directory on the NiFi edge node.
 
+.. code-block:: shell
+
     $ mkdir -p /var/dropzone
+    
     $ chown nifi /var/dropzone  
 
 2. Create the HDFS root folders.

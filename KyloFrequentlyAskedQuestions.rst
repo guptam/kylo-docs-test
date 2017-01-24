@@ -714,7 +714,7 @@ define a table schema in Hive. The stepper infers the schema looking at
 a sample file or from the database source. It automatically creates the
 Hive table and the first run of the feed.
 
-Is Apache NiFi ingegrated with Kylo?
+Is Apache NiFi integrated with Kylo?
 ------------------------------------
 
 Yes, see slide deck and demo at \ `*Kylo - Next Generation

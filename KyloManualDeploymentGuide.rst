@@ -123,6 +123,8 @@ script it as part of the RPM install.
 | **Note:**   | Each of these should be run on the node on which the software will be installed.   |
 +-------------+------------------------------------------------------------------------------------+
 
+.. code-block:: shell
+
     $ useradd -r -m -s /bin/bash nifi
 
     $ useradd -r -m -s /bin/bash thinkbig
@@ -133,9 +135,13 @@ Confirm that the above commands created groups as intended by looking at
 /etc/group level in the directory. Some operating systems may not create
 them by default.
 
+.. code-block:: shell
+
     $ cat /etc/group
 
 If the groups are missing, then run the following:
+
+.. code-block:: shell
 
     $ groupadd thinkbig
 
@@ -157,6 +163,8 @@ Step 3: Install Think Big Services
 
 2. Run the Kylo RPM install.
 
+.. code-block:: shell
+
     $ rpm -ivh thinkbig-datalake-accelerator-<version>.noarch.rpm
 
 +-------------+-------------------------------------------------------------------+
@@ -168,6 +176,8 @@ Step 4: Run the database scripts
 
 The database scripts will create one schema called "thinkbig" and
 install to that schema. Run the following script:
+
+.. code-block:: shell
 
     $ <SETUP\_DIR>/sql/mysql/setup-mysql.sh [db\_host\_or\_ip] [db\_user] [db\_password]
 
@@ -192,12 +202,16 @@ stack you will likely want to leverage the same instance.
 
     a. Online Mode
 
+.. code-block:: shell
+
         $ <SETUP\_DIR>/elasticsearch/install-elasticsearch.sh
 
     b. Offline Mode
 
+.. code-block:: shell
+
         $ <SETUP\_DIR>/elasticsearch/install-elasticsearch.sh -o
-    
+
           <SETUP\_DIR>
 
           Example:  /tmp/thinkbig-install/setup/elasticsearch/install-elasticsearch.sh -o /tmp/thinkbig-install/setup
@@ -221,9 +235,13 @@ The included ActiveMQ script was meant to speed up installation in a sandbox or 
 
     a. Online Mode
 
+.. code-block:: shell
+
         $ /opt/thinkbig/setup/activemq/install-activemq.sh
 
     b. Offline Mode
+
+.. code-block:: shell
 
         $ <SETUP\_DIR>/activemq/install-activemq.sh -o <SETUP\_DIR>
 
@@ -320,6 +338,8 @@ In this case you need to remove the default JAVA\_HOME used as part of the insta
 
     For thinkbig-ui and thinkbig-services
 
+.. code-block:: shell
+
         $ <SETUP\_DIR>/java/remove-default-thinkbig-java-home.sh
 
 To test this you can look at each file referenced in the scripts for thinkbig-ui and thinkbig-services to validate the 2 lines setting and exporting the JAVA\_HOME are gone.
@@ -330,9 +350,13 @@ To test this you can look at each file referenced in the scripts for thinkbig-ui
 
       1) Online Mode
 
+.. code-block:: shell
+
          $ <SETUP\_DIR>/java/install-java8.sh
 
    b. Offline Mode
+
+.. code-block:: shell
 
          $ <SETUP\_DIR>/java/install-java8.sh -o <SETUP\_DIR>
 
@@ -344,6 +368,8 @@ If you already have Java 8 installed and want to reference that one one there is
 
       For thinkbig-ui and thinkbig-services
 
+.. code-block:: shell
+
         $ /opt/thinkbig/setup/java/remove-default-thinkbig-java-home.sh
 
         $ /opt/thinkbig/setup/java/change-thinkbig-java-home.sh <PATH\_TO\_JAVA\_HOME>
@@ -354,6 +380,8 @@ Step 8: Install Java Cryptographic Extension
 The Java 8 install script above will automatically download and install the \ `*Java Cryptographic Extension* <http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html>`__.
 This extension is required to allow encrypted property values in the Kylo configuration files. If you already have a Java 8 installed on the
 system, you can install the Java Cryptographic Extension by running the following script:
+
+.. code-block:: shell
 
     $ <SETUP\_DIR>/java/install-java-crypt-ext.sh <PATH\_TO\_JAVA\_HOME>
 
@@ -373,17 +401,25 @@ This method downloads and installs NiFi, and also installs and configures the Th
 
        1. Online Mode
 
+.. code-block:: shell
+
           $ <SETUP\_DIR>/nifi/install-nifi.sh
 
        2. Offline Mode
+
+.. code-block:: shell
 
           $ <SETUP\_DIR>/nifi/install-nifi.sh -o <SETUP\_DIR>
 
     b. Update JAVA\_HOME (default is /opt/java/current).
 
+.. code-block:: shell
+
           $ <SETUP\_DIR>/java/change-nifi-java-home.sh <path to JAVA\_HOME>
 
     c. Install Think Big specific components.
+
+.. code-block:: shell
 
           $ <SETUP\_DIR>/nifi/install-thinkbig-components.sh
 
@@ -402,11 +438,15 @@ In some cases you may have a separate instance of NiFi or Hortonworks Data Flow 
 
     c. Create folders for the jar files. You may choose to store the jars in another location if you want.
 
+.. code-block:: shell
+
            $ mkdir -p <NIFI\_HOME>/thinkbig/lib/app
 
     d. Copy the thinkbig-\*.nar files to the <NIFI\_HOME>/thinkbig/lib directory.
 
     e. Create a directory called "app" in the <NIFI\_HOME>/lib directory.
+
+.. code-block:: shell
 
            $ mkdir <NIFI\_HOME>/lib/app
 
@@ -414,6 +454,8 @@ In some cases you may have a separate instance of NiFi or Hortonworks Data Flow 
 
     g. Create symbolic links for all of the jars. Below is an example of how to create it for one NAR file and one JAR file. At the time of
        this writing there are 8 NAR files and 3 spark JAR files.
+
+.. code-block:: shell
 
            $ ln -s <NIFI\_HOME>/thinkbig/lib/thinkbig-nifi-spark-nar-\*.nar <NIFI\_HOME>/lib/thinkbig-nifi-spark-nar.nar
 
@@ -453,6 +495,8 @@ In some cases you may have a separate instance of NiFi or Hortonworks Data Flow 
            Below are steps to configure the H2 folder:
                1. Create the folders.
 
+.. code-block:: shell
+
                   $ mkdir /opt/nifi/h2
 
                   $ mkdir /opt/nifi/ext-config
@@ -460,6 +504,8 @@ In some cases you may have a separate instance of NiFi or Hortonworks Data Flow 
                2. SCP the /opt/thinkbig/setup/nifi/config.properties file to the /opt/nifi/ext-config folder.
 
                3. Change the ownership of the above folders to the same owner that nifi runs under. For example, if nifi runs as the "nifi" user:
+
+.. code-block:: shell
 
                   $ chown -R nifi:users /opt/nifi
 
@@ -475,13 +521,19 @@ correct permissions for the "nifi" user to access HDFS.
 
     **Hortonworks**
 
+.. code-block:: shell
+
         $ usermod -a -G hdfs nifi
 
     **Cloudera**
 
+.. code-block:: shell
+
         $ groupadd supergroup
 
     # Add nifi and hdfs to that group:
+
+.. code-block:: shell
 
         $ usermod -a -G supergroup nifi
 
@@ -491,25 +543,35 @@ correct permissions for the "nifi" user to access HDFS.
 | **Note:**   | If you want to perform actions as a root user in a development environment, run the below command.   |
 +-------------+------------------------------------------------------------------------------------------------------+
 
-            $ usermod -a -G supergroup root
+.. code-block:: shell
+
+        $ usermod -a -G supergroup root
 
 2. thinkbig-services node - Add thinkbig user to the HDFS supergroup or the group defined in hdfs-site.xml, for example:
 
     **Hortonworks**
 
+.. code-block:: shell
+
         $ usermod -a -G hdfs thinkbig
 
     **Cloudera**
 
+.. code-block:: shell
+
         $ groupadd supergroup
 
     # Add nifi and hdfs to that group:
+
+.. code-block:: shell
 
         $ usermod -a -G supergroup hdfs
 
 +-------------+-----------------------------------------------------------------------------------------------------+
 | **Note:**   | If you want to perform actions as a root user in a development environment run the below command.   |
 +-------------+-----------------------------------------------------------------------------------------------------+
+
+.. code-block:: shell
 
         $ usermod -a -G supergroup root
 
@@ -519,6 +581,8 @@ correct permissions for the "nifi" user to access HDFS.
     nodes on a cluster.
 
     **Hortonworks**
+
+.. code-block:: shell
 
         $ useradd thinkbig
 
@@ -534,6 +598,8 @@ Step 11: Create a dropzone folder on the edge node for file ingest, for example:
 ================================================================================
 
 Perform the following step on the node on which NiFI is installed:
+
+.. code-block:: shell
 
     $ mkdir -p /var/dropzone
 
@@ -554,7 +620,8 @@ Step 12: Edit the Properties Files
 Step 13: Final Step: Start the 3 Think Big services
 ===================================================
 
+.. code-block:: shell
+
     $ /opt/thinkbig/start-thinkbig-apps.sh
 
 At this point all services should be running.
-

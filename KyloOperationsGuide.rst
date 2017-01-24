@@ -362,7 +362,7 @@ The Job History page provides a searchable table displaying job
 information, seen below. You can click on the Job Name to view the `*Job
 Details* <#job-detail-drill-down>`__ for the selected Job.
 
-    |image13|
+|image13|
 
 Job Detail Drill-Down
 ~~~~~~~~~~~~~~~~~~~~~
@@ -662,17 +662,19 @@ Kylo service automatically starts on system boot.
 
 -  Manual startup and shutdown from command-line:
 
-    sudo /etc/init.d/thinkbig-services start
+.. code-block:: shell
 
-    sudo /etc/init.d/thinkbig-ui start
+    $ sudo /etc/init.d/thinkbig-services start
 
-    sudo /etc/init.d/thinkbig-spark-shell start
+    $ sudo /etc/init.d/thinkbig-ui start
 
-    sudo /etc/init.d/thinkbig-services stop
+    $ sudo /etc/init.d/thinkbig-spark-shell start
 
-    sudo /etc/init.d/thinkbig-ui stop
+    $ sudo /etc/init.d/thinkbig-services stop
 
-    sudo /etc/init.d/thinkbig-spark-shell stop
+    $ sudo /etc/init.d/thinkbig-ui stop
+
+    $ sudo /etc/init.d/thinkbig-spark-shell stop
 
 Log Files
 ~~~~~~~~~

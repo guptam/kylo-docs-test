@@ -138,9 +138,13 @@ point and start clean.
 
 3. Change permissions:
 
+.. code-block:: shell
+
     $ chmod 744 startCloudera.sh
 
 4. Start the Container:
+
+.. code-block:: shell
 
     $ ./startCloudera.sh
 
@@ -152,9 +156,13 @@ Step 3: Login to the Cloudera Container and Start Cloudera Manager
 
 1. Login to the Docker container:
 
+.. code-block:: shell
+
     $ docker exec -it cloudera bash
 
 2. Start Cloudera Manager:
+
+.. code-block:: shell
 
     $ /home/cloudera/cloudera-manager --express
 
@@ -194,15 +202,21 @@ Step 4: Build a Cloudera Distribution of PCNG and Copy it to the Docker Containe
 
 2. From the data-lake-accelerator root folder, run:
 
+.. code-block:: shell
+
     $ mvn clean install -o -DskipTests
 
 3. Copy the new RPM file to the CoreOS box.
+
+.. code-block:: shell
 
     $ scp -i ~/.ssh/<EC2\_PRIVATE\_KEY>
     <DLA\_HOME>/install/target/rpm/thinkbig-datalake-accelerator/RPMS/noarch/thinkbig-datalake-accelerator
     core@<EC2\_IP\_ADDRESS>:/home/core
 
 4. From the CoreOS host, copy the RPM file to the Docker container.
+
+.. code-block:: shell
 
     $ docker cp
     /home/core/thinkbig-datalake-accelerator-<VERSION>.noarch.rpm
@@ -213,6 +227,8 @@ Step 5: Install PCNG in the Docker Container
 
 1. Login to the cloudera Docker container.
 
+.. code-block:: shell
+
     $ docker exec -it cloudera bash
 
     $ cd /tmp
@@ -220,10 +236,10 @@ Step 5: Install PCNG in the Docker Container
 2. Create Linux Users and Groups.
 
     Creation of users and groups is done manually because many
-    organizations have their own user and group
-
-    management system. Therefore we cannot script it as part of the RPM
+    organizations have their own user and group management system. Therefore we cannot script it as part of the RPM
     install.
+
+.. code-block:: shell
 
     $ useradd -r -m -s /bin/bash nifi
 
@@ -236,9 +252,13 @@ Step 5: Install PCNG in the Docker Container
 
     may not create them by default.
 
+.. code-block:: shell
+
     $ cat /etc/group
 
-    If the groups are missing then run the following
+    If the groups are missing then run the following:
+
+.. code-block:: shell
 
     $ groupadd thinkbig
 
@@ -290,15 +310,21 @@ Step 5: Install PCNG in the Docker Container
 
    c. Add the "thinkbig" user to the supergroup:
 
+.. code-block:: shell
+
       $ usermod -a -G supergroup thinkbig
 
    d. Run the following commands to address an issue with the Cloudera Sandbox and fix permissions.
+
+.. code-block:: shell
 
       $ su - hdfs 
 
       $ hdfs dfs -chmod 775 /
 
 5. Start up the Think Big Apps:
+
+.. code-block:: shell
 
     $ /opt/thinkbig/start-thinkbig-apps.sh
 
@@ -329,9 +355,13 @@ Starting up an Existing EC2 instance and Cloudera Docker Container
 
 4. SSH into the docker container.
 
+.. code-block:: shell
+
     $ docker exec -it cloudera bash
 
 5. Start Cloudera Manager.
+
+.. code-block:: shell
 
     $ /home/cloudera/cloudera-manager --express
 

@@ -28,15 +28,15 @@ Key Creation Process
 
 7. Click **Save**.
 
-Now Key has been successfull got created which can be used for creating
+Now the Key has been successfully created, and it can be used for creating an
 encryption zone.
 
 Permission Definition
 =====================
 
-Now next task is provide necessary permission to user who will run nifi
-application. In our case we are using nifi user for running application
-and hdfs as super user operation.
+The next task is to provide necessary permissions to a user who will run the NiFi
+application. In our case, we are using a NiFi user for running the application
+and HDFS as a super user operation.
 
 1. Click on **Service**.
 

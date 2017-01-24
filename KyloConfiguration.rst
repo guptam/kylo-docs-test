@@ -467,7 +467,9 @@ Example Flow
 ------------
 
 The screenshot shown here is an example of a flow in which the
-inspection of the payload triggers dependent feed data. |image17|
+inspection of the payload triggers dependent feed data.
+
+|image17|
 
 The EvaluateJSONPath processor is used to extract JSON content from the
 flow file.
@@ -517,7 +519,7 @@ Specify "hive-site.xml". It should be located in the following location:
  Add this file location to the “Extra Files” parameter. To add multiple
 files, separate them with a comma.
 
- 
+ |image18|
 
 Step 3: Validate and Split Records Processor
 --------------------------------------------
@@ -525,7 +527,7 @@ Step 3: Validate and Split Records Processor
 If using the "Validate and Split Records" processor in the
 standard-ingest template, pass the JSON policy file as well. 
 
- 
+ |image19|
 
  
 
@@ -587,5 +589,11 @@ standard-ingest template, pass the JSON policy file as well. 
    :width: 5.33825in
    :height: 3.07839in
 .. |image17| image:: media/kylo-config/KC17.png
+   :width: 6.59028in
+   :height: 0.76042in
+.. |image18| image:: media/kylo-config/KC18.png
+   :width: 6.59028in
+   :height: 0.76042in
+.. |image19| image:: media/kylo-config/KC19.png
    :width: 6.59028in
    :height: 0.76042in

@@ -143,7 +143,7 @@ Install Procedure 3:
 
 Cloudera EC2 Docker Sandbox.
 
-This is an option for those who want to deploy PCNG to single node
+This is an option for those who want to deploy PCNG to a single node
 Cloudera sandbox in AWS. This is useful when you need to get a quick
 Cloudera instance running to test PCNG but don’t have the resources to
 install a Cloudera cluster
@@ -157,7 +157,7 @@ Install Procedure 4:
 Tar file install (instead of RPM).
 
 This is optional for those who have to install Kylo in a different
-folder than /opt/thinkbig or run as a different user
+folder than /opt/thinkbig or run as a different user.
 
 `Kylo TAR File Installation
 Guide <https://github.com/ThinkBigAnalytics/data-lake-accelerator/blob/master/docs/latest/deployment/kylo-tar-install.adoc>`__
@@ -167,9 +167,9 @@ Install Procedure 5:
 
 HDP 2.5 Cluster Ranger/Kerberos with 2 Edge Nodes.
 
-This document provides an example on how to install Kylo on an HDP 2.5
-cluster with minimal admin priviledges and shows how to configure
-installation with NiFi on a seperate edge node.
+This document provides an example of how to install Kylo on an HDP 2.5
+cluster with minimal admin privileges and shows how to configure
+installation with NiFi on a separate edge node.
 
 `HDP 2.5 Ranger/Kerberos Deployment
 Guide <https://github.com/ThinkBigAnalytics/data-lake-accelerator/blob/master/docs/latest/deployment/hdp-2.5-ranger-kerberos-deployment.adoc>`__
@@ -244,6 +244,8 @@ by prepending the values with {cipher}. For instance, if you wanted to
 encrypt the Hive datasource password specified in
 applicaition.properties (assuming the password is “mypassword”), you can
 get it’s encrypted form using the curl command like this:
+
+.. code-block:: shell
 
     $ curl localhost:8420/encrypt –d mypassword
 
@@ -411,6 +413,8 @@ For development and sandbox environments you can leverage the cleanup
 script to remove all of the Think Big services as well as Elasticsearch,
 ActiveMQ, and NiFi.
 
+.. code-block:: shell
+
     $ /opt/thinkbig/setup/dev/cleanup-env.sh
 
 IMPORTANT Only run this in a DEV environment. This will delete all
@@ -419,6 +423,8 @@ application and the MySQL schema
 In addition there is a script for cleaning up the hive schema and HDFS
 folders that are related to a specific "category" that is defined in the
 UI.
+
+.. code-block:: shell
 
     $ /opt/thinkbig/setup/dev/cleanupCategory.sh [categoryName]
 

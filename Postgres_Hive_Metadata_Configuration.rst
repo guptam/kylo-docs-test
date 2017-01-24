@@ -101,7 +101,6 @@ Edit the “Query Hive Table Schema” processor and make two changes:
 2. Test a feed to make sure the data is getting indexed.
 
  
-=
 
 .. |image0| image:: media/common/thinkbig-logo.png
    :width: 3.09375in

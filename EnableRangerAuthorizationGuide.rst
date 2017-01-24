@@ -12,6 +12,8 @@ Java
 
 All client node should have java installed on it.
 
+.. code-block:: shell
+
     $ java -version
 
     $ java version "1.8.0\_92"
@@ -27,7 +29,7 @@ All client node should have java installed on it.
 PCNG
 ====
 
-This documenation assumes that you have PCNG installed and running on
+This documentation assumes that you have PCNG installed and running on a
 cluster.
 
 Optional: Delete/Disable HDFS/HIVE Global Policy.
@@ -84,7 +86,7 @@ Create hive user policy in HDFS repository.
 
 |image4|
 
-Ranger authorization is configured successfully. Now create a feed from
+Ranger authorization is configured successfully. Now create a feed from the
 ThinkBig UI and create feed for testing.
 
 .. |image0| image:: media/common/thinkbig-logo.png

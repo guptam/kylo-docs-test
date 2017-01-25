@@ -25,7 +25,7 @@ Prerequisites
 -------------
 
 You need access to an AWS instance and permission to create an EC2
-instance
+instance.
 
 Installation
 ============
@@ -309,5 +309,5 @@ Starting up an Existing EC2 instance and Cloudera Docker Container
 6. Login to Cloudera Manager and start all services.
 
 .. |image0| image:: media/common/thinkbig-logo.png
-   :width: 3.04822in
-   :height: 2.00392in
+   :width: 1.52411in
+   :height: 1.00191in

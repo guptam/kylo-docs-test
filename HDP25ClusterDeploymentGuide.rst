@@ -60,7 +60,7 @@ If you do, do the following to change the user ID or lower the minimum ID:
 
 2. Set the "Minimum user ID for submitting job" = 450.
 
-Prepare a checklist
+Prepare a Checklist
 ===================
 
 Leverage the deployment checklist to take note of information you will need to speed up configuration.
@@ -70,7 +70,7 @@ Deployment Checklist
 Prepare the HDP Cluster
 =======================
 
-Before installing the Kylo stack the below needs to be done on the cluster.
+Before installing the Kylo stack, prepare the cluster by doing the following:
 
 1. Ensure Kerberos is enabled.
 
@@ -244,7 +244,7 @@ Prepare the NiFi Edge Node
 
   **TIP:** If you don't know the HDFS Kerberos principal name run "klist -kt /etc/security/keytabs/hdfs.headless.keytab"  .
 
-Create the Keytabs for "nifi" and "thinkbig" users
+Create the Keytabs for "nifi" and "thinkbig" Users
 ==================================================
 
 1. Login to the host that is running the KDC and create the keytabs.
@@ -501,7 +501,6 @@ Create Folders for NiFi standard-ingest Feed
 .. code-block:: shell
 
     $ mkdir -p /var/dropzone
-    
     $ chown nifi /var/dropzone  
 
 2. Create the HDFS root folders.
@@ -580,8 +579,8 @@ Import Kylo Templates
 
     a. Locate the index\_schema\_service.zip file. You will need the file locally to upload it. You can find it in one of two places:
 
-        <data\_lake\_accelerator\_project>/samples/feeds/nifi-1.0/
-        /opt/thinkbig/setup/data/feeds/nifi-1.0
+        1) <data\_lake\_accelerator\_project>/samples/feeds/nifi-1.0/
+        2) /opt/thinkbig/setup/data/feeds/nifi-1.0
 
     b. Go to the the Feeds page in Kylo.
 

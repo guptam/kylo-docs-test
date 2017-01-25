@@ -1,10 +1,8 @@
 |image0|
 
-| Kylo Configuration
-| for a Kerboros Cluster
-
-Introduction
-============
+=========================================
+Kylo Configuration for a Kerberos Cluster
+=========================================
 
 The Kylo applications contain features that leverage the thrift server
 connection to communicate with the cluster. In order for them to work in
@@ -146,6 +144,6 @@ configured correctly by looking at profile statistics (if applicable):
 go to the Tables page and drill down into a hive table, and go to the
 Wrangler feature and test that it works.
 
-.. |image0| image:: media/image1.png
+.. |image0| image:: media/common/thinkbig-logo.png
    :width: 3.09891in
    :height: 2.03724in

@@ -15,15 +15,11 @@ All client node should have java installed on it.
 .. code-block:: shell
 
     $ java -version
-
-    $ java version "1.8.0\_92"
-
+      $ java version "1.8.0\_92"
     $ OpenJDK Runtime Environment (rhel-2.6.4.0.el6\_7-x86\_64 u95-b00)
-
-    $ OpenJDK 64-Bit Server VM (build 24.95-b01, mixed mode)
+      $ OpenJDK 64-Bit Server VM (build 24.95-b01, mixed mode)
 
     $ echo $JAVA\_HOME
-
     $ /opt/java/jdk1.8.0\_92/
 
 PCNG
@@ -35,20 +31,20 @@ cluster.
 Optional: Delete/Disable HDFS/HIVE Global Policy.
 =================================================
 
-If your are using HDP sandbox then remove all HDFS/HIVE global policy.
+If you are using HDP sandbox then remove all HDFS/HIVE global policy.
 
-Disable HDFS Policy.
+Disable the HDFS Policy.
 
 |image1|
 
-Disable HIVE policy
+Disable the HIVE policy.
 
 |image2|
 
-Create NIFI Super User Policy in Hive.
+Create NiFi Super User Policy in Hive.
 ======================================
 
-1. Login to Ranger UI
+1. Login to Ranger UI.
 
 2. Select Hive Repository.
 
@@ -57,9 +53,7 @@ Create NIFI Super User Policy in Hive.
 4. Create policy as shown in image below.
 
     Policy Name : ranger\_superuser\_policy
-
     Select user : nifi
-
     Permission : All
 
 |image3|
@@ -77,12 +71,9 @@ Create hive user policy in HDFS repository.
 4. Create policy as shown in image below.
 
     Policy Name : hive\_user\_policy\_kylo
-
     Resource Path : /model.db/
-
-    /app/warehouse/
-
-    /etl/
+                                        /app/warehouse/
+                                        /etl/
 
 |image4|
 

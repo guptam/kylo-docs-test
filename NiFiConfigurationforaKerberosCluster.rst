@@ -1,5 +1,8 @@
 |image0|
 
+=========================================
+NiFi Configuration for a Kerberos Cluster
+=========================================
 
 Prerequisites
 =============

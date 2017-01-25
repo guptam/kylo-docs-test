@@ -11,15 +11,15 @@ Installation Steps
 
     |image1|
 
-1. Select **Sentry** from list.
+2. Select **Sentry** from list.
 
     |image2|
 
-1. Click **Select hosts** to add a Sentry service.
+3. Click **Select hosts** to add a Sentry service.
 
     |image3|
 
-1. Provide Sentry database information and test connection.
+4. Provide Sentry database information and test connection.
 
 -  Database Type : mysql
 
@@ -31,11 +31,11 @@ Installation Steps
 
     |image4|
 
-1. Click **Continue** once all services are started.
+5. Click **Continue** once all services are started.
 
     |image5|
 
-1. Click **Finish**.
+6. Click **Finish**.
 
     |image6|
 

@@ -21,13 +21,13 @@ Installation Steps
 
 4. Provide Sentry database information and test connection.
 
--  Database Type : mysql
+  -  Database Type : mysql
 
--  Database Name : sentry
+  -  Database Name : sentry
 
--  Username : sentry
+  -  Username : sentry
 
--  Password : cloudera
+  -  Password : cloudera
 
     |image4|
 

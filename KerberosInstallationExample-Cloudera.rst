@@ -1,8 +1,8 @@
 |image0|
 
-
-Introduction
-============
+========================================
+Kerberos Installation Example - Cloudera
+========================================
 
 +-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Important   | This document should only be used for DEV/Sandbox purposes. It is useful to help quickly Kerberize your Cloudera sandbox so that you can test Kerberos features.   |

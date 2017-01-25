@@ -46,9 +46,13 @@ There are two methods for creating new documents.
  $ pandoc -f docx NameofFile.docx -t rst -o NameofFile.rst
 
 3. Once the new .rst file is created, all additional editing is done in that file using reStructuredText syntax.
+4. Run "make html" to rebuild the HTML locally.
+5. View the index.html file in the _build folder to view the local build.
+6. Commit and push your changes
 
 ### Option 2: Start with RST
 
 1. Create an RST document by making a new file with the "rst" extension.
 2. Run "make html" to rebuild the HTML locally.
 3. View the index.html file in the _build folder to view the local build.
+4. Commit and push your changes

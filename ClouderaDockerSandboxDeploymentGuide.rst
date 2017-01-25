@@ -113,28 +113,17 @@ point and start clean.
 2. Add the following:
 
     #!/bin/bash
-
     docker run --name cloudera \\
-
-    --hostname=quickstart.cloudera \\
-
-    --privileged=true -t -d \\
-
-    -p 8888:8888 \\
-
-    -p 7180:7180 \\
-
-    -p 80:80 \\
-
-    -p 7187:7187 \\
-
-    -p 8079:8079 \\
-
-    -p 8400:8400 \\
-
-    -p 8161:8161 \\
-
-    cloudera/quickstart:5.7.0-0-beta /usr/bin/docker-quickstart
+      --hostname=quickstart.cloudera \\
+      --privileged=true -t -d \\
+      -p 8888:8888 \\
+      -p 7180:7180 \\
+      -p 80:80 \\
+      -p 7187:7187 \\
+      -p 8079:8079 \\
+      -p 8400:8400 \\
+      -p 8161:8161 \\
+      cloudera/quickstart:5.7.0-0-beta /usr/bin/docker-quickstart
 
 3. Change permissions:
 
@@ -179,25 +168,17 @@ Step 4: Build a Cloudera Distribution of PCNG and Copy it to the Docker Containe
 1. Modify the pom.xml file for the thinkbig-services-app module. Change:
 
     <dependency> 
-
-    <groupId>com.thinkbiganalytics.datalake</groupId> 
-
-    <artifactId>thinkbig-service-monitor-ambari</artifactId> 
-
-    <version>0.3.0-SNAPSHOT</version> 
-
+      <groupId>com.thinkbiganalytics.datalake</groupId> 
+      <artifactId>thinkbig-service-monitor-ambari</artifactId> 
+      <version>0.3.0-SNAPSHOT</version> 
     </dependency/>
 
     To
 
     <dependency> 
-
-    <groupId>com.thinkbiganalytics.datalake</groupId> 
-
-    <artifactId>thinkbig-service-monitor-cloudera</artifactId> 
-
-    <version>0.3.0-SNAPSHOT</version> 
-
+      <groupId>com.thinkbiganalytics.datalake</groupId> 
+      <artifactId>thinkbig-service-monitor-cloudera</artifactId> 
+      <version>0.3.0-SNAPSHOT</version> 
     </dependency/>
 
 2. From the data-lake-accelerator root folder, run:
@@ -278,13 +259,15 @@ Step 5: Install PCNG in the Docker Container
 
    a. Run the database scripts:
 
+.. code-block:: shell
+
       $ /opt/thinkbig/setup/sql/mysql/setup-mysql.sh root cloudera
 
    b. Edit /opt/thinkbig/thinkbig-services/conf/application.properties:
 
       Make the following changes in addition to the Cloudera specific
-      changes described in the Appendix section of the wizard deployment
-      guide for Cloudera
+      changes, described in the Appendix section of the wizard deployment
+      guide for Cloudera:
 
       ###Ambari Services Check
 

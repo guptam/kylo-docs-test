@@ -1,5 +1,4 @@
 |image0|
-i
 
 Introduction
 ============
@@ -20,13 +19,10 @@ All client nodes should have java installed on it.
 .. code-block:: shell
 
     $ java version "1.7.0\_80"
-
     $ Java(TM) SE Runtime Environment (build 1.7.0\_80-b15)
-
     $ Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
 
     $ echo $JAVA\_HOME
-
     $ /usr/java/jdk1.7.0\_80
 
 Install Java Cryptography Extensions (JCE)
@@ -58,27 +54,16 @@ Create a java Test.java and paste below mentioned code in it.
     $ vi Test.java
 
     import javax.crypto.Cipher;
-
     class Test {
-
     public static void main(String[] args) {
-
     try {
-
-    System.out.println("Hello World!");
-
-    int maxKeyLen = Cipher.getMaxAllowedKeyLength("AES");
-
-    System.out.println(maxKeyLen);
-
+      System.out.println("Hello World!");
+      int maxKeyLen = Cipher.getMaxAllowedKeyLength("AES");
+      System.out.println(maxKeyLen);
     } catch (Exception e){
-
-    System.out.println("Sad world :(");
-
+      System.out.println("Sad world :(");
     }
-
     }
-
     }
 
 Compile:
@@ -116,86 +101,60 @@ utilities.
        and Admin Server Information.
 
     [logging]
-
-    default = FILE:/var/log/krb5libs.log
-
-    kdc = FILE:/var/log/krb5kdc.log
-
-    admin\_server = FILE:/var/log/kadmind.log
+      default = FILE:/var/log/krb5libs.log
+      kdc = FILE:/var/log/krb5kdc.log
+      admin\_server = FILE:/var/log/kadmind.log
 
     [libdefaults]
-
-    default\_realm = sandbox.hortonworks.com
-
-    dns\_lookup\_realm = false
-
-    dns\_lookup\_kdc = false
-
-    ticket\_lifetime = 24h
-
-    renew\_lifetime = 7d
-
-    forwardable = true
+      default\_realm = sandbox.hortonworks.com
+      dns\_lookup\_realm = false
+      dns\_lookup\_kdc = false
+      ticket\_lifetime = 24h
+      renew\_lifetime = 7d
+      forwardable = true
 
     [realms]
-
-    sandbox.hortonworks.com = {
-
-    kdc = sandbox.hortonworks.com
-
-    admin\_server = sandbox.hortonworks.com
-
-    }
+      sandbox.hortonworks.com = {
+      kdc = sandbox.hortonworks.com
+      admin\_server = sandbox.hortonworks.com
+      }
 
 4. Update /var/kerberos/krb5kdc/kdc.conf. Change the [realms] as
        sandbox.hortonworks.com.
 
     [kdcdefaults]
-
-    kdc\_ports = 88
-
-    kdc\_tcp\_ports = 88
+      kdc\_ports = 88
+      kdc\_tcp\_ports = 88
 
     [realms]
-
-    sandbox.hortonworks.com = {
-
-    #master\_key\_type = aes256-cts
-
-    acl\_file = /var/kerberos/krb5kdc/kadm5.acl
-
-    dict\_file = /usr/share/dict/words
-
-    admin\_keytab = /var/kerberos/krb5kdc/kadm5.keytab
-
-    supported\_enctypes = aes256-cts:normal aes128-cts:normal
-    des3-hmac-sha1:normal arcfour-hmac:normal des-hmac-sha1:normal
-    des-cbc-md5:normal des-cbc-crc:normal
-
-    }
+      sandbox.hortonworks.com = {
+      #master\_key\_type = aes256-cts
+      acl\_file = /var/kerberos/krb5kdc/kadm5.acl
+      dict\_file = /usr/share/dict/words
+      admin\_keytab = /var/kerberos/krb5kdc/kadm5.keytab
+      supported\_enctypes = aes256-cts:normal aes128-cts:normal
+      des3-hmac-sha1:normal arcfour-hmac:normal des-hmac-sha1:normal
+      des-cbc-md5:normal des-cbc-crc:normal
+      }
 
 5. Update /var/kerberos/krb5kdc/kadm5.acl and replace EXAMPLE.COM with
        sandbox.hortonworks.com.
 
-    \*/admin@sandbox.hortonworks.com \*
+    */admin@sandbox.hortonworks.com \*
 
-6. Create the Kerberos Database. Use the utility kdb5\_util to create
-       the Kerberos database. While asking for password , enter password
-       as thinkbig.
+6. Create the Kerberos Database. Use the utility kdb5\_util to create the Kerberos database. While asking for password , enter password as thinkbig.
 
     kdb5\_util create -s
 
 7. Start the KDC. Start the KDC server and the KDC admin server.
 
     /etc/rc.d/init.d/krb5kdc start
-
     /etc/rc.d/init.d/kadmin start
 
 8. When installing and managing your own MIT KDC, it is very important
        to set up the KDC server to auto-start on boot.
 
     chkconfig krb5kdc on
-
     chkconfig kadmin on
 
 10. Create a KDC admin by creating an admin principal. While asking for
@@ -274,16 +233,12 @@ KeyTab Generation
 Create a keytab file for NiFi user.
 
     kadmin.local
-
     addprinc -randkey nifi@sandbox.hortonworks.com
-
     xst -norandkey -k /etc/security/keytabs/nifi.headless.keytab
-    nifi@sandbox.hortonworks.com
-
+    nifi@sandbox.hortonworks.co
     exit
 
     chown nifi:hadoop /etc/security/keytabs/nifi.headless.keytab
-
     chmod 440 /etc/security/keytabs/nifi.headless.keytab
 
 [Optional] You can initialize your keytab file using this command:

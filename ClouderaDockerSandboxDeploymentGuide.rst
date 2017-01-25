@@ -4,48 +4,6 @@
 Cloudera Docker Sandbox Deployment Guide
 ============================================
 
-Contents
-
-**`Cloudera Docker Sandbox Deployment
-Guide <#cloudera-docker-sandbox-deployment-guide>`__
-`3 <#cloudera-docker-sandbox-deployment-guide>`__**
-
-    `About <#about>`__ `3 <#about>`__
-
-    `Prerequisites <#prerequisites>`__ `3 <#prerequisites>`__
-
-**`Installation <#installation>`__ `3 <#installation>`__**
-
-    `Step 1: Create an EC2 instance <#step-1-create-an-ec2-instance>`__
-    `3 <#step-1-create-an-ec2-instance>`__
-
-    `Step 2: Create Script to Start Docker
-    Container <#step-2-create-script-to-start-docker-container>`__
-    `3 <#step-2-create-script-to-start-docker-container>`__
-
-    `Step 3: Login to the Cloudera Container and Start Cloudera
-    Manager <#step-3-login-to-the-cloudera-container-and-start-cloudera-manager>`__
-    `4 <#step-3-login-to-the-cloudera-container-and-start-cloudera-manager>`__
-
-    `Step 4: Build a Cloudera Distribution of PCNG and Copy it to the
-    Docker
-    Container <#step-4-build-a-cloudera-distribution-of-pcng-and-copy-it-to-the-docker-container>`__
-    `5 <#step-4-build-a-cloudera-distribution-of-pcng-and-copy-it-to-the-docker-container>`__
-
-    `Step 5: Install PCNG in the Docker
-    Container <#step-5-install-pcng-in-the-docker-container>`__
-    `6 <#step-5-install-pcng-in-the-docker-container>`__
-
-**`Shutting down the container when not in
-use <#shutting-down-the-container-when-not-in-use>`__
-`8 <#shutting-down-the-container-when-not-in-use>`__**
-
-**`Starting up an Existing EC2 instance and Cloudera Docker
-Container <#starting-up-an-existing-ec2-instance-and-cloudera-docker-container>`__
-`8 <#starting-up-an-existing-ec2-instance-and-cloudera-docker-container>`__**
-
-Cloudera Docker Sandbox Deployment Guide
-========================================
 
 About
 -----

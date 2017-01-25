@@ -60,15 +60,10 @@ Configure CreateHDFSFolder Processor
 2. Configure the highlighted property for the processor.
 
     Directory To Be Encrypted : /model.db/${source}
-
-    /app/warehouse/${source}
-
-    /etl/${source}
-
+                                /app/warehouse/${source}
+                                /etl/${source}
     /archive/${source}
-
     Encryption Key : nifikey
-
     Encryption Required : Y
 
     |image8|

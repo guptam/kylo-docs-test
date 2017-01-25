@@ -1,6 +1,21 @@
 # Getting Started With Kylo Documentation
+Kylo documents are stored in a seperate project and are published to ReadTheDocs
 
-## Install Sphinx and Pandoc
+Below is the link to the test site
+
+http://kylo-docs-test.readthedocs.io/en/latest/index.html
+
+The documents are created using the RestructuredText format
+
+http://docutils.sourceforge.net/docs/user/rst/quickstart.html
+
+# How it works
+1. You create or edit a document
+2. Build and test the HTML file locally
+3. Commit the file to Github
+4. ReadTheDocs uses a Github hook to trigger a build on commit
+
+# Install Sphinx and Pandoc
 
  $ brew install python
 
@@ -17,7 +32,7 @@ Use Homebrew and run this command:
 
  $ homebrew: brew install pandoc
 
-## Adding Documents
+# Adding Documents
 There are two methods for creating new documents.
 
 1. Create a word document and convert to RST

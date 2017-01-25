@@ -81,7 +81,7 @@ to connect to the source system.
 
 Generation of the encrypted password, and putting it into HDFS, is a
 pre-setup task. The following command can be used to generate the
-encrypted password.
+encrypted password:
 
 **/opt/thinkbig/bin/encryptSqoopPassword.sh**
 

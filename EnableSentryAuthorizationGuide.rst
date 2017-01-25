@@ -15,15 +15,11 @@ All client nodes should have java installed.
 .. code-block:: shell
 
     $ java -version
-
-    $ java version "1.8.0\_92"
-
+      $ java version "1.8.0\_92"
     $ OpenJDK Runtime Environment (rhel-2.6.4.0.el6\_7-x86\_64 u95-b00)
-
-    $ OpenJDK 64-Bit Server VM (build 24.95-b01, mixed mode)
+      $ OpenJDK 64-Bit Server VM (build 24.95-b01, mixed mode)
 
     $ echo $JAVA\_HOME
-
     $ /opt/java/jdk1.8.0\_92/
 
 Cluster Requirements
@@ -51,7 +47,6 @@ Grant Sentry Admin Access to NiFi User
 -  Create sentryAdmin group and assign NiFi user to it.
 
     groupadd sentryAdmin
-
     usermod -a -G sentryAdmin nifi
 
 -  Add sentryAdmin group to Sentry Admin List
@@ -87,7 +82,6 @@ owned by the Hive user and group.
 .. code-block:: shell
 
     $ sudo -u hdfs hdfs dfs -chmod -R 771 /user/hive/warehouse
-
     $ sudo -u hdfs hdfs dfs -chown -R hive:hive /user/hive/warehouse
 
 If you have Kerberos enabled cluster.
@@ -95,9 +89,7 @@ If you have Kerberos enabled cluster.
 .. code-block:: shell
 
     $ sudo -u hdfs kinit -kt <hdfs.keytab> hdfs
-
     $ sudo -u hdfs hdfs dfs -chmod -R 771 /user/hive/warehouse
-
     $ sudo -u hdfs hdfs dfs -chown -R hive:hive /user/hive/warehouse
 
 Disable impersonation for HiveServer2
@@ -163,9 +155,7 @@ to create policies in Sentry but it sentryAdmin will not be allowed to
 read/write any table. We need to grant privileges to sentryAdmin group.
 
     CREATE ROLE admin\_role
-
     GRANT ALL ON SERVER server1 TO ROLE admin\_role;
-
     GRANT ROLE admin\_role TO GROUP sentryAdmin;
 
 Enabled HDFS ACL

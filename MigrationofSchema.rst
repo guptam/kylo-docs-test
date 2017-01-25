@@ -1,7 +1,8 @@
 |image0|
 
-| Migration of Schema
-| from thinkbig → kylo (MySQL Database)
+=========================================================
+Migration of Schema from thinkbig → kylo (MySQL Database)
+=========================================================
 
 Purpose
 =======

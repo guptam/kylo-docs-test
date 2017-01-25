@@ -164,13 +164,13 @@ Creating a Self-signed Cert
 
     |image3|
 
-1. Change permissions on files.
+7. Change permissions on files.
 
     chown nifi -R /opt/nifi/data/ssl/\*
 
     chmod 755 -R /opt/nifi/data/ssl/\*
 
-2. Merge the generated properties (/opt/nifi/data/ssl/localhost) with the the NiFi configuration properties (/opt/nifi/current/conf/nifi.properties).
+8. Merge the generated properties (/opt/nifi/data/ssl/localhost) with the the NiFi configuration properties (/opt/nifi/current/conf/nifi.properties).
 
    1. Open the /opt/nifi/data/ssl/localhost/nifi.properties file.
 
@@ -218,7 +218,7 @@ Configuration.rst
     | nifi.security.ocsp.responder.url=
     | nifi.security.ocsp.responder.certificate=
 
-1. Edit the /opt/nifi/data/conf/authorizers.xml file to add the initial
+9. Edit the /opt/nifi/data/conf/authorizers.xml file to add the initial
    admin identity.  This entry needs to match the phrase you used to
    generate the certificates in step 6b.
 
@@ -233,7 +233,7 @@ Configuration.rst
     your SSL file with a different CN, you will need to modify the
     users.xml file for that entry.
 
-1. Set the following parameters in application.properties for the NiFi
+10. Set the following parameters in application.properties for the NiFi
    connection. Change the Bolded lines to reflect your correct
    passwords.
 

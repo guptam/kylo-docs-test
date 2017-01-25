@@ -35,20 +35,20 @@ Use Homebrew and run this command:
 # Adding Documents
 There are two methods for creating new documents.
 
-1. Create a word document and convert to RST
-2. Start from RST directly
+1. Create a word document and convert to RST.
+2. Start from RST directly.
 
 ### Option 1: Convert Docx to RST
 
-1. Author a word document
-2. Run Pandoc to convert
+1. Author a word document.
+2. Run Pandoc to convert.
 
  $ pandoc -f docx NameofFile.docx -t rst -o NameofFile.rst
 
-3. List next steps here
+3. Once the new .rst file is created, all additional editing is done in that file using reStructuredText syntax.
 
 ### Option 2: Start with RST
 
-1. Create RST document by making a  new file with the "rst" extension
+1. Create an RST document by making a new file with the "rst" extension.
 2. Run "make html" to rebuild the HTML locally.
-3. View the HTML file in the _build folder to
+3. View the index.html file in the _build folder to view the local build.

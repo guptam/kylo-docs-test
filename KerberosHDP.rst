@@ -1,7 +1,8 @@
 |image0|
 
-Introduction
-============
+=======================================
+Kerberos Installation Example - HDP 2.4
+=======================================
 
 +-------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Important   | This document should only be used for DEV/Sandbox purposes. It is useful to help quickly Kerberize your Hortonwroks sandbox so that you can test Kerberos features.   |

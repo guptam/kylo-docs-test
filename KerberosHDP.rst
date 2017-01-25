@@ -231,8 +231,8 @@ utilities.
 
     hadoop fs –ls /
 
-Install Kerberos on HDP Cluster.
-================================
+Install Kerberos on an HDP Cluster
+==================================
 
 1. Open Ambari and go to admin tab and select Kerberos.
 

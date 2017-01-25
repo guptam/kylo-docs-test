@@ -17,6 +17,8 @@ Java
 
 All client nodes should have java installed on it.
 
+.. code-block:: shell
+
     $ java version "1.7.0\_80"
 
     $ Java(TM) SE Runtime Environment (build 1.7.0\_80-b15)
@@ -51,6 +53,8 @@ Test Java Cryptography Extension
 
 Create a java Test.java and paste below mentioned code in it.
 
+.. code-block:: shell
+
     $ vi Test.java
 
     import javax.crypto.Cipher;
@@ -79,9 +83,13 @@ Create a java Test.java and paste below mentioned code in it.
 
 Compile:
 
+.. code-block:: shell
+
     $ javac Test.java
 
 Run test. The expected number is: 2147483647.
+
+.. code-block:: shell
 
     $ java Test
 

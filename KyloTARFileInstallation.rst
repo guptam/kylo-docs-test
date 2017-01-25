@@ -30,21 +30,15 @@ Step 2: Copy init.d scripts to the same temporary location
 ----------------------------------------------------------
 
     cp /etc/init.d/thinkbig-services /opt/tb-test
-
     cp /etc/init.d/thinkbig-spark-shell /opt/tb-test
-
     cp /etc/init.d/thinkbig-ui /opt/tb-test
 
 Your temp location should look like this
 
     [root@sandbox tb-test]# ls -l /opt/tb-test
-
     drwxr-xr-x 8 root root 4096 2016-10-27 20:13 thinkbig
-
     -rwxr-xr-x 1 root root 1561 2016-10-27 20:20 thinkbig-services
-
     -rwxr-xr-x 1 root root 1281 2016-10-27 20:21 thinkbig-spark-shell
-
     -rwxr-xr-x 1 root root 1447 2016-10-27 20:21 thinkbig-ui
 
 Step 3 (Optional): Tar up the folder and copy it to the edge node if you aren’t already on it
@@ -61,17 +55,12 @@ Step 5: Create Log Folders
 --------------------------
 
     [root@sandbox tb-test]# mkdir /var/log/thinkbig-services
-
     [root@sandbox tb-test]# chown thinkbig\_user:thinkbig\_user
     /var/log/thinkbig-services
-
     [root@sandbox tb-test]# mkdir /var/log/thinkbig-ui
-
     [root@sandbox tb-test]# chown thinkbig\_user:thinkbig\_user
     /var/log/thinkbig-ui
-
     [root@sandbox tb-test]# mkdir /var/log/thinkbig-spark-shell
-
     [root@sandbox tb-test]# chown thinkbig\_user:thinkbig\_user
     /var/log/thinkbig-spark-shell/
 
@@ -91,9 +80,7 @@ Modify the following files and change /opt/thinkbig references to
 /opt/thinkbig/apps
 
     /opt/apps/thinkbig/thinkbig-ui/bin/run-thinkbig-ui.sh
-
     /opt/apps/thinkbig/thinkbig-services/bin/run-thinkbig-services.sh
-
     /opt/apps/thinkbig/thinkbig-spark-shell/bin/run-thinkbig-spark-shell.sh
 
 Step 8: Start up Kylo and test

@@ -233,10 +233,14 @@ Configuration.rst
 
 9. Edit the /opt/nifi/data/conf/authorizers.xml file to add the initial
    admin identity.  This entry needs to match the phrase you used to
-   generate the certificates in step 6b.
+   generate the certificates in step 6.
 
-   1.   <property name="Initial Admin Identity">CN=kylo,
+.. code-block:: shell
+
+      <property name="Initial Admin Identity">CN=kylo,
       OU=NIFI</property>
+
+..
 
     | Example Screenshot of file
     | |image4|
@@ -276,11 +280,11 @@ Importing the Client Cert on the Mac
 
 3. Create a new keychain with a name.  The client cert is copied into this new keychain, which in the example here is named "nifi-cet". If you add it directly to the System, the browser will ask you for the login/pass every time NiFi does a request.
 
-   1. In the left pane, right-click "Keychains" and select "New Keychain".
+   a. In the left pane, right-click "Keychains" and select "New Keychain".
 
       |image5|
 
-   2. Give it the name "nifi-cert" and a password.
+   b. Give it the name "nifi-cert" and a password.
 
 +------------+------------+
 | |image6|   | |image7|   |
@@ -397,7 +401,7 @@ Trigger Feed JSON payload
 The FlowFile content of the Trigger feed includes a JSON string of the
 following structure:
 
-.. code-block:: shell
+.. code-block::
 
 {
 "feedName": "string",
@@ -411,6 +415,8 @@ following structure:
 "latestFeedJobExecutionContext": {}
 
 }
+
+..
 
 JSON structure with  field description:
 

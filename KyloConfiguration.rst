@@ -515,7 +515,7 @@ If using Hive in your Spark processors, provide hive jar dependencies
 and hive-site.xml so that Spark can connect to the right Hive metastore.
 To do this, add the following jars into the “Extra Jars” parameter: 
 
-.. code-block:: html
+.. code-block:: 
 
 /usr/hdp/current/spark-client/lib (/usr/hdp/current/spark-client/lib/datanucleus-api-jdo-x.x.x.jar,/usr/hdp/current/spark-client/lib/datanucleus-core-x.x.x.jar,/usr/hdp/current/spark-client/lib/datanucleus-rdbms-x.x.x.jar)
 

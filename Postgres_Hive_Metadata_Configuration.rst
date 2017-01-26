@@ -18,15 +18,10 @@ need to change the following section of the thinkbig-services
 application.properties file.
 
     hive.metastore.datasource.driverClassName=org.postgresql.Driver
-
     hive.metastore.datasource.url=jdbc:postgresql://<hostname>:5432/hive
-
     hive.metastore.datasource.username=hive
-
     hive.metastore.datasource.password=
-
     hive.metastore.datasource.validationQuery=SELECT 1
-
     hive.metastore.datasource.testOnBorrow=true
 
 Elasticsearch NiFi Template Changes
@@ -41,11 +36,8 @@ Step 1: Copy the Postgres JAR file to NiFi
 ------------------------------------------
 
     mkdir /opt/nifi/postgres
-
-    cp
-    /opt/thinkbig/thinkbig-services/lib/postgresql-9.1-901-1.jdbc4.jar
+    cp /opt/thinkbig/thinkbig-services/lib/postgresql-9.1-901-1.jdbc4.jar
     /opt/nifi/postgres
-
     chown -R nifi:users /opt/nifi/postgres
 
 Step 2: Create a Controller Service for Postgres Connection
@@ -57,15 +49,11 @@ connect to the second database.
 Contoller Service Properties:
 
     Controller Service Type: DBCPConnectionPool
-
     Database Connection URL: jdbc:postgresql://<host>:5432/hive
-
     Database Driver Class Name: org.postgresql.Driver
-
     Database Driver Jar URL:
     file:///opt/nifi/postgres/postgresql-9.1-901-1.jdbc4.jar Database
     User: hive
-
     Password: <password>
 
 Enable the Controller Service.
@@ -84,20 +72,15 @@ Edit the “Query Hive Table Schema” processor and make two changes:
 
     SELECT d."NAME", d."OWNER\_NAME", t."CREATE\_TIME", t."TBL\_NAME",
     t."TBL\_TYPE",
+      c."COLUMN\_NAME", c."TYPE\_NAME"
+      FROM "COLUMNS\_V2" c
+      JOIN "TBLS" t ON c."CD\_ID"=t."TBL\_ID"
+      JOIN "DBS" d on d."DB\_ID" = t."DB\_ID"
+      where d."NAME" = '${category}'and t."TBL\_NAME" like '${feed}';
 
-    c."COLUMN\_NAME", c."TYPE\_NAME"
+4. Enable the “Query Hive Table Metadata” processor.
 
-    FROM "COLUMNS\_V2" c
-
-    JOIN "TBLS" t ON c."CD\_ID"=t."TBL\_ID"
-
-    JOIN "DBS" d on d."DB\_ID" = t."DB\_ID"
-
-    where d."NAME" = '${category}'and t."TBL\_NAME" like '${feed}';
-
-1. Enable the “Query Hive Table Metadata” processor.
-
-2. Test a feed to make sure the data is getting indexed.
+5. Test a feed to make sure the data is getting indexed.
 
 
 

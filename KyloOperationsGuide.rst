@@ -865,7 +865,7 @@ The following approach for CICD should be incorporated:
 
     Have a separate Script/Maven project running to instantiate this
     feed and run it. This could look something like the following: Have
-    a maven module running that has a TestCase that looks for these
+    a Maven module running that has a TestCase that looks for these
     exported feed zip files and then uses NiFi and Kylos Rest apis to
     create them, run the feed, verify the results, and then tear down
     the flow.

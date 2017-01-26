@@ -24,8 +24,8 @@ To run the Kylo project locally the following tools must be installed:
 -  Virtual Box or other virtual machine manager
 
 The assumption is that you are installing on a Mac or Linux box. You can
-do most activities below on a Windows box, except to perform a maven
-build with the RPM install. At some point, we could add a maven profile
+do most activities below on a Windows box, except to perform a Maven
+build with the RPM install. At some point, we could add a Maven profile
 to allow you to build but skip the final RPM step.
 
 Install Maven 3
@@ -73,7 +73,7 @@ Install the RPM Tool on your Mac
 --------------------------------
 
 The RPM library is required for building the RPM file as part of the
-maven build. This can be done using Home Brew or Mac Ports.
+Maven build. This can be done using Home Brew or Mac Ports.
 
 .. code-block:: shell
 
@@ -99,7 +99,7 @@ the command line.
 Import the Project into your IDE
 --------------------------------
 
-Import the project into your favorite IDE as a maven project.
+Import the project into your favorite IDE as a Maven project.
 
 +------------+----------------------------------------+
 | **Note**   | Configure the project to use Java 8.   |
@@ -115,7 +115,7 @@ everything is setup correctly.
 
     $ mvn clean install
 
-**TIP:** For faster maven builds you can run in offline mode by typing:
+**TIP:** For faster Maven builds you can run in offline mode by typing:
 
     "mvn clean install -o".
 
@@ -139,7 +139,7 @@ VM you can use the deployment wizard instructions found here.
     Guide* <https://github.com/ThinkBigAnalytics/data-lake-accelerator/blob/master/docs/latest/deployment/wizard-deployment-guide.adoc>`__
 
 Instead of downloading the RPM file on the first step from Artifactory,
-copy the RPM file from your project folder after running a maven build.
+copy the RPM file from your project folder after running a Maven build.
 
 .. code-block:: shell
 
@@ -225,7 +225,7 @@ Eclipse Configuration
    b. Choose "maven" and "Existing Maven Projects" then choose next
 
    c. Choose the Kylo root folder. You should see all
-      maven modules checked
+      Maven modules checked
 
    d. Click finish
 

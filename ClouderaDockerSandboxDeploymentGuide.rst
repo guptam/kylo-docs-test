@@ -193,28 +193,26 @@ Step 5: Install Kylo in the Docker Container
 .. code-block:: shell
 
     $ useradd -r -m -s /bin/bash nifi
-
     $ useradd -r -m -s /bin/bash thinkbig
-
     $ useradd -r -m -s /bin/bash activemq
 
-    Validate the above commands created a group as well by looking at
-    /etc/group. Some operating systems
+..
 
-    may not create them by default.
+    Validate the above commands created a group as well by looking at
+    /etc/group. Some operating systems may not create them by default.
 
 .. code-block:: shell
 
     $ cat /etc/group
+
+..
 
     If the groups are missing then run the following:
 
 .. code-block:: shell
 
     $ groupadd thinkbig
-
     $ groupadd nifi
-
     $ groupadd activemq
 
 3. Follow the instructions in the Deployment Wizard guide to install the
@@ -240,25 +238,15 @@ Step 5: Install Kylo in the Docker Container
       guide for Cloudera:
 
       ###Ambari Services Check
-
       #ambariRestClientConfig.username=admin
-
       #ambariRestClientConfig.password=admin
-
       #ambariRestClientConfig.serverUrl=http://127.0.0.1:8080/api/v1
-
       #ambari.services.status=HDFS,HIVE,MAPREDUCE2,SQOOP
-
       ###Cloudera Services Check
-
       clouderaRestClientConfig.username=cloudera
-
       clouderaRestClientConfig.password=cloudera
-
       clouderaRestClientConfig.serverUrl=127.0.0.1
-
       cloudera.services.status=HDFS/[DATANODE,NAMENODE],HIVE/[HIVEMETASTORE,HIVESERVER2],YARN
-
       ##HDFS/[DATANODE,NAMENODE,SECONDARYNAMENODE],HIVE/[HIVEMETASTORE,HIVESERVER2],YARN,SQOOP
 
    c. Add the "thinkbig" user to the supergroup:
@@ -272,7 +260,6 @@ Step 5: Install Kylo in the Docker Container
 .. code-block:: shell
 
       $ su - hdfs 
-
       $ hdfs dfs -chmod 775 /
 
 5. Start up the Think Big Apps:
@@ -319,7 +306,3 @@ Starting up an Existing EC2 instance and Cloudera Docker Container
     $ /home/cloudera/cloudera-manager --express
 
 6. Login to Cloudera Manager and start all services.
-
-.. |image0| image:: media/common/thinkbig-logo.png
-   :width: 1.52411in
-   :height: 1.00191in

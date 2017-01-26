@@ -37,6 +37,8 @@ running Docker images.
 
 1. Choose an AMI for the region you will configure the EC2 instance in.
 
+.. code-block:: html
+
     https://coreos.com/os/docs/latest/booting-on-ec2.html
 
 2. Create the EC2 instance. You might want to add more disk space than
@@ -55,6 +57,8 @@ running Docker images.
     153.65.16.10/32
 
 4. After starting up the instance, Login to the EC2 instance:
+
+.. code-block:: shell
 
     $ ssh -i <private\_key> core@<IP\_ADDRESS>
 

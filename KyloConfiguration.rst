@@ -122,9 +122,13 @@ Creating a Self-signed Cert
 
 2. Unzip it to a directory.
 
+.. code-block:: html
+
    /opt/nifi/nifi-toolkit-1.0.0
 
 3. Go into that directory.
+
+.. code-block:: shell
 
    cd /opt/nifi/nifi-toolkit-1.0.0/bin      
 

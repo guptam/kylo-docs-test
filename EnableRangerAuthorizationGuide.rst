@@ -40,8 +40,8 @@ Disable the HIVE policy.
 
 |image2|
 
-Create NiFi Super User Policy in Hive.
-======================================
+Create NiFi Super User Policy in Hive
+=====================================
 
 1. Login to Ranger UI.
 
@@ -69,10 +69,10 @@ Create hive user policy in HDFS repository.
 
 4. Create policy as shown in image below.
 
-    Policy Name : hive\_user\_policy\_kylo
-    Resource Path : /model.db/
-                                        /app/warehouse/
-                                        /etl/
+    | Policy Name : hive\_user\_policy\_kylo
+    | Resource Path : /model.db/
+    |                                     /app/warehouse/
+    |                                     /etl/
 
 |image4|
 

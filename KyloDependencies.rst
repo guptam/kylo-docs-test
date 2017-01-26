@@ -1,4 +1,3 @@
-|image0|
 
 ==============================
 Kylo Dependencies and Versions

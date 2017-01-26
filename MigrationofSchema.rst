@@ -1,4 +1,3 @@
-|image0|
 
 =========================================================
 Migration of Schema from thinkbig → kylo (MySQL Database)

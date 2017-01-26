@@ -159,6 +159,8 @@ Creating a Self-signed Cert
       /opt/nifi/nifi-toolkit-1.0.0/bin/tls-toolkit.sh standalone -n
       'localhost' -C 'CN=kylo, OU=NIFI' -o .
 
+..
+
     This will generate 1 client cert and password file along with a
     server keystore and trust store:
 

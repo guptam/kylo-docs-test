@@ -519,7 +519,7 @@ To do this, add the following jars into the “Extra Jars” parameter: 
 
 /usr/hdp/current/spark-client/lib (/usr/hdp/current/spark-client/lib/datanucleus-api-jdo-x.x.x.jar,/usr/hdp/current/spark-client/lib/datanucleus-core-x.x.x.jar,/usr/hdp/current/spark-client/lib/datanucleus-rdbms-x.x.x.jar)
 
- 
+..
 
 Step 2: Add the hive-site.xml file
 ==================================

@@ -70,13 +70,13 @@ Edit the “Query Hive Table Schema” processor and make two changes:
 
 3. Update the “SQL select Query” to be a Postgres query.
 
-    SELECT d."NAME", d."OWNER\_NAME", t."CREATE\_TIME", t."TBL\_NAME",
-    t."TBL\_TYPE",
-      c."COLUMN\_NAME", c."TYPE\_NAME"
-      FROM "COLUMNS\_V2" c
-      JOIN "TBLS" t ON c."CD\_ID"=t."TBL\_ID"
-      JOIN "DBS" d on d."DB\_ID" = t."DB\_ID"
-      where d."NAME" = '${category}'and t."TBL\_NAME" like '${feed}';
+    | SELECT d."NAME", d."OWNER\_NAME", t."CREATE\_TIME", t."TBL\_NAME",
+    | t."TBL\_TYPE",
+    |   c."COLUMN\_NAME", c."TYPE\_NAME"
+    |   FROM "COLUMNS\_V2" c
+    |   JOIN "TBLS" t ON c."CD\_ID"=t."TBL\_ID"
+    |   JOIN "DBS" d on d."DB\_ID" = t."DB\_ID"
+    |   where d."NAME" = '${category}'and t."TBL\_NAME" like '${feed}';
 
 4. Enable the “Query Hive Table Metadata” processor.
 

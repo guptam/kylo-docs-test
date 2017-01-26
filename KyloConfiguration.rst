@@ -144,11 +144,15 @@ Creating a Self-signed Cert
 
 5.  Make an SSL directory under /opt/nifi/data as the nifi owner:
 
+.. code-block:: shell
+
       mkdir /opt/nifi/data/ssl
 
       chown nifi /opt/nifi/data/ssl
 
 6.  Change to that directory and generate certs using the tls-toolkit. 
+
+.. code-block:: shell
 
       cd /opt/nifi/data/ssl
 
@@ -170,6 +174,8 @@ Creating a Self-signed Cert
     |image3|
 
 7. Change permissions on files.
+
+.. code-block:: shell
 
     chown nifi -R /opt/nifi/data/ssl/\*
 
@@ -389,16 +395,13 @@ Trigger Feed JSON payload
 The FlowFile content of the Trigger feed includes a JSON string of the
 following structure:
 
+.. code-block:: shell
+
 {
-
 "feedName": "string",
-
 "feedId": "string",
-
 "dependentFeedNames": [
-
 "string"
-
 ],
 
 "feedJobExecutionContexts": {},
@@ -508,6 +511,8 @@ If using Hive in your Spark processors, provide hive jar dependencies
 and hive-site.xml so that Spark can connect to the right Hive metastore.
 To do this, add the following jars into the “Extra Jars” parameter: 
 
+.. code-block:: html
+
 /usr/hdp/current/spark-client/lib (/usr/hdp/current/spark-client/lib/datanucleus-api-jdo-x.x.x.jar,/usr/hdp/current/spark-client/lib/datanucleus-core-x.x.x.jar,/usr/hdp/current/spark-client/lib/datanucleus-rdbms-x.x.x.jar)
 
  
@@ -517,9 +522,9 @@ Step 2: Add the hive-site.xml file
 
 Specify "hive-site.xml". It should be located in the following location:
 
-    Hortonworks -  /usr/hdp/current/spark-client/conf/hive-site.xml
+    **Hortonworks** -  /usr/hdp/current/spark-client/conf/hive-site.xml
 
-    Cloudera - /etc/hive/conf.cloudera.hive/hive-site.xml
+    **Cloudera** - /etc/hive/conf.cloudera.hive/hive-site.xml
 
  Add this file location to the “Extra Files” parameter. To add multiple
 files, separate them with a comma.
@@ -542,9 +547,7 @@ standard-ingest template, pass the JSON policy file as well. 
 
  
 
-.. |image0| image:: media/common/thinkbig-logo.png
-   :width: 3.04822in
-   :height: 2.00392in
+
 .. |image1| image:: media/kylo-config/KC1.png
    :width: 4.87500in
    :height: 1.91667in

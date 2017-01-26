@@ -401,22 +401,18 @@ Trigger Feed JSON payload
 The FlowFile content of the Trigger feed includes a JSON string of the
 following structure:
 
-.. code-block::
+| {
+|    "feedName": "string",
+|    "feedId": "string",
+|    "dependentFeedNames": [
+|    "string"
+|  ],
 
-{
-"feedName": "string",
-"feedId": "string",
-"dependentFeedNames": [
-"string"
-],
+| "feedJobExecutionContexts": {},
 
-"feedJobExecutionContexts": {},
+| "latestFeedJobExecutionContext": {}
 
-"latestFeedJobExecutionContext": {}
-
-}
-
-..
+| }
 
 JSON structure with  field description:
 

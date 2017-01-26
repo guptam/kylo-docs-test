@@ -219,13 +219,13 @@ Eclipse Configuration
 
 1. Open Eclipse
 
-2. Import the Data Lake Accelerator project
+2. Import the Kylo project
 
    a. File - Import
 
    b. Choose "maven" and "Existing Maven Projects" then choose next
 
-   c. Choose the Data Lake Accelerator root folder. You should see all
+   c. Choose the Kylo root folder. You should see all
       maven modules checked
 
    d. Click finish

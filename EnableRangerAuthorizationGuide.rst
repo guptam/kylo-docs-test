@@ -22,10 +22,10 @@ All client node should have java installed on it.
     $ echo $JAVA\_HOME
     $ /opt/java/jdk1.8.0\_92/
 
-PCNG
+Kylo
 ====
 
-This documentation assumes that you have PCNG installed and running on a
+This documentation assumes that you have Kylo installed and running on a
 cluster.
 
 Optional: Delete/Disable HDFS/HIVE Global Policy.

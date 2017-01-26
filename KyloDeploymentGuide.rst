@@ -4,7 +4,7 @@
 Kylo Deployment Guide
 ============================================
 
-Data Lake Accelerator Deployment Guide
+Kylo Deployment Guide
 ======================================
 
 +---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -14,7 +14,7 @@ Data Lake Accelerator Deployment Guide
 About
 =====
 
-This document explains how to install the Data Lake Accelerator
+This document explains how to install the Kylo
 framework as well as Elasticsearch, NiFi, and ActiveMQ. There are a few
 different ways you can install it depending on whether or not you are
 installing all components on one edge node vs. multiple nodes.
@@ -24,7 +24,7 @@ System Requirements
 
 **Dependencies**
 
-The Data Lake Accelerator services should be installed on an edge node.
+Kylo services should be installed on an edge node.
 The following should be available prior to the installing the Data Lake
 Starter.
 
@@ -56,7 +56,7 @@ Sandbox <https://github.com/ThinkBigAnalytics/data-lake-accelerator/blob/master/
 Java Requirements
 -----------------
 
-Data Lake Accelerator requires Java 8 for NiFi, thinkbig-ui, and
+Kylo requires Java 8 for NiFi, thinkbig-ui, and
 thinkbig-services. If you already have Java 8 installed as the system
 level Java you have the option to leverage that.
 
@@ -117,7 +117,7 @@ Install Procedure 1:
 Installing all components on one edge node with internet access using
 the wizard.
 
-Follow the steps below to install the data lake accelerator using the
+Follow the steps below to install Kylo using the
 installation wizard script. This is convenient for local sandboxes
 (HDP/Cloudera) and 1 node development boxes. The WGET command is used to
 download binaries so internet access is required.
@@ -143,9 +143,9 @@ Install Procedure 3:
 
 Cloudera EC2 Docker Sandbox.
 
-This is an option for those who want to deploy PCNG to a single node
+This is an option for those who want to deploy Kylo to a single node
 Cloudera sandbox in AWS. This is useful when you need to get a quick
-Cloudera instance running to test PCNG but don’t have the resources to
+Cloudera instance running to test Kylo but don’t have the resources to
 install a Cloudera cluster
 
 `Cloudera EC2 Docker Sandbox Deployment
@@ -224,7 +224,7 @@ Kerberos <https://github.com/ThinkBigAnalytics/data-lake-accelerator/blob/master
 Configuration Files
 ===================
 
-Configuration for the data lake accelerator services are located under
+Configuration for Kylo services are located under
 the following files:
 
 /opt/thinkbig/thinkbig-ui/conf/application.properties
@@ -311,7 +311,7 @@ restart the server. In the Hortonworks sandbox the services for thinkbig
 and NiFI are set to start after all of the services managed by Ambari
 start up.
 
-For starting and stopping the 3 data lake accelerator services there you
+For starting and stopping the 3 Kylo services there you
 can run the following scripts.
 
     /opt/thinkbig/start-thinkbig-apps.sh

@@ -41,7 +41,7 @@ Step 1: Download the RPM
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Find and download the RPM file from artifactory and place on the host
-linux machine you want to install the data lake accelerator services on.
+linux machine you want to install the Kylo services on.
 You can right click the download link and copy the url to use wget
 instead:
 
@@ -99,8 +99,8 @@ To run the wizard on an edge node with no internet access, generate a
 TAR file that contains everything in the /opt/thinkbig/setup folder
 including the downloaded application binaries.
 
-a. Install the Data Lake Accelerator RPM on a node that has internet
-   access
+a. Install the Kylo RPM on a node that has internet
+   access.
 
 b. Run "/opt/thinkbig/setup/generate-offline-install.sh
 

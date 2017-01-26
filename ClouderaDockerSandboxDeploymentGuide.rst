@@ -120,7 +120,7 @@ Step 3: Login to the Cloudera Container and Start Cloudera Manager
 
 5. After it’s started exit the container to go back to the CoreOS host.
 
-Step 4: Build a Cloudera Distribution of PCNG and Copy it to the Docker Container
+Step 4: Build a Cloudera Distribution of Kylo and Copy it to the Docker Container
 ---------------------------------------------------------------------------------
 
 1. Modify the pom.xml file for the thinkbig-services-app module. Change:
@@ -161,7 +161,7 @@ Step 4: Build a Cloudera Distribution of PCNG and Copy it to the Docker Containe
     /home/core/thinkbig-datalake-accelerator-<VERSION>.noarch.rpm
     cloudera:/tmp
 
-Step 5: Install PCNG in the Docker Container
+Step 5: Install Kylo in the Docker Container
 --------------------------------------------
 
 1. Login to the cloudera Docker container.
@@ -213,7 +213,7 @@ Step 5: Install PCNG in the Docker Container
     that manually. I will update this section when it's fixed.
 
 4. Follow these steps, that are not in the wizard deployment guide but
-   are required to run PCNG in this environment:
+   are required to run Kylo in this environment:
 
    a. Run the database scripts:
 

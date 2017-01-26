@@ -1,4 +1,3 @@
-|image0|
 
 ==============
 Best Practices

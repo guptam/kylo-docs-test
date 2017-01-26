@@ -15,8 +15,6 @@ Starter Template
 
 A starter template for using the processor is provided at:
 
-.. target-notes::
-
     *samples/templates/nifi-1.0/template-starter-sqoop-import.xml*
 
 Configuration update
@@ -25,8 +23,6 @@ Configuration update
 For use with Kylo UI, configure values in the section starting with the
 below header in the deployment
 location: \ */opt/thinkbig/thinkbig-services/conf/application.properties*
-
-.. target-notes::
 
     *### Sqoop import*
 

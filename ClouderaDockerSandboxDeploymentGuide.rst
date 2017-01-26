@@ -239,6 +239,8 @@ Step 5: Install Kylo in the Docker Container
       changes, described in the Appendix section of the wizard deployment
       guide for Cloudera:
 
+.. code-block:: shell
+
       ###Ambari Services Check
       #ambariRestClientConfig.username=admin
       #ambariRestClientConfig.password=admin
@@ -251,11 +253,15 @@ Step 5: Install Kylo in the Docker Container
       cloudera.services.status=HDFS/[DATANODE,NAMENODE],HIVE/[HIVEMETASTORE,HIVESERVER2],YARN
       ##HDFS/[DATANODE,NAMENODE,SECONDARYNAMENODE],HIVE/[HIVEMETASTORE,HIVESERVER2],YARN,SQOOP
 
+..
+
    c. Add the "thinkbig" user to the supergroup:
 
 .. code-block:: shell
 
       $ usermod -a -G supergroup thinkbig
+
+..
 
    d. Run the following commands to address an issue with the Cloudera Sandbox and fix permissions.
 
@@ -264,11 +270,15 @@ Step 5: Install Kylo in the Docker Container
       $ su - hdfs 
       $ hdfs dfs -chmod 775 /
 
+..
+
 5. Start up the Think Big Apps:
 
 .. code-block:: shell
 
     $ /opt/thinkbig/start-thinkbig-apps.sh
+
+..
 
 6. Try logging into <EC2\_HOST>:8400 and <EC2\_HOST>:8079.
 

@@ -1,4 +1,3 @@
-|image0|
 
 =====================================
 Kylo Data Lake Operations Guide

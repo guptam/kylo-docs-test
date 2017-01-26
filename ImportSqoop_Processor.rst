@@ -15,7 +15,7 @@ Starter Template
 
 A starter template for using the processor is provided at:
 
-.. code-block:: html
+.. target-notes::
 
     *samples/templates/nifi-1.0/template-starter-sqoop-import.xml*
 

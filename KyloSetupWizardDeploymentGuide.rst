@@ -1,4 +1,3 @@
-|image0|
 
 =============================
 Setup Wizard Deployment Guide

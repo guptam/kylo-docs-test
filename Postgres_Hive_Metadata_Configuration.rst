@@ -35,10 +35,10 @@ template to support Postgres:
 Step 1: Copy the Postgres JAR file to NiFi
 ------------------------------------------
 
-    mkdir /opt/nifi/postgres
-    cp /opt/thinkbig/thinkbig-services/lib/postgresql-9.1-901-1.jdbc4.jar
+    | mkdir /opt/nifi/postgres
+    | cp /opt/thinkbig/thinkbig-services/lib/postgresql-9.1-901-1.jdbc4.jar
     /opt/nifi/postgres
-    chown -R nifi:users /opt/nifi/postgres
+    | chown -R nifi:users /opt/nifi/postgres
 
 Step 2: Create a Controller Service for Postgres Connection
 -----------------------------------------------------------

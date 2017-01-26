@@ -118,13 +118,16 @@ Creating a Self-signed Cert
 
    `*https://nifi.apache.org/download.html* <https://nifi.apache.org/download.html>`__
 
+
 2. Unzip it to a directory.
 
    /opt/nifi/nifi-toolkit-1.0.0
 
+
 3. Go into that directory.
 
    cd /opt/nifi/nifi-toolkit-1.0.0/bin      
+   
 
 4. Update the "tls-toolkit.sh" file and add the current version of JAVA\_HOME.
 

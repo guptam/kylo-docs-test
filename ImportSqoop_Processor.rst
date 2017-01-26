@@ -26,6 +26,8 @@ For use with Kylo UI, configure values in the section starting with the
 below header in the deployment
 location: \ */opt/thinkbig/thinkbig-services/conf/application.properties*
 
+.. target-notes::
+
     *### Sqoop import*
 
     *# DB Connection password*

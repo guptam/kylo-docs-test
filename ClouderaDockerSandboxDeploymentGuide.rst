@@ -231,6 +231,8 @@ Step 5: Install Kylo in the Docker Container
 
       $ /opt/thinkbig/setup/sql/mysql/setup-mysql.sh root cloudera
 
+..
+
    b. Edit /opt/thinkbig/thinkbig-services/conf/application.properties:
 
       Make the following changes in addition to the Cloudera specific

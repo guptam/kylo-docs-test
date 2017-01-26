@@ -75,16 +75,16 @@ point and start clean.
 .. code-block:: shell
 
     #!/bin/bash
-    docker run --name cloudera \\
-      --hostname=quickstart.cloudera \\
-      --privileged=true -t -d \\
-      -p 8888:8888 \\
-      -p 7180:7180 \\
-      -p 80:80 \\
-      -p 7187:7187 \\
-      -p 8079:8079 \\
-      -p 8400:8400 \\
-      -p 8161:8161 \\
+    docker run --name cloudera \
+      --hostname=quickstart.cloudera \
+      --privileged=true -t -d \
+      -p 8888:8888 \
+      -p 7180:7180 \
+      -p 80:80 \
+      -p 7187:7187 \
+      -p 8079:8079 \
+      -p 8400:8400 \
+      -p 8161:8161 \
       cloudera/quickstart:5.7.0-0-beta /usr/bin/docker-quickstart
 
 ..
@@ -100,6 +100,8 @@ point and start clean.
 .. code-block:: shell
 
     $ ./startCloudera.sh
+
+..
 
     It will have to first download the Docker image, which is about 4GB,
     so give it some time.
@@ -131,6 +133,8 @@ Step 4: Build a Cloudera Distribution of Kylo and Copy it to the Docker Containe
 
 1. Modify the pom.xml file for the thinkbig-services-app module. Change:
 
+.. code-block:: shell
+
     <dependency> 
       <groupId>com.thinkbiganalytics.datalake</groupId> 
       <artifactId>thinkbig-service-monitor-ambari</artifactId> 
@@ -144,6 +148,8 @@ Step 4: Build a Cloudera Distribution of Kylo and Copy it to the Docker Containe
       <artifactId>thinkbig-service-monitor-cloudera</artifactId> 
       <version>0.3.0-SNAPSHOT</version> 
     </dependency/>
+
+..
 
 2. From the data-lake-accelerator root folder, run:
 

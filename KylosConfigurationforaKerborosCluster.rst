@@ -1,4 +1,3 @@
-|image0|
 
 =========================================
 Kylo Configuration for a Kerberos Cluster

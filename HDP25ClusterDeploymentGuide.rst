@@ -295,10 +295,7 @@ Create the Keytabs for "nifi" and "thinkbig" Users
 
 4. Configure the Kylo edge node. 
 
-
-+---------+-------------------------------------------------------------------------+
-|**NOTE:**| This step assumes that you SCP'd the files to /tmp configure the keytab   .|
-+---------+-------------------------------------------------------------------------+
+**NOTE:** This step assumes that you SCP'd the files to /tmp configure the keytab   .
 
 .. code-block:: shell
 

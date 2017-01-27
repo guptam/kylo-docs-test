@@ -377,7 +377,8 @@ To test this you can look at each file referenced in the scripts for thinkbig-ui
 
 ..
 
-     **Offline Mode**
+
+    **Offline Mode**
 
 .. code-block:: shell
 

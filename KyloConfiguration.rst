@@ -404,6 +404,8 @@ Trigger Feed JSON payload
 The FlowFile content of the Trigger feed includes a JSON string of the
 following structure:
 
+.. code-block:: shell
+
 | {
 |    "feedName": "string",
 |    "feedId": "string",
@@ -417,7 +419,11 @@ following structure:
 
 | }
 
+..
+
 JSON structure with  field description:
+
+.. code-block:: shell
 
 | {
 |    "feedName":"<THE NAME OF THIS FEED>",
@@ -448,7 +454,11 @@ JSON structure with  field description:
 | }
 | }
 
+..
+
 Example JSON for a Feed:
+
+.. code-block:: shell
 
 | {
 |    "feedName":"companies.check\_test",
@@ -477,6 +487,8 @@ Example JSON for a Feed:
 |       }
 |    }
 | }
+
+..
 
 Example Flow
 ------------
@@ -518,19 +530,34 @@ If using Hive in your Spark processors, provide hive jar dependencies
 and hive-site.xml so that Spark can connect to the right Hive metastore.
 To do this, add the following jars into the “Extra Jars” parameter: 
 
+.. code-block:: shell
+
     /usr/hdp/current/spark-client/lib (/usr/hdp/current/spark-client/lib/datanucleus-api-jdo-x.x.x.jar,/usr/hdp/current/spark-client/lib/datanucleus-core-x.x.x.jar,/usr/hdp/current/spark-client/lib/datanucleus-rdbms-x.x.x.jar)
+
+..
 
 Step 2: Add the hive-site.xml file
 ==================================
 
 Specify "hive-site.xml". It should be located in the following location:
 
-    **Hortonworks** -  /usr/hdp/current/spark-client/conf/hive-site.xml
+    **Hortonworks**
 
-    **Cloudera** - /etc/hive/conf.cloudera.hive/hive-site.xml
+.. code-block:: shell
 
- Add this file location to the “Extra Files” parameter. To add multiple
-files, separate them with a comma.
+    /usr/hdp/current/spark-client/conf/hive-site.xml
+
+..
+
+    **Cloudera**
+
+.. code-block:: shell
+
+    /etc/hive/conf.cloudera.hive/hive-site.xml
+
+..
+
+Add this file location to the “Extra Files” parameter. To add multiple files, separate them with a comma.
 
  |image18|
 

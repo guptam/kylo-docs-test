@@ -51,7 +51,11 @@ the thrift server.
 
 You may see an error similar to the following:
 
+.. code-block:: shell
+
     Requested user nifi is not whitelisted and has id 496, which is below the minimum allowed 500".  
+
+..
 
 If you do, do the following to change the user ID or lower the minimum ID:
 
@@ -101,9 +105,17 @@ Before installing the Kylo stack, prepare the cluster by doing the following:
 
 5. Apply the Spark ORC fix: 
 
+<<<<<<< Updated upstream
     Fill in with the details on the wiki
+=======
+.. code-block:: shell
 
-  You can add this property in Ambari rather than editing the configuration file.  
+    https://wiki.thinkbiganalytics.com/display/RD/Spark+SQL+fails+on+empty+ORC+table%2C+HDP+2.4.2%2C+HDP+2.5   
+>>>>>>> Stashed changes
+
+    You can add this property in Ambari rather than editing the configuration file.  
+
+..
 
     a. Login to Ambari.
 
@@ -121,17 +133,13 @@ Before installing the Kylo stack, prepare the cluster by doing the following:
 
   If you are using linux /etc/group based authorization in your cluster you are required to create any users that will have access to HDFS or Hive on the following:   
 
-    **Master Nodes:**
+  .. code-block:: shell
 
-.. code-block:: shell
-
+      Master Nodes:
       $ useradd -r -m -s /bin/bash nifi
       $ useradd -r -m -s /bin/bash thinkbig   
 
-    **Data Nodes:** In some cases it isn't required on data nodes.
-
-.. code-block:: shell
-
+      Data Nodes: In some cases it isn't required on data nodes.
       $ useradd -r -m -s /bin/bash nifi
       $ useradd -r -m -s /bin/bash thinkbig  
 
@@ -149,12 +157,16 @@ Prepare the Kylo Edge Node
 
   This is required to install the "thinkbig" schema during Kylo installation.   
 
-  Example:   
+.. code-block:: shell
+
+    Example:   
 
     GRANT ALL PRIVILEGES ON \*.\* TO 'root'@'KYLO\_EDGE\_NODE\_HOSTNAME'
     IDENTIFIED BY 'abc123' WITH GRANT OPTION; FLUSH PRIVILEGES;  
 
 3. Create the "kylo" MySQL user. 
+
+.. code-block:: shell
 
     | CREATE USER 'kylo'@'<KYLO\_EDGE\_NODE>' IDENTIFIED BY 'abc123';
     | grant create, select, insert, update, delete, execute ON thinkbig.\* to kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';
@@ -162,25 +174,30 @@ Prepare the Kylo Edge Node
 
 4. Grant kylo user access to the hive MySQL metadata. 
 
+.. code-block:: shell
+
     | GRANT select ON hive.SDS TO 'kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';
     | GRANT select ON hive.TBLS TO 'kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';
     | GRANT select ON hive.DBS TO 'kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';
     | GRANT select ON hive.COLUMNS\_V2 TO 'kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';   
 
- **NOTE:** If the hive database is installed in a separate MySQL instance then you will need to create the "kylo" non privileged user in that database before running the grants.
++----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|**NOTE:** | If the hive database is installed in a separate MySQL instance then you will need to create the "kylo" non privileged user in that database before running the grants.|
++----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
 5. Make sure the spark client and hive client is installed.
 
 6. Create the "thinkbig" user on edge node. 
 
-    Kylo Edge Node:
-
 .. code-block:: shell
 
+    Kylo Edge Node:
     $ useradd -r -m -s /bin/bash thinkbig
-
     $ useradd -r -m -s /bin/bash activemq  
 
 7. Optional - Create offline TAR file for an offline Kylo installation. 
+
+.. code-block:: shell
 
     | [root]# cd /opt/thinkbig/setup/
     | [root setup]# ./generate-offline-install.sh   
@@ -195,11 +212,15 @@ Prepare the Kylo Edge Node
 
     This is required for hive queries to work in HDP.
 
+    .. code-block:: shell
+
         | [root]$ su - hdfs
      | [hdfs]$ kinit -kt /etc/security/keytabs/hdfs.headless.keytab <hdfs\_principal\_name>
      | [hdfs]$ hdfs dfs -mkdir /user/thinkbig
      | [hdfs]$ hdfs dfs -chown thinkbig:thinkbig /user/thinkbig
      | [hdfs]$ hdfs dfs -ls /user   
+
+..
 
     **TIP:** If you don't know the HDFS Kerberos principal name run "klist -kt /etc/security/keytabs/hdfs.headless.keytab". 
 
@@ -223,10 +244,9 @@ Prepare the NiFi Edge Node
 
 4. Create the "nifi" user on edge node, master nodes, and data nodes. 
 
-    Edge Nodes:
-
 .. code-block:: shell
 
+    Edge Nodes:
     $ useradd -r -m -s /bin/bash nifi  
 
 5. Optional - Copy the offline TAR file created above to this edge node, if necessary.
@@ -234,6 +254,8 @@ Prepare the NiFi Edge Node
 6. Create the "nifi" home folders in HDFS. 
 
     This is required for hive queries to work in HDP.   
+
+    .. code-block:: shell
 
     | [root]$ su - hdfs
     | [hdfs]$ kinit -kt /etc/security/keytabs/hdfs.headless.keytab <hdfs\_principal\_name>
@@ -248,14 +270,17 @@ Create the Keytabs for "nifi" and "thinkbig" Users
 
 1. Login to the host that is running the KDC and create the keytabs.
 
-    | [root]# kadmin.local
+.. code-block:: shell
 
+    | [root]# kadmin.local
     | kadmin.local: addprinc -randkey "thinkbig/<KYLO\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL"
     | kadmin.local: addprinc -randkey "nifi/<NIFI\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL"
     | kadmin.local: xst -k /tmp/thinkbig.service.keytab thinkbig/<KYLO\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL
     | kadmin.local: xst -k /tmp/nifi.service.keytab nifi/<NIFI\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL  
 
 2. Note the hive principal name for the thrift connection later. 
+
+.. code-block:: shell
 
     | # Write down the principal name for hive for the KDC node
     | kadmin.local: listprincs   
@@ -265,12 +290,18 @@ Create the Keytabs for "nifi" and "thinkbig" Users
 3. Move the keytabs to the correct edge nodes.
 
 4. Configure the Kylo edge node. 
+
     **NOTE:** This step assumes that you SCP'd the files to /tmp configure the keytab   .
+
+    .. code-block:: shell
+
     | [root opt]# mv /tmp/thinkbig.service.keytab /etc/security/keytabs/
     | [root keytabs]# chown thinkbig:thinkbig/etc/security/keytabs/thinkbig.service.keytab
     | [root opt]# chmod 400/etc/security/keytabs/thinkbig.service.keytab  
 
 5. Test the keytab on the Kylo edge node. 
+
+.. code-block:: shell
 
     | [root keytabs]# su - thinkbig
     | [thinkbig ~]$ kinit -kt /etc/security/keytabs/thinkbig.service.keytab thinkbig/<KYLO\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL
@@ -289,11 +320,15 @@ Create the Keytabs for "nifi" and "thinkbig" Users
 
 6. Configure the NiFi edge node.
 
+.. code-block:: shell
+
     | [root opt]# mv /tmp/nifi.service.keytab /etc/security/keytabs/
     | [root keytabs]# chown nifi:nifi /etc/security/keytabs/nifi.service.keytab
     | [root opt]# chmod 400 /etc/security/keytabs/nifi.service.keytab  
 
 7. Test the keytab on the NiFi edge node. 
+
+.. code-block:: shell
 
     | [root keytabs]# su - nifi
     | [nifi ~]$ kinit -kt /etc/security/keytabs/nifi.service.keytab nifi/i<NIFI\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL
@@ -323,10 +358,13 @@ Install NiFi on the NiFi Edge Node
 
 2.  Run the setup wizard (example uses offline mode) [root tmp]# cd /tmp.
 
+.. code-block:: shell
+
     | [root tmp]# mkdir tba-install
     | [root tmp]# mv thinkbig-install.tar tba-install/
     | [root tmp]# cd tba-install/
     | [root tba-install]# tar -xvf thinkbig-install.tar   
+
     | [root tba-install]# /tmp/tba-install/setup-wizard.sh -o  
 
 3. Install the following using the wizard.
@@ -342,21 +380,29 @@ Install NiFi on the NiFi Edge Node
 
 5. Edit nifi.properties to set Kerberos setting.
 
+.. code-block:: shell
+
     [root]# vi /opt/nifi/current/conf/nifi.properties   
 
     nifi.kerberos.krb5.file=/etc/krb5.conf  
 
 6. Edit the config.properties file. 
 
+.. code-block:: shell
+
     [root]# vi /opt/nifi/ext-config/config.properties   
 
     jms.activemq.broker.url=tcp://<KYLO\_EDGE\_HOST>:61616  
 
-7. Start NiFi, 
+7. Start NiFi.
+
+.. code-block:: shell
 
     [root]# service nifi start  
 
 8. Tail the logs to look for errors.
+
+.. code-block:: shell
 
      tail -f /var/log/nifi/nifi-app.log  
 
@@ -373,11 +419,14 @@ Install the Kylo Application on the Kylo Edge Node
 
 3. Run the setup wizard (example uses offline mode) 
 
+.. code-block:: shell
+
     | [root tmp]# cd /tmp.
     | [root tmp]# mkdir tba-install
     | [root tmp]# mv thinkbig-install.tar tba-install/
     | [root tmp]# cd tba-install/
     | [root tba-install]# tar -xvf thinkbig-install.tar   
+
     | [root tba-install]# /tmp/tba-install/setup-wizard.sh -o  
 
 4. Install the following using the wizard (everything but NiFi).
@@ -391,10 +440,14 @@ Install the Kylo Application on the Kylo Edge Node
 
    In order for Elasticsearch to allow access from an external server you need to specify the hostname in addition to localhost.   
 
+   .. code-block:: shell
+
     | $ vi /etc/elasticsearch/elasticsearch.yml
     | network.host: localhost,<KYLO\_EDGE\_HOST>  
 
 6. Edit the thinbig-spark-shell configuration file. 
+
+.. code-block:: shell
 
     | [root thinkbig]# vi /opt/thinkbig/thinkbig-services/conf/spark.properties   
 
@@ -404,6 +457,8 @@ Install the Kylo Application on the Kylo Edge Node
     | kerberos.thinkbig.keytabLocation=/etc/security/keytabs/thinkbig.service.keytab  
 
 7. Edit the thinkbig-services configuration file. 
+
+.. code-block:: shell
 
     | [root /]# vi /opt/thinkbig/thinkbig-services/conf/application.properties   
     |
@@ -464,12 +519,16 @@ Install the Kylo Application on the Kylo Edge Node
 
     b. Install the Ranger plugin.
 
+    .. code-block:: shell
+
       | [root plugin]# mv /tmp/thinkbig-hadoop-authorization-ranger-<VERSION>.jar /opt/thinkbig/thinkbig-services/plugi
       | [root plugin]# chown thinkbig:thinkbig /opt/thinkbig/thinkbig-services/plugin/thinkbig-hadoop-authorization-ranger-<VERSION>.jar
       | [root plugin]# touch /opt/thinkbig/thinkbig-services/conf/authorization.ranger.properties
       | [root plugin]# chown thinkbig:thinkbig /opt/thinkbig/thinkbig-services/conf/authorization.ranger.properties  
 
     c. Edit the properties file.
+
+    .. code-block:: shell
 
       | vi /opt/thinkbig/thinkbig-services/conf/authorization.ranger.properties
 
@@ -480,15 +539,21 @@ Install the Kylo Application on the Kylo Edge Node
 
 9. Start the Kylo applications.
 
+.. code-block:: shell
+
       [root]# /opt/thinkbig/start-thinkbig-apps.sh  
 
 10. Check the logs for errors.
+
+.. code-block:: shell
 
       /var/log/thinkbig-services.log
       /var/log/thinkbig-ui/thinkbig-ui.log
       /var/log/thinkbig-services/thinkbig-spark-shell.err  
 
 11. Login to the Kylo UI. 
+
+.. code-block:: shell
 
       http://<KYLO\_EDGE\_HOSTNAME>:8400  
 
@@ -505,6 +570,8 @@ Create Folders for NiFi standard-ingest Feed
 2. Create the HDFS root folders.
 
   This will be required since we are running under non-privileged users.   
+
+  .. code-block:: shell
 
     | [root]# su - hdfs
     | [hdfs ~]$ kinit -kt /etc/security/keytabs/hdfs.service.keytab
@@ -530,6 +597,8 @@ Create Ranger Policies
 
     b. Click on "Add New Policy" 
 
+.. code-block:: shell
+
         | name: kylo-nifi-access
         | Resource Path:
         |   /model.db/\*
@@ -544,6 +613,8 @@ Create Ranger Policies
     a. Click into the Hive repository.
 
     b. Click on "Add New Policy". 
+
+.. code-block:: shell
 
         | Policy Name: kylo-nifi-access
         | Hive Database: userdata, default (required for access for some reason)
@@ -563,6 +634,8 @@ Grant hive access to "thinkbig" user for hive tables, profile, and wrangler.
     a. Click into the Hive repository.
 
     b. Click on "Add New Policy".
+
+.. code-block:: shell
 
         | Policy Name: kylo-thinkbig-access
         | Hive Database: userdata
@@ -633,6 +706,8 @@ Import Kylo Templates
 
 5. Note: An issue was found with the getJmsTopic processor URL. If you import the template using localhost and need to change it there is a bug that won’t allow the URL to be changed. The value is persisted to a file.
 
+.. code-block:: shell
+
         | [root@ip-10-0-178-60 conf]# pwd
         | /opt/nifi/current/conf
         | [root@ip-10-0-178-60 conf]# ls -l
@@ -645,6 +720,8 @@ Import Kylo Templates
         | -rw-rw-r-- 1 nifi users 8701 Dec 7 00:52 nifi.properties
         | -rw-rw-r-- 1 nifi users 3637 Aug 26 13:51 state-management.xml
         | -rw-rw-r-- 1 nifi users 1437 Aug 26 13:51 zookeeper.properties  
+
+..
 
     a. Edit the file named named "jms-subscription-<processor\_id>".
 
@@ -660,7 +737,11 @@ Import Kylo Templates
 
       Add this variable to the ${table\_field\_policy\_json\_file}. It should look like this:
 
+.. code-block:: shell
+
           ${table\_field\_policy\_json\_file},/usr/hdp/current/spark-client/conf/hive-site.xml  
+
+..
 
     c. Edit the "Upload to HDFS" and remove "Remote Owner" and "Remote Group" (since we aren’t using superuser).
 
@@ -686,7 +767,3 @@ Create Data Ingest Feed Test
 2. Test the feed. 
 
     cp -p <PATH\_TO\_FILE>/userdata1.csv /var/dropzone/
-
-.. |image0| image:: media/common/thinkbig-logo.png
-   :width: 3.04822in
-   :height: 2.00392in

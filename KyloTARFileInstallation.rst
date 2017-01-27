@@ -20,19 +20,29 @@ Determine Service Account and Kylo Install Location
 Let’s assume, for this example, that Kylo will run under an account name
 "thinkbig\_user", and it will be installed in /opt/apps/.
 
-Step 1: Install the RPM and copy the /opt/thinkbig folder to a temporary location
----------------------------------------------------------------------------------
+Step 1: Install the RPM and copy the /opt/thinkbig folder to a temporary location.
+----------------------------------------------------------------------------------
+
+.. code-block:: shell
 
     cp -R /opt/thinkbig /opt/tb-test
 
-Step 2: Copy init.d scripts to the same temporary location
-----------------------------------------------------------
+..
+
+Step 2: Copy init.d scripts to the same temporary location.
+-----------------------------------------------------------
+
+.. code-block:: shell
 
     cp /etc/init.d/thinkbig-services /opt/tb-test
     cp /etc/init.d/thinkbig-spark-shell /opt/tb-test
     cp /etc/init.d/thinkbig-ui /opt/tb-test
 
-Your temp location should look like this
+..
+
+Your temp location should look like this:
+
+.. code-block:: shell
 
     [root@sandbox tb-test]# ls -l /opt/tb-test
     drwxr-xr-x 8 root root 4096 2016-10-27 20:13 thinkbig
@@ -40,11 +50,13 @@ Your temp location should look like this
     -rwxr-xr-x 1 root root 1281 2016-10-27 20:21 thinkbig-spark-shell
     -rwxr-xr-x 1 root root 1447 2016-10-27 20:21 thinkbig-ui
 
-Step 3 (Optional): Tar up the folder and copy it to the edge node if you aren’t already on it
----------------------------------------------------------------------------------------------
+..
 
-Step 4: Install the files
--------------------------
+Step 3 (Optional): Tar up the folder and copy it to the edge node if you aren’t already on it.
+----------------------------------------------------------------------------------------------
+
+Step 4: Install the files.
+--------------------------
 
 1. Copy the thinkbig folder to /opt/apps
 
@@ -52,6 +64,8 @@ Step 4: Install the files
 
 Step 5: Create Log Folders
 --------------------------
+
+.. code-block:: shell
 
     [root@sandbox tb-test]# mkdir /var/log/thinkbig-services
     [root@sandbox tb-test]# chown thinkbig\_user:thinkbig\_user
@@ -63,28 +77,34 @@ Step 5: Create Log Folders
     [root@sandbox tb-test]# chown thinkbig\_user:thinkbig\_user
     /var/log/thinkbig-spark-shell/
 
-Step 6: Modify the user in the init.d scripts
----------------------------------------------
+..
 
-Set this line to be the correct user.
+Step 6: Modify the user in the init.d scripts.
+----------------------------------------------
+
+Set this line to be the correct user:
+
+.. code-block:: shell
 
     RUN\_AS\_USER=thinkbig\_user
 
+..
+
 Also change any reference of /opt/thinkbig to /opt/apps/thinkbig.
 
-Step 7: Modify the bin scripts for the 3 thinkbig apps
-------------------------------------------------------
+Step 7: Modify the bin scripts for the 3 thinkbig apps.
+-------------------------------------------------------
 
 Modify the following files and change /opt/thinkbig references to
-/opt/thinkbig/apps
+/opt/thinkbig/apps:
+
+.. code-block:: shell
 
     /opt/apps/thinkbig/thinkbig-ui/bin/run-thinkbig-ui.sh
     /opt/apps/thinkbig/thinkbig-services/bin/run-thinkbig-services.sh
     /opt/apps/thinkbig/thinkbig-spark-shell/bin/run-thinkbig-spark-shell.sh
 
-Step 8: Start up Kylo and test
-------------------------------
+..
 
-.. |image0| image:: media/common/thinkbig-logo.png
-   :width: 3.03125in
-   :height: 1.99277in
+Step 8: Start up Kylo and test.
+-------------------------------

@@ -377,13 +377,14 @@ For example:
     Feed\_A runs and has the following attributes in the flow-file as it
     runs:
 
+.. code-block:: shell
+
      -property.name = "first name"
-
      -property.age=23
-
      -feedts=1478283486860
-
      -another.property= "test"
+
+..
 
     Feed\_B depends on Feed A and has a Trigger Feed that has "Matching
     Execution Context Keys" set to "property"’
@@ -391,7 +392,11 @@ For example:
     It will then get the ExecutionContext for Feed A populated with 2
     properties:
 
+.. code-block:: shell
+
     "Feed\_A":{property.name:"first name", property.age:23}
+
+..
 
 Trigger Feed JSON payload
 -------------------------

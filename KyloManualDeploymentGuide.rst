@@ -214,9 +214,7 @@ stack you will likely want to leverage the same instance.
 
 .. code-block:: shell
 
-        $ <SETUP\_DIR>/elasticsearch/install-elasticsearch.sh -o
-
-          <SETUP\_DIR>
+        $ <SETUP\_DIR>/elasticsearch/install-elasticsearch.sh -o <SETUP\_DIR>
 
           Example:  /tmp/thinkbig-install/setup/elasticsearch/install-elasticsearch.sh -o /tmp/thinkbig-install/setup
 

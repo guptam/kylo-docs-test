@@ -298,6 +298,7 @@ Create the Keytabs for "nifi" and "thinkbig" Users
 +---------+-------------------------------------------------------------------------+
 |**NOTE:**| This step assumes that you SCP'd the files to /tmp configure the keytab   .|
 +---------+-------------------------------------------------------------------------+
+
 .. code-block:: shell
 
     [root opt]# mv /tmp/thinkbig.service.keytab /etc/security/keytabs/

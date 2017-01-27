@@ -101,7 +101,7 @@ Before installing the Kylo stack, prepare the cluster by doing the following:
 
 5. Apply the Spark ORC fix: 
 
-    https://wiki.thinkbiganalytics.com/display/RD/Spark+SQL+fails+on+empty+ORC+table%2C+HDP+2.4.2%2C+HDP+2.5   
+    Fill in with the details on the wiki
 
   You can add this property in Ambari rather than editing the configuration file.  
 
@@ -296,10 +296,10 @@ Create the Keytabs for "nifi" and "thinkbig" Users
 7. Test the keytab on the NiFi edge node. 
 
     | [root keytabs]# su - nifi
-    | [nifi ~]$ kinit -kt /etc/security/keytabs/nifi.service.keytab nifi/ip-172-31-42-133.us-west-2.compute.internal@US-WEST-2.COMPUTE.INTERNAL
+    | [nifi ~]$ kinit -kt /etc/security/keytabs/nifi.service.keytab nifi/i<NIFI\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL
     | [nifi ~]$ klist
     | Ticket cache: FILE:/tmp/krb5cc\_497
-    | Default principal: nifi/ip-172-31-42-133.us-west-2.compute.internal@US-WEST-2.COMPUTE.INTERNAL
+    | Default principal: nifi/<NIFI\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL
     | Valid starting Expires Service principal
     | 11/29/2016 22:40:08 11/30/2016 22:40:08 krbtgt/US-WEST-2.COMPUTE.INTERNAL@US-WEST-2.COMPUTE.INTERNAL   
 

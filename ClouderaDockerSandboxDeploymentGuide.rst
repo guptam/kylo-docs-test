@@ -44,16 +44,7 @@ running Docker images.
 2. Create the EC2 instance. You might want to add more disk space than
    the default 8GB.
 
-3. If you are on the Teradata VPN add the following to your security
-   group using "All TCP" for each one. If you are not on VPN add your
-   current IP address and choose "All TCP".
-
-.. code-block:: shell
-
-    136.179.11.144/29
-    141.206.0.0/16
-    153.64.0.0/15
-    153.65.16.10/32
+3. Configure the EC2 security group
 
 4. After starting up the instance, Login to the EC2 instance:
 

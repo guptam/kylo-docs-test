@@ -224,8 +224,8 @@ the following files:
 
 .. code-block:: html
 
-/opt/thinkbig/thinkbig-ui/conf/application.properties
-/opt/thinkbig/thinkbig-services/conf/application.properties
+| /opt/thinkbig/thinkbig-ui/conf/application.properties
+| /opt/thinkbig/thinkbig-services/conf/application.properties
 
 ..
 

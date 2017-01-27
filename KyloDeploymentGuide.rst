@@ -413,19 +413,19 @@ Below are the default URL’s and ports for the services:
 
 .. code-block:: shell
 
-  Feed Manager and Operations UI
-  http://127.0.0.1:8400
-  username: dladmin
-  password: thinkbig
+    Feed Manager and Operations UI
+    http://127.0.0.1:8400
+    username: dladmin
+    password: thinkbig
 
-  NiFi UI
-  http://127.0.0.1:8079/nifi
+    NiFi UI
+    http://127.0.0.1:8079/nifi
 
-  Elasticsearch REST API
-  http://127.0.0.1:9200
+    Elasticsearch REST API
+    http://127.0.0.1:9200
 
-  ActiveMQ Admin
-  http://127.0.0.1:8161/admin
+    ActiveMQ Admin
+    http://127.0.0.1:8161/admin
 
 ..
 

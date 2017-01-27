@@ -239,13 +239,13 @@ The included ActiveMQ script was meant to speed up installation in a sandbox or 
 
     a. Online Mode
 
-.. code-block:: shell
+:: code-block:: shell
 
         $ /opt/thinkbig/setup/activemq/install-activemq.sh
 
     b. Offline Mode
 
-.. code-block:: shell
+:: code-block:: shell
 
         $ <SETUP\_DIR>/activemq/install-activemq.sh -o <SETUP\_DIR>
 

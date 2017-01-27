@@ -16,8 +16,7 @@ to do the installation manually.
 +-----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Information on the operation and maintenance of the Kylo solution is
-available at
-`*https://www.thinkbiganalytics.com/kylo/* <https://www.thinkbiganalytics.com/kylo/>`__.
+available at `*https://www.thinkbiganalytics.com/kylo/* <https://www.thinkbiganalytics.com/kylo/>`__.
 
 Audience
 ========
@@ -70,7 +69,7 @@ system locations:
 
 -  ActiveMQ - /opt/activemq
 
-Elasticsearch - RPM installation default location
+Elasticsearch - RPM Installation Default Location
 =================================================
 
 Installation
@@ -86,10 +85,14 @@ Step 1: Setup Directory
 Kylo is most often installed on one edge node. If you are deploying
 everything to one node, the setup directory would typically be:
 
+:: code-block:: shell
+
     SETUP\_DIR=/opt/thinkbig/setup
 
 Sometimes administrators install NiFi on a second edge node to communicate with a Hortonworks or Cloudera cluster. In this case, copy
 the setup folder to nodes that do not have the Think Big applications installed. In that case, use this SETUP\_DIR command:
+
+:: code-block:: shell
 
     SETUP\_DIR=/tmp/thinkbig-install
 
@@ -205,6 +208,8 @@ stack you will likely want to leverage the same instance.
 
         $ <SETUP\_DIR>/elasticsearch/install-elasticsearch.sh
 
+..
+
     b. Offline Mode
 
 .. code-block:: shell
@@ -214,6 +219,8 @@ stack you will likely want to leverage the same instance.
           <SETUP\_DIR>
 
           Example:  /tmp/thinkbig-install/setup/elasticsearch/install-elasticsearch.sh -o /tmp/thinkbig-install/setup
+
+..
 
 **Option 2**: Use an existing Elasticsearch.
 To leverage an existing Elasticsearch instance, you must update all feed templates that you created with the correct Elasticsearch URL.You can do this by going to the "Additional Properties" tab for that feed. If you added any re-usable flow templates you will need to modify the Elasticsearch processors in NiFI.

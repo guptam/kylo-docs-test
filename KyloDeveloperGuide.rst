@@ -5,8 +5,7 @@ Developer Getting Started Guide
 
 This guide should help you get your local development environment up and
 running quickly. Development in an IDE is usually done in conjunction
-with a Hortonworks sandbox in order to have a cluster to communicate
-with.
+with a Hortonworks sandbox in order to have a cluster with which to communicate.
 
 Dependencies
 ------------

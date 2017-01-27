@@ -44,8 +44,12 @@ linux machine you want to install the Kylo services on.
 You can right click the download link and copy the url to use wget
 instead:
 
+.. code-block:: shell
+
     http://52.203.91.75:8080/artifactory/webapp/search/artifact/?7&q=thinkbig-datalake-accelerator
     (requires VPN)
+
+..
 
 Step 2: Create the Linux Users/Groups
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -85,7 +89,11 @@ If the groups are missing then run the following:
 Step 3: Run the Kylo RPM Install
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. code-block:: shell
+
     $ rpm -ivh thinkbig-datalake-accelerator-<version>.noarch.rpm
+
+..
 
 +------------+-------------------------------------------------------------------+
 | **Note**   | The RPM is hard coded at this time to install to /opt/thinkbig.   |
@@ -178,8 +186,7 @@ to the group defined in hdfs-site.xml. For example:
 
     $ usermod -a -G supergroup hdfs
 
-**Optional:** If you want to perform actions as a root user in a
- development environment run the below command
+**Optional:** If you want to perform actions as a root user in a development environment run the below command
 
 .. code-block:: shell
 
@@ -251,38 +258,38 @@ for Cloudera.
 
 1. /opt/thinkbig/thinkbig-services/conf/application.properties
 
-a. Update the 3 MySQL password values to "cloudera":
+   a. Update the 3 MySQL password values to "cloudera":
 
 .. code-block:: shell
 
         spring.datasource.password=cloudera
-
         metadata.datasource.password=cloudera
-
         hive.metastore.datasource.password=cloudera
-
         modeshape.datasource.password=cloudera
 
-b. Update the Hive username:
+..
+
+    b. Update the Hive username:
 
 .. code-block:: shell
 
         hive.datasource.username=hive
 
-c. Update the Hive Metastore URL:
+..
+
+    c. Update the Hive Metastore URL:
 
 .. code-block:: shell
 
         hive.metastore.datasource.url=jdbc:mysql://localhost:3306/metastore
 
-d. Update the following parameters:
+..
+
+    d. Update the following parameters:
 
 .. code-block:: shell
 
         config.hive.schema=metastore
-
         nifi.executesparkjob.sparkhome=/usr/lib/spark
 
-.. |image0| image:: media/common/thinkbig-logo.png
-   :width: 3.04822in
-   :height: 2.00392in
+..

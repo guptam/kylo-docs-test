@@ -19,6 +19,8 @@ cluster.
 
   2. Run hive jobs and HDFS commands as the end user:
 
+.. code-block:: html
+
     *http://hortonworks.com/blog/best-practices-for-hive-authorization-using-apache-ranger-in-hdp-2-2/*
 
 This document will configure option #2 to show how you can configure Kylo to grant appropriate access to both hive and HDFS for the end user.
@@ -168,18 +170,18 @@ Prepare the Kylo Edge Node
 
 .. code-block:: shell
 
-    | CREATE USER 'kylo'@'<KYLO\_EDGE\_NODE>' IDENTIFIED BY 'abc123';
-    | grant create, select, insert, update, delete, execute ON thinkbig.\* to kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';
-    | FLUSH PRIVILEGES;  
+    CREATE USER 'kylo'@'<KYLO\_EDGE\_NODE>' IDENTIFIED BY 'abc123';
+    grant create, select, insert, update, delete, execute ON thinkbig.\* to kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';
+    FLUSH PRIVILEGES;  
 
 4. Grant kylo user access to the hive MySQL metadata. 
 
 .. code-block:: shell
 
-    | GRANT select ON hive.SDS TO 'kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';
-    | GRANT select ON hive.TBLS TO 'kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';
-    | GRANT select ON hive.DBS TO 'kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';
-    | GRANT select ON hive.COLUMNS\_V2 TO 'kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';   
+    GRANT select ON hive.SDS TO 'kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';
+    GRANT select ON hive.TBLS TO 'kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';
+    GRANT select ON hive.DBS TO 'kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';
+    GRANT select ON hive.COLUMNS\_V2 TO 'kylo'@'KYLO\_EDGE\_NODE\_HOSTNAME';   
 
 +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |**NOTE:** | If the hive database is installed in a separate MySQL instance then you will need to create the "kylo" non privileged user in that database before running the grants.|

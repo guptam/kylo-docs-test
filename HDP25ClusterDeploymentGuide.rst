@@ -255,7 +255,7 @@ Prepare the NiFi Edge Node
 
     This is required for hive queries to work in HDP.   
 
-    .. code-block:: shell
+.. code-block:: shell
 
     | [root]$ su - hdfs
     | [hdfs]$ kinit -kt /etc/security/keytabs/hdfs.headless.keytab <hdfs\_principal\_name>

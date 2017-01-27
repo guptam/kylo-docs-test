@@ -337,12 +337,12 @@ can run the following scripts.
 
 .. code-block:: shell
 
-$ service activemq start
-$ service elasticsearch start
-$ service nifi start
-$ service thinkbig-spark-shell start
-$ service thinkbig-services start
-$ service thinkbig-ui start  
+  $ service activemq start
+  $ service elasticsearch start
+  $ service nifi start
+  $ service thinkbig-spark-shell start
+  $ service thinkbig-services start
+  $ service thinkbig-ui start  
 
 ..
 
@@ -350,12 +350,12 @@ $ service thinkbig-ui start  
 
 .. code-block:: shell
 
-$ service activemq stop
-$ service elasticsearch stop
-$ service nifi stop
-$ service thinkbig-spark-shell stop
-$ service thinkbig-services stop
-$ service thinkbig-ui stop  
+  $ service activemq stop
+  $ service elasticsearch stop
+  $ service nifi stop
+  $ service thinkbig-spark-shell stop
+  $ service thinkbig-services stop
+  $ service thinkbig-ui stop  
 
 ..
 
@@ -363,11 +363,11 @@ $ service thinkbig-ui stop  
 
 .. code-block:: shell
 
-$ service elasticsearch status
-$ service nifi status
-$ service thinkbig-spark-shell status
-$ service thinkbig-services status
-$ service thinkbig-ui status  
+  $ service elasticsearch status
+  $ service nifi status
+  $ service thinkbig-spark-shell status
+  $ service thinkbig-services status
+  $ service thinkbig-ui status  
 
 ..
 

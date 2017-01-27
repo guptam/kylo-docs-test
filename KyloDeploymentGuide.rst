@@ -222,7 +222,7 @@ Configuration Files
 Configuration for Kylo services are located under
 the following files:
 
-.. code-block:: shell
+.. code-block:: html
 
 /opt/thinkbig/thinkbig-ui/conf/application.properties
 /opt/thinkbig/thinkbig-services/conf/application.properties

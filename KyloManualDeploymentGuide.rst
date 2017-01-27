@@ -422,7 +422,7 @@ This method downloads and installs NiFi, and also installs and configures the Th
 
     a. Install NiFi
 
-       1. Online Mode
+       - Online Mode
 
 .. code-block:: shell
 
@@ -430,7 +430,7 @@ This method downloads and installs NiFi, and also installs and configures the Th
 
 ..
 
-       2. Offline Mode
+       - Offline Mode
 
 .. code-block:: shell
 
@@ -564,7 +564,7 @@ correct permissions for the "nifi" user to access HDFS.
 
 1. NiFi Node - Add nifi user to the HDFS supergroup or the group defined in hdfs-site.xml, for example:
 
-    **Hortonworks**
+  **Hortonworks**
 
 .. code-block:: shell
 
@@ -572,7 +572,7 @@ correct permissions for the "nifi" user to access HDFS.
 
 ..
 
-    **Cloudera**
+  **Cloudera**
 
 .. code-block:: shell
 
@@ -595,7 +595,7 @@ correct permissions for the "nifi" user to access HDFS.
 
 2. thinkbig-services node - Add thinkbig user to the HDFS supergroup or the group defined in hdfs-site.xml, for example:
 
-    **Hortonworks**
+  **Hortonworks**
 
 .. code-block:: shell
 
@@ -603,7 +603,7 @@ correct permissions for the "nifi" user to access HDFS.
 
 ..
 
-    **Cloudera**
+  **Cloudera**
 
 .. code-block:: shell
 
@@ -625,10 +625,9 @@ correct permissions for the "nifi" user to access HDFS.
 
 3. For Clusters:
 
-   In addition to adding the nifi/thinkbig user to the supergroup on the edge node you also need to add the users/groups to the name
-    nodes on a cluster.
+   In addition to adding the nifi/thinkbig user to the supergroup on the edge node you also need to add the users/groups to the name nodes on a cluster.
 
-    **Hortonworks**
+   **Hortonworks**
 
 .. code-block:: shell
 
@@ -642,7 +641,7 @@ correct permissions for the "nifi" user to access HDFS.
 
 ..
 
-    **Cloudera** - <Fill me in after testing >
+  **Cloudera** - <Fill me in after testing >
 
 Step 11: Create a dropzone folder on the edge node for file ingest, for example:
 ================================================================================

@@ -295,8 +295,9 @@ Create the Keytabs for "nifi" and "thinkbig" Users
 
 4. Configure the Kylo edge node. 
 
-    **NOTE:** This step assumes that you SCP'd the files to /tmp configure the keytab   .
-
++---------+-------------------------------------------------------------------------+
+|**NOTE:**| This step assumes that you SCP'd the files to /tmp configure the keytab   .|
++---------+-------------------------------------------------------------------------+
 .. code-block:: shell
 
     [root opt]# mv /tmp/thinkbig.service.keytab /etc/security/keytabs/
@@ -326,9 +327,9 @@ Create the Keytabs for "nifi" and "thinkbig" Users
 
 .. code-block:: shell
 
-    | [root opt]# mv /tmp/nifi.service.keytab /etc/security/keytabs/
-    | [root keytabs]# chown nifi:nifi /etc/security/keytabs/nifi.service.keytab
-    | [root opt]# chmod 400 /etc/security/keytabs/nifi.service.keytab  
+    root opt]# mv /tmp/nifi.service.keytab /etc/security/keytabs/
+    [root keytabs]# chown nifi:nifi /etc/security/keytabs/nifi.service.keytab
+    [root opt]# chmod 400 /etc/security/keytabs/nifi.service.keytab  
 
 7. Test the keytab on the NiFi edge node. 
 

@@ -265,9 +265,7 @@ Prepare the NiFi Edge Node
 
 ..
 
-+--------+---------------------------------------------------------------------------------------------------------------+
-|**TIP:**| If you don't know the HDFS Kerberos principal name run "klist -kt /etc/security/keytabs/hdfs.headless.keytab"  .|
-+--------+---------------------------------------------------------------------------------------------------------------+
+**TIP:** If you don't know the HDFS Kerberos principal name run "klist -kt /etc/security/keytabs/hdfs.headless.keytab"  .
 
 Create the Keytabs for "nifi" and "thinkbig" Users
 ==================================================
@@ -297,7 +295,7 @@ Create the Keytabs for "nifi" and "thinkbig" Users
 
     **NOTE:** This step assumes that you SCP'd the files to /tmp configure the keytab   .
 
-    .. code-block:: shell
+.. code-block:: shell
 
     | [root opt]# mv /tmp/thinkbig.service.keytab /etc/security/keytabs/
     | [root keytabs]# chown thinkbig:thinkbig/etc/security/keytabs/thinkbig.service.keytab
@@ -349,7 +347,9 @@ Create the Keytabs for "nifi" and "thinkbig" Users
 
 8. Test with Kerberos test client. 
 
-      Kylo provides a kerberos test client to ensure the keytabs work in the JVM. There have been cases where kinit works on the command line but getting a kerberos ticket breaks in the JVM.
+   Kylo provides a kerberos test client to ensure the keytabs work in the JVM. There have been cases where kinit works on the command line but getting a kerberos ticket breaks in the JVM.
+
+   .. code-block:: html
 
         https://github.com/ThinkBigAnalytics/data-lake-accelerator/tree/master/core/kerberos/kerberos-test-client  
 

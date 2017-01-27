@@ -250,9 +250,7 @@ Configuration.rst
     your SSL file with a different CN, you will need to modify the
     users.xml file for that entry.
 
-10. Set the following parameters in application.properties for the NiFi
-   connection. Change the Bolded lines to reflect your correct
-   passwords.
+10. Set the following parameters in application.properties for the NiFi connection. Change the Bolded lines to reflect your correct passwords.
 
     | nifi.rest.host=localhost
     | nifi.rest.https=true

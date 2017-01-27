@@ -275,13 +275,17 @@ The included ActiveMQ script was meant to speed up installation in a sandbox or 
 
 Update the below properties so that NiFI and thinkbig-services can communicate with the existing server.
 
-   a. /opt/nifi/ext-config/config.properties
+.. code-block:: shell
+
+   1. /opt/nifi/ext-config/config.properties
 
       spring.activemq.broker-url
 
-   b. /opt/thinkbig/thinkbig-services/conf/application.properties
+   2. /opt/thinkbig/thinkbig-services/conf/application.properties
 
       jms.activemq.broker.url
+
+..
 
 **Installing on SUSE**
 
@@ -290,6 +294,8 @@ The deployment guide currently addresses installation in a Redhat based environm
 -  **ActiveMQ**
 
 When installing ActiveMQ, you might see the following error:
+
+.. code-block:: shell
 
         ERROR: Configuration variable JAVA\_HOME or JAVACMD is not defined correctly. (JAVA\_HOME='', JAVACMD='java')
 
@@ -302,6 +308,8 @@ This indicates that ActiveMQ isn’t properly using Java as it is set in the sys
 -  **Elasticsearch**
 
 RPM installation isn’t supported on SUSE. To work around this issue, we created a custom init.d service script and wrote up a manual procedure to install Elasticsearch on a single node.
+
+.. code-block:: html
 
     `*https://www.elastic.co/support/matrix* <https://www.elastic.co/support/matrix>`__
 
@@ -350,11 +358,10 @@ There are 3 scenarios for configuring the applications with Java 8.
 
 In this case you need to remove the default JAVA\_HOME used as part of the install. Run the following script:
 
-    For thinkbig-ui and thinkbig-services
-
 .. code-block:: shell
 
-        $ <SETUP\_DIR>/java/remove-default-thinkbig-java-home.sh
+    For thinkbig-ui and thinkbig-services
+    $ <SETUP\_DIR>/java/remove-default-thinkbig-java-home.sh
 
 To test this you can look at each file referenced in the scripts for thinkbig-ui and thinkbig-services to validate the 2 lines setting and exporting the JAVA\_HOME are gone.
 
@@ -368,24 +375,26 @@ To test this you can look at each file referenced in the scripts for thinkbig-ui
 
          $ <SETUP\_DIR>/java/install-java8.sh
 
+..
+
    b. Offline Mode
 
 .. code-block:: shell
 
          $ <SETUP\_DIR>/java/install-java8.sh -o <SETUP\_DIR>
 
-      Example: /opt/thinkbig/setup/java/install-java8.sh -o /opt/thinkbig/setup
+         Example: /opt/thinkbig/setup/java/install-java8.sh -o /opt/thinkbig/setup
+
+..
 
 **Scenario 3**: Java 8 is installed on the node, but it’s not in the default JAVA\_HOME path.
 
 If you already have Java 8 installed and want to reference that one one there is a script to remove the existing path and another script to set the new path for the thinkbig apps.
 
-      For thinkbig-ui and thinkbig-services
-
 .. code-block:: shell
 
+        For thinkbig-ui and thinkbig-services
         $ /opt/thinkbig/setup/java/remove-default-thinkbig-java-home.sh
-
         $ /opt/thinkbig/setup/java/change-thinkbig-java-home.sh <PATH\_TO\_JAVA\_HOME>
 
 Step 8: Install Java Cryptographic Extension
@@ -419,11 +428,15 @@ This method downloads and installs NiFi, and also installs and configures the Th
 
           $ <SETUP\_DIR>/nifi/install-nifi.sh
 
+..
+
        2. Offline Mode
 
 .. code-block:: shell
 
           $ <SETUP\_DIR>/nifi/install-nifi.sh -o <SETUP\_DIR>
+
+..
 
     b. Update JAVA\_HOME (default is /opt/java/current).
 
@@ -431,11 +444,15 @@ This method downloads and installs NiFi, and also installs and configures the Th
 
           $ <SETUP\_DIR>/java/change-nifi-java-home.sh <path to JAVA\_HOME>
 
+..
+
     c. Install Think Big specific components.
 
 .. code-block:: shell
 
           $ <SETUP\_DIR>/nifi/install-thinkbig-components.sh
+
+..
 
 **Option 2**: Leverage an existing NiFi instance
 
@@ -456,6 +473,8 @@ In some cases you may have a separate instance of NiFi or Hortonworks Data Flow 
 
            $ mkdir -p <NIFI\_HOME>/thinkbig/lib/app
 
+..
+
     d. Copy the thinkbig-\*.nar files to the <NIFI\_HOME>/thinkbig/lib directory.
 
     e. Create a directory called "app" in the <NIFI\_HOME>/lib directory.
@@ -463,6 +482,8 @@ In some cases you may have a separate instance of NiFi or Hortonworks Data Flow 
 .. code-block:: shell
 
            $ mkdir <NIFI\_HOME>/lib/app
+
+..
 
     f. Copy the thinkbig-spark-\*.jar files to the <NIFI\_HOME>/thinkbig/lib/app directory.
 
@@ -476,11 +497,17 @@ In some cases you may have a separate instance of NiFi or Hortonworks Data Flow 
            $ ln -s <NIFI\_HOME>/thinkbig/lib/app/thinkbig-spark-interpreter-\*-jar-with-dependencies.jar
                      <NIFI\_HOME>/lib/app/thinkbig-spark-interpreter-jar-with-dependencies.jar
 
+..
+
     h. Modify <NIFI\_HOME>/conf/nifi.properties and update the following property. This modifies NiFI to use our custom provenance repository to send data to the thinkbig-services application.
+
+.. code-block:: shell
 
            nifi.provenance.repository.implementation=com.thinkbiganalytics.nifi.provenance.v2.ThinkbigProvenanceEventRepository
 
            nifi.web.http.port=8079
+
+..
 
 +-------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | **Note:**   | If you decide to leave the port number set to the current value you must update the "nifi.rest.port" property in the thinkbig-services application.properties file.   |
@@ -515,6 +542,8 @@ In some cases you may have a separate instance of NiFi or Hortonworks Data Flow 
 
                   $ mkdir /opt/nifi/ext-config
 
+..
+
                2. SCP the /opt/thinkbig/setup/nifi/config.properties file to the /opt/nifi/ext-config folder.
 
                3. Change the ownership of the above folders to the same owner that nifi runs under. For example, if nifi runs as the "nifi" user:
@@ -522,6 +551,8 @@ In some cases you may have a separate instance of NiFi or Hortonworks Data Flow 
 .. code-block:: shell
 
                   $ chown -R nifi:users /opt/nifi
+
+..
 
     OPTIONAL: The /opt/thinkbig/setup/nifi/install-thinkbig-components.sh contains steps to install NiFi as a service so that NiFi can startup automatically if you restart the node. This might be useful to add if it doesn't already exist for the NiFi instance.
 
@@ -539,19 +570,18 @@ correct permissions for the "nifi" user to access HDFS.
 
         $ usermod -a -G hdfs nifi
 
+..
+
     **Cloudera**
 
 .. code-block:: shell
 
         $ groupadd supergroup
-
-    # Add nifi and hdfs to that group:
-
-.. code-block:: shell
-
+        # Add nifi and hdfs to that group:
         $ usermod -a -G supergroup nifi
-
         $ usermod -a -G supergroup hdfs
+
+..
 
 +-------------+------------------------------------------------------------------------------------------------------+
 | **Note:**   | If you want to perform actions as a root user in a development environment, run the below command.   |
@@ -561,6 +591,8 @@ correct permissions for the "nifi" user to access HDFS.
 
         $ usermod -a -G supergroup root
 
+..
+
 2. thinkbig-services node - Add thinkbig user to the HDFS supergroup or the group defined in hdfs-site.xml, for example:
 
     **Hortonworks**
@@ -569,17 +601,17 @@ correct permissions for the "nifi" user to access HDFS.
 
         $ usermod -a -G hdfs thinkbig
 
+..
+
     **Cloudera**
 
 .. code-block:: shell
 
         $ groupadd supergroup
-
-    # Add nifi and hdfs to that group:
-
-.. code-block:: shell
-
+        # Add nifi and hdfs to that group:
         $ usermod -a -G supergroup hdfs
+
+..
 
 +-------------+-----------------------------------------------------------------------------------------------------+
 | **Note:**   | If you want to perform actions as a root user in a development environment run the below command.   |
@@ -588,6 +620,8 @@ correct permissions for the "nifi" user to access HDFS.
 .. code-block:: shell
 
         $ usermod -a -G supergroup root
+
+..
 
 3. For Clusters:
 
@@ -606,6 +640,8 @@ correct permissions for the "nifi" user to access HDFS.
 
         $ usermod -G hdfs thinkbig
 
+..
+
     **Cloudera** - <Fill me in after testing >
 
 Step 11: Create a dropzone folder on the edge node for file ingest, for example:
@@ -618,6 +654,8 @@ Perform the following step on the node on which NiFI is installed:
     $ mkdir -p /var/dropzone
 
     $ chown nifi /var/dropzone
+
+..
 
 +-------------+-------------------------------------------------------------------------------------------------------------------------------------+
 | **Note:**   | Files should be copied into the dropzone such that user nifi can read and remove. Do not copy files with permissions set as root.   |

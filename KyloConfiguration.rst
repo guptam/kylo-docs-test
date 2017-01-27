@@ -460,33 +460,33 @@ Example JSON for a Feed:
 
 .. code-block:: shell
 
-| {
-|    "feedName":"companies.check\_test",
-|    "feedId":"b4ed909e-8e46-4bb2-965c-7788beabf20d",
-|    "dependentFeedNames":[
-|       "companies.company\_data"
-|    ],
-|    "feedJobExecutionContexts":{
-|       "companies.company\_data":[
-|          {
-|             "jobExecutionId":21342,
-|             "startTime":1478275338000,
-|             "endTime":1478275500000,
-|             "executionContext":{
-|             }
-|          }
-|       ]
-|    },
-|    "latestFeedJobExecutionContext":{
-|       "companies.company\_data":{
-|          "jobExecutionId":21342,
-|          "startTime":1478275338000,
-|          "endTime":1478275500000,
-|          "executionContext":{
-|          }
-|       }
-|    }
-| }
+  {
+     "feedName":"companies.check\_test",
+     "feedId":"b4ed909e-8e46-4bb2-965c-7788beabf20d",
+     "dependentFeedNames":[
+        "companies.company\_data"
+     ],
+     "feedJobExecutionContexts":{
+        "companies.company\_data":[
+           {
+              "jobExecutionId":21342,
+              "startTime":1478275338000,
+              "endTime":1478275500000,
+              "executionContext":{
+              }
+           }
+        ]
+     },
+     "latestFeedJobExecutionContext":{
+        "companies.company\_data":{
+           "jobExecutionId":21342,
+           "startTime":1478275338000,
+           "endTime":1478275500000,
+          "executionContext":{
+          }
+       }
+    }
+ }
 
 ..
 

@@ -255,7 +255,11 @@ The included ActiveMQ script was meant to speed up installation in a sandbox or 
 
 ..
 
-    **Note:** If installing on a different node than NiFi and thinkbig-services you will need to update the following properties:
++----------+---------------------------------------------------------------------------------------------------------------------+
+|**Note:** | If installing on a different node than NiFi and thinkbig-services you will need to update the following properties: |
++----------+---------------------------------------------------------------------------------------------------------------------+
+
+.. code-block:: shell
 
            1. /opt/nifi/ext-config/config.properties
 
@@ -264,6 +268,8 @@ The included ActiveMQ script was meant to speed up installation in a sandbox or 
            2. /opt/thinkbig/thinkbig-services/conf/application.properties
 
                  jms.activemq.broker.url
+
+..
 
 **Option 2**: Leverage an existing ActiveMQ instance
 

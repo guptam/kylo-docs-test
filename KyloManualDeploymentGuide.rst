@@ -369,7 +369,7 @@ To test this you can look at each file referenced in the scripts for thinkbig-ui
 
    a. Install Java 8 - You can modify and use the following script if you want:
 
-    **Online Mode**
+**Online Mode**
 
 .. code-block:: shell
 
@@ -377,8 +377,7 @@ To test this you can look at each file referenced in the scripts for thinkbig-ui
 
 ..
 
-
-        **Offline Mode**
+**Offline Mode**
 
 .. code-block:: shell
 

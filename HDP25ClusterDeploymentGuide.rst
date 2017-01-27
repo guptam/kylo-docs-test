@@ -684,8 +684,8 @@ Import Kylo Templates
 
     a. Locate the index\_text\_service.zip file. You will need the file locally to upload it. You can find it in one of two places:
 
-        <data\_lake\_accelerator\_project>/samples/feeds/nifi-1.0/
-        /opt/thinkbig/setup/data/feeds/nifi-1.0
+        - <data\_lake\_accelerator\_project>/samples/feeds/nifi-1.0/
+        - /opt/thinkbig/setup/data/feeds/nifi-1.0
 
     b. Go to the the Feeds page in Kylo.
 

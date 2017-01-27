@@ -34,6 +34,8 @@ Install Maven 3
 This project requires Maven to execute a build. Use this link to
 download to the Maven installation file:
 
+.. code-block:: shell
+
     `*https://maven.apache.org/install.html* <https://maven.apache.org/install.html>`__
 
 Optional - Add Java 8 to Bash Profile
@@ -44,14 +46,15 @@ $PATH variable.
 
 Edit ~/.bashrc and add the following:
 
+.. code-block:: shell
+
     export MVN\_HOME=/Users/<HomeFolderName>/tools/apache-maven-3.3.3
-
     export MAVEN\_OPTS="-Xms256m -Xmx512m"
-
     export
     JAVA\_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0\_45.jdk/Contents/Home
-
     export PATH=$JAVA\_HOME/bin:$MVN\_HOME/bin:$PATH
+
+..
 
 To test, run the following:
 
@@ -61,13 +64,19 @@ To test, run the following:
 
     $ java -version
 
+..
+
 Install Virtual Box
 -------------------
 
 Use this link to download and install the DMG file to install Virtual
 Box:
 
+.. code-block:: html
+
     `*https://www.virtualbox.org/wiki/Downloads* <https://www.virtualbox.org/wiki/Downloads>`__
+
+..
 
 Install the RPM Tool on your Mac
 --------------------------------
@@ -115,9 +124,17 @@ everything is setup correctly.
 
     $ mvn clean install
 
-**TIP:** For faster Maven builds you can run in offline mode by typing:
+..
 
-    "mvn clean install -o".
++--------+----------------------------------------------------------------+
+|**TIP:**| For faster Maven builds you can run in offline mode by typing: |
++--------+----------------------------------------------------------------+
+
+.. code-block:: shell
+
+    "mvn clean install -o"
+
+..
 
 Add "-DskipTests" to skip unit testing for faster builds.
 
@@ -126,14 +143,18 @@ Install and Configure the Hortonworks Sandbox
 
 Follow the guide below to install and configure the Hortonworks sandbox:
 
+.. code-block:: shell
+
     `*Configure Hortonworks
     Sandbox* <https://github.com/ThinkBigAnalytics/data-lake-accelerator/blob/master/docs/latest/hortonworks-sandbox.adoc>`__
+
+..
 
 Install the Think Big Applications
 ----------------------------------
 
 To install the Think Big apps, NiFi, ActiveMQ, and Elasticsearch in the
-VM you can use the deployment wizard instructions found here.
+VM you can use the deployment wizard instructions found here:
 
     `*Wizard Driven Deployment
     Guide* <https://github.com/ThinkBigAnalytics/data-lake-accelerator/blob/master/docs/latest/deployment/wizard-deployment-guide.adoc>`__
@@ -144,12 +165,12 @@ copy the RPM file from your project folder after running a Maven build.
 .. code-block:: shell
 
     $ cd /opt
-
     $ cp
     /media/sf\_data-lake-accelerator/install/target/rpm/thinkbig-datalake-accelerator/RPMS/noarch/thinkbig-datalake-accelerator-<version>.noarch.rpm
     .
-
     $ rpm -ivh thinkbig-datalake-accelerator-<version>.noarch.rpm
+
+..
 
 Follow the rest of the deployment wizard steps to install the rest of
 the tools in the VM.
@@ -171,7 +192,6 @@ sandbox so you aren’t running two instances at the same time.
 .. code-block:: shell
 
     $ service thinkbig-services stop
-
     $ service thinkbig-ui stop
 
 The applications are configured using Spring Boot.
@@ -214,11 +234,15 @@ IntelliJ Configuration
 Eclipse Configuration
 ---------------------
 
+.. code-block:: html
+
 `*http://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-running-your-application.html* <http://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-running-your-application.html>`__
 
-1. Open Eclipse
+..
 
-2. Import the Kylo project
+1. Open Eclipse.
+
+2. Import the Kylo project.
 
    a. File - Import
 
@@ -233,15 +257,11 @@ Eclipse Configuration
       finish
 
 3. Find and open the
-   "com.thinkbiganalytics.server.ThinkbigServerApplication" class
+   "com.thinkbiganalytics.server.ThinkbigServerApplication" class.
 
-4. Right click and choose to debug as a Java application
+4. Right click and choose to debug as a Java application.
 
-5. Repeat for "com.thinkbiganalytics.ThinkbigDataLakeUiApplication"
+5. Repeat for "com.thinkbiganalytics.ThinkbigDataLakeUiApplication".
 
     OPTIONAL: Install the spring tools suite and run as a spring boot
     option
-
-.. |image0| image:: media/common/thinkbig-logo.png
-   :width: 3.09891in
-   :height: 2.03724in

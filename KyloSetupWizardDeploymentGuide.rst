@@ -62,9 +62,7 @@ the users and groups:
 .. code-block:: shell
 
     $ useradd -r -m -s /bin/bash nifi
-
     $ useradd -r -m -s /bin/bash thinkbig
-
     $ useradd -r -m -s /bin/bash activemq
 
 
@@ -80,9 +78,7 @@ If the groups are missing then run the following:
 .. code-block:: shell
 
     $ groupadd thinkbig
-
     $ groupadd nifi
-
     $ groupadd activemq
 
 
@@ -171,7 +167,6 @@ to the group defined in hdfs-site.xml. For example:
 .. code-block:: shell
 
     $ usermod -a -G hdfs nifi
-
     $ usermod -a -G hdfs thinkbig
 
 **Cloudera**
@@ -179,11 +174,8 @@ to the group defined in hdfs-site.xml. For example:
 .. code-block:: shell
 
     $ groupadd supergroup
-
     # Add nifi and hdfs to that group:
-
     $ usermod -a -G supergroup nifi
-
     $ usermod -a -G supergroup hdfs
 
 **Optional:** If you want to perform actions as a root user in a development environment run the below command
@@ -203,11 +195,8 @@ edge node, add the users/groups to the name nodes on a cluster.
 .. code-block:: shell
 
     $ useradd thinkbig
-
     $ useradd nifi
-
     $ usermod -G hdfs nifi
-
     $ usermod -G hdfs thinkbig
 
 **Cloudera**
@@ -224,7 +213,6 @@ For example:
 .. code-block:: shell
 
     $ mkdir -p /var/dropzone
-
     $ chown nifi /var/dropzone
 
 +------------+-------------------------------------------------------------------------------------+

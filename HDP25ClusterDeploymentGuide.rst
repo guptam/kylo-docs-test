@@ -605,14 +605,14 @@ Create Ranger Policies
 
 .. code-block:: shell
 
-        | name: kylo-nifi-access
-        | Resource Path:
-        |   /model.db/\*
-        |   /archive/\*
-        |   /etl/\*
-        |   /app/warehouse/\*
-        | user: nifi
-        | permissions: all  
+        name: kylo-nifi-access
+        Resource Path:
+          /model.db/\*
+          /archive/\*
+          /etl/\*
+          /app/warehouse/\*
+        user: nifi
+        permissions: all  
 
 3. Create the Hive NiFi policy.
 
@@ -622,12 +622,12 @@ Create Ranger Policies
 
 .. code-block:: shell
 
-        | Policy Name: kylo-nifi-access
-        | Hive Database: userdata, default (required for access for some reason)
-        | table: \*
-        | column: \*
-        | user: nifi
-        | permissions: all  
+        Policy Name: kylo-nifi-access
+        Hive Database: userdata, default (required for access for some reason)
+        table: \*
+        column: \*
+        user: nifi
+        permissions: all  
 
 4. Create the Hive Kylo policy.
 
@@ -643,12 +643,12 @@ Grant hive access to "thinkbig" user for hive tables, profile, and wrangler.
 
 .. code-block:: shell
 
-        | Policy Name: kylo-thinkbig-access
-        | Hive Database: userdata
-        | table: \*
-        | column: \*
-        | user: thinkbig
-        | permissions: select  
+        Policy Name: kylo-thinkbig-access
+        Hive Database: userdata
+        table: \*
+        column: \*
+        user: thinkbig
+        permissions: select  
 
 Import Kylo Templates
 =====================
@@ -714,18 +714,18 @@ Import Kylo Templates
 
 .. code-block:: shell
 
-        | [root@ip-10-0-178-60 conf]# pwd
-        | /opt/nifi/current/conf
-        | [root@ip-10-0-178-60 conf]# ls -l
-        | total 48
-        | -rw-rw-r-- 1 nifi users 3132 Dec 6 22:05 bootstrap.conf
-        | -rw-rw-r-- 1 nifi users 2119 Aug 26 13:51 bootstrap-notification-services.xml
-        | -rw-rw-r-- 1 nifi nifi 142 Dec 7 00:36 jms-subscription-2bd64d8a-2b1f-1ef0-e961-e50680e34686
-        | -rw-rw-r-- 1 nifi nifi 142 Dec 7 00:54 jms-subscription-2bd64d97-2b1f-1ef0-7fc9-279eacf076dd
-        | -rw-rw-r-- 1 nifi users 8243 Aug 26 13:51 logback.xml
-        | -rw-rw-r-- 1 nifi users 8701 Dec 7 00:52 nifi.properties
-        | -rw-rw-r-- 1 nifi users 3637 Aug 26 13:51 state-management.xml
-        | -rw-rw-r-- 1 nifi users 1437 Aug 26 13:51 zookeeper.properties  
+        [root@ip-10-0-178-60 conf]# pwd
+        /opt/nifi/current/conf
+        [root@ip-10-0-178-60 conf]# ls -l
+        total 48
+        -rw-rw-r-- 1 nifi users 3132 Dec 6 22:05 bootstrap.conf
+        -rw-rw-r-- 1 nifi users 2119 Aug 26 13:51 bootstrap-notification-services.xml
+        -rw-rw-r-- 1 nifi nifi 142 Dec 7 00:36 jms-subscription-2bd64d8a-2b1f-1ef0-e961-e50680e34686
+        -rw-rw-r-- 1 nifi nifi 142 Dec 7 00:54 jms-subscription-2bd64d97-2b1f-1ef0-7fc9-279eacf076dd
+        -rw-rw-r-- 1 nifi users 8243 Aug 26 13:51 logback.xml
+        -rw-rw-r-- 1 nifi users 8701 Dec 7 00:52 nifi.properties
+        -rw-rw-r-- 1 nifi users 3637 Aug 26 13:51 state-management.xml
+        -rw-rw-r-- 1 nifi users 1437 Aug 26 13:51 zookeeper.properties  
 
 ..
 

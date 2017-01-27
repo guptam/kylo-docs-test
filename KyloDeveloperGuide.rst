@@ -50,8 +50,7 @@ Edit ~/.bashrc and add the following:
 
     export MVN\_HOME=/Users/<HomeFolderName>/tools/apache-maven-3.3.3
     export MAVEN\_OPTS="-Xms256m -Xmx512m"
-    export
-    JAVA\_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0\_45.jdk/Contents/Home
+    export JAVA\_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0\_45.jdk/Contents/Home
     export PATH=$JAVA\_HOME/bin:$MVN\_HOME/bin:$PATH
 
 ..
@@ -61,7 +60,6 @@ To test, run the following:
 .. code-block:: shell
 
     $ mvn -v
-
     $ java -version
 
 ..
@@ -98,8 +96,7 @@ the command line.
 
    a. cd to the directory you want to install the project to.
 
-   b. Type "git
-      clone \ `*https://github.com/ThinkBigAnalytics/data-lake-accelerator.git"* <https://github.com/ThinkBigAnalytics/data-lake-accelerator.git>`__.
+   b. Type "git clone \ `*https://github.com/ThinkBigAnalytics/data-lake-accelerator.git"* <https://github.com/ThinkBigAnalytics/data-lake-accelerator.git>`__.
 
 2. Import from your IDE using the
    "`*https://github.com/ThinkBigAnalytics/data-lake-accelerator.git* <https://github.com/ThinkBigAnalytics/data-lake-accelerator.git>`__"
@@ -165,8 +162,7 @@ copy the RPM file from your project folder after running a Maven build.
 .. code-block:: shell
 
     $ cd /opt
-    $ cp
-    /media/sf\_data-lake-accelerator/install/target/rpm/thinkbig-datalake-accelerator/RPMS/noarch/thinkbig-datalake-accelerator-<version>.noarch.rpm.
+    $ cp /media/sf\_data-lake-accelerator/install/target/rpm/thinkbig-datalake-accelerator/RPMS/noarch/thinkbig-datalake-accelerator-<version>.noarch.rpm.
     $ rpm -ivh thinkbig-datalake-accelerator-<version>.noarch.rpm
 
 ..

@@ -166,8 +166,7 @@ copy the RPM file from your project folder after running a Maven build.
 
     $ cd /opt
     $ cp
-    /media/sf\_data-lake-accelerator/install/target/rpm/thinkbig-datalake-accelerator/RPMS/noarch/thinkbig-datalake-accelerator-<version>.noarch.rpm
-    .
+    /media/sf\_data-lake-accelerator/install/target/rpm/thinkbig-datalake-accelerator/RPMS/noarch/thinkbig-datalake-accelerator-<version>.noarch.rpm.
     $ rpm -ivh thinkbig-datalake-accelerator-<version>.noarch.rpm
 
 ..

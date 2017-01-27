@@ -85,14 +85,14 @@ Step 1: Setup Directory
 Kylo is most often installed on one edge node. If you are deploying
 everything to one node, the setup directory would typically be:
 
-:: code-block:: shell
+.. code-block:: shell
 
     SETUP\_DIR=/opt/thinkbig/setup
 
 Sometimes administrators install NiFi on a second edge node to communicate with a Hortonworks or Cloudera cluster. In this case, copy
 the setup folder to nodes that do not have the Think Big applications installed. In that case, use this SETUP\_DIR command:
 
-:: code-block:: shell
+.. code-block:: shell
 
     SETUP\_DIR=/tmp/thinkbig-install
 

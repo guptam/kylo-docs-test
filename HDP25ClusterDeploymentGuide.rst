@@ -201,10 +201,10 @@ Prepare the Kylo Edge Node
 
 .. code-block:: shell
 
-    | [root]# cd /opt/thinkbig/setup/
-    | [root setup]# ./generate-offline-install.sh   
+    [root]# cd /opt/thinkbig/setup/
+    [root setup]# ./generate-offline-install.sh   
 
-    | Copy the TAR file to both the Kylo edge node as well as the NiFi edge node.  
+    Copy the TAR file to both the Kylo edge node as well as the NiFi edge node.  
 
 8. Prepare a list of feed categories you wish to create.
 
@@ -216,11 +216,11 @@ Prepare the Kylo Edge Node
 
     .. code-block:: shell
 
-        | [root]$ su - hdfs
-     | [hdfs]$ kinit -kt /etc/security/keytabs/hdfs.headless.keytab <hdfs\_principal\_name>
-     | [hdfs]$ hdfs dfs -mkdir /user/thinkbig
-     | [hdfs]$ hdfs dfs -chown thinkbig:thinkbig /user/thinkbig
-     | [hdfs]$ hdfs dfs -ls /user   
+        [root]$ su - hdfs
+     [hdfs]$ kinit -kt /etc/security/keytabs/hdfs.headless.keytab <hdfs\_principal\_name>
+     [hdfs]$ hdfs dfs -mkdir /user/thinkbig
+     [hdfs]$ hdfs dfs -chown thinkbig:thinkbig /user/thinkbig
+     [hdfs]$ hdfs dfs -ls /user   
 
 ..
 
@@ -259,11 +259,11 @@ Prepare the NiFi Edge Node
 
 .. code-block:: shell
 
-    | [root]$ su - hdfs
-    | [hdfs]$ kinit -kt /etc/security/keytabs/hdfs.headless.keytab <hdfs\_principal\_name>
-    | [hdfs]$ hdfs dfs -mkdir /user/nifi
-    | [hdfs]$ hdfs dfs -chown nifi:nifi /user/nifi
-    | [hdfs]$ hdfs dfs -ls /user   
+    [root]$ su - hdfs
+    [hdfs]$ kinit -kt /etc/security/keytabs/hdfs.headless.keytab <hdfs\_principal\_name>
+    [hdfs]$ hdfs dfs -mkdir /user/nifi
+    [hdfs]$ hdfs dfs -chown nifi:nifi /user/nifi
+    [hdfs]$ hdfs dfs -ls /user   
 
 ..
 
@@ -276,11 +276,11 @@ Create the Keytabs for "nifi" and "thinkbig" Users
 
 .. code-block:: shell
 
-    | [root]# kadmin.local
-    | kadmin.local: addprinc -randkey "thinkbig/<KYLO\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL"
-    | kadmin.local: addprinc -randkey "nifi/<NIFI\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL"
-    | kadmin.local: xst -k /tmp/thinkbig.service.keytab thinkbig/<KYLO\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL
-    | kadmin.local: xst -k /tmp/nifi.service.keytab nifi/<NIFI\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL  
+    [root]# kadmin.local
+    kadmin.local: addprinc -randkey "thinkbig/<KYLO\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL"
+    kadmin.local: addprinc -randkey "nifi/<NIFI\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL"
+    kadmin.local: xst -k /tmp/thinkbig.service.keytab thinkbig/<KYLO\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL
+    kadmin.local: xst -k /tmp/nifi.service.keytab nifi/<NIFI\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL  
 
 2. Note the hive principal name for the thrift connection later. 
 

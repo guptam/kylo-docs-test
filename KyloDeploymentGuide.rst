@@ -27,8 +27,6 @@ Starter.
 See the Dependencies section in the deployment checklist: `Deployment
 Checklist <https://github.com/ThinkBigAnalytics/data-lake-accelerator/blob/master/docs/latest/deployment/deployment-checklist.adoc>`__
 
-Table 1. Tested Platforms
-
 +-----------------------+-------------------------------------------------------------+----------------+
 | **Platform**          | **URL**                                                     | **Version**    |
 +-----------------------+-------------------------------------------------------------+----------------+
@@ -209,7 +207,8 @@ components to work with a Kerberos cluster.
 `Configure NiFi for
 Kerberos <https://github.com/ThinkBigAnalytics/data-lake-accelerator/blob/master/docs/latest/security/kerberos/nifi-configuration-kerboros-cluster.adoc>`__
 
-**Step 2: Configure Kerberos for Kylo Applications**
+Step 2: Configure Kerberos for Kylo Applications
+------------------------------------------------
 
 Additional configuration is required for allowing some features in the
 Kylo applications to work with a Kerberos cluster.
@@ -223,9 +222,12 @@ Configuration Files
 Configuration for Kylo services are located under
 the following files:
 
-/opt/thinkbig/thinkbig-ui/conf/application.properties
+.. code-block:: shell
 
+/opt/thinkbig/thinkbig-ui/conf/application.properties
 /opt/thinkbig/thinkbig-services/conf/application.properties
+
+..
 
 Encrypting Configuration Property Values
 ----------------------------------------
@@ -244,13 +246,18 @@ get it’s encrypted form using the curl command like this:
 .. code-block:: shell
 
     $ curl localhost:8420/encrypt –d mypassword
-
     29fcf1534a84700c68f5c79520ecf8911379c8b5ef4427a696d845cc809b4af0
+
+..
 
 You would then copy that value and replace the clear text password
 string in the properties file with the encrypted value:
 
+.. code-block:: shell
+
     hive.datasource.password={cipher}29fcf1534a84700c68f5c79520ecf8911379c8b5ef4427a696d845cc809b4af0
+
+..
 
 The benefit of this approach is that you will be getting a value that is
 guaranteed to work with the encryption settings of the server where that
@@ -262,15 +269,17 @@ Optimizing Performance
 ======================
 
 You can adjust the memory setting for each services using the below
-environment variables
+environment variables:
+
+.. code-block:: shell
 
     /opt/thinkbig/thinkbig-ui/bin/run-thinkbig-ui.sh
-
     export THINKBIG\_UI\_OPTS= -Xmx4g
 
     /opt/thinkbig/thinkbig-services/bin/run-thinkbig-services.sh
-
     export THINKBIG\_SERVICES\_OPTS= -Xmx4g
+
+..
 
 The setting above would set the Java maximum heap size to 4 GB.
 
@@ -281,14 +290,21 @@ By default the thinkbig-services and thinkbig-ui application set the
 JAVA\_HOME location to /opt/java/current. This can easily be changed by
 editing the JAVA\_HOME environment variable in the following two files:
 
-    /opt/thinkbig/thinkbig-ui/bin/run-thinkbig-ui.sh
+.. code-block:: shell
 
+    /opt/thinkbig/thinkbig-ui/bin/run-thinkbig-ui.sh
     /opt/thinkbig/thinkbig-services/bin/run-thinkbig-services.sh
+
+..
 
 In addition, if you run the script to modify the NiFI JAVA\_HOME
 variable you will need to edit:
 
+.. code-block:: shell
+
     /opt/nifi/current/bin/nifi.sh
+
+..
 
 S3 Support For Data Transformations
 -----------------------------------
@@ -310,48 +326,50 @@ start up.
 For starting and stopping the 3 Kylo services there you
 can run the following scripts.
 
-    /opt/thinkbig/start-thinkbig-apps.sh
+.. code-block:: shell
 
+    /opt/thinkbig/start-thinkbig-apps.sh
     /opt/thinkbig/stop-thinkbig-apps.sh
 
-To Start Individual Services
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..
 
-1.  $ service activemq start
+1. To Start Individual Services:
 
-2.  $ service elasticsearch start
+.. code-block:: shell
 
-3.  $ service nifi start
+$ service activemq start
+$ service elasticsearch start
+$ service nifi start
+$ service thinkbig-spark-shell start
+$ service thinkbig-services start
+$ service thinkbig-ui start  
 
-4.  $ service thinkbig-spark-shell start
+..
 
-5.  $ service thinkbig-services start
+2.  To Stop individual services:
 
-6.  $ service thinkbig-ui start  
+.. code-block:: shell
 
-7.  To Stop individual services $ service activemq stop
+$ service activemq stop
+$ service elasticsearch stop
+$ service nifi stop
+$ service thinkbig-spark-shell stop
+$ service thinkbig-services stop
+$ service thinkbig-ui stop  
 
-8.  $ service elasticsearch stop
+..
 
-9.  $ service nifi stop
+3. To get the status of individual services $ service activemq status:
 
-10. $ service thinkbig-spark-shell stop
+.. code-block:: shell
 
-11. $ service thinkbig-services stop
+$ service elasticsearch status
+$ service nifi status
+$ service thinkbig-spark-shell status
+$ service thinkbig-services status
+$ service thinkbig-ui status  
 
-12. $ service thinkbig-ui stop  
-
-13. To get the status of individual services $ service activemq status
-
-14. $ service elasticsearch status
-
-15. $ service nifi status
-
-16. $ service thinkbig-spark-shell status
-
-17. $ service thinkbig-services status
-
-18. $ service thinkbig-ui status  
+..
 
 Log Output
 ==========
@@ -361,46 +379,55 @@ Configuring Log Output
 
 Log output for the services mentioned above are configured at:
 
-    /opt/thinkbig/thinkbig-ui/conf/log4j.properties
+.. code-block:: shell
 
+    /opt/thinkbig/thinkbig-ui/conf/log4j.properties
     /opt/thinkbig/thinkbig-services/conf/log4j.properties
+
+..
 
 You may place logs where desired according to the
 'log4j.appender.file.File' property. Note the configuration line:
 
+.. code-block:: shell
+
     log4j.appender.file.File=/var/log/<app>/<app>.log
+
+..
 
 Viewing Log Output
 ------------------
 
 The default log locations for the various applications are located at:
 
+.. code-block:: shell
+
     /var/log/<service\_name>
+
+..
 
 Web and REST Access
 ===================
 
 Below are the default URL’s and ports for the services:
 
+.. code-block:: shell
+
 Feed Manager and Operations UI
-
 http://127.0.0.1:8400
-
 username: dladmin
-
 password: thinkbig
 
 NiFi UI
-
 http://127.0.0.1:8079/nifi
 
 Elasticsearch REST API
-
 http://127.0.0.1:9200
 
 ActiveMQ Admin
-
 http://127.0.0.1:8161/admin
+
+..
 
 Appendix: Cleanup scripts
 =========================
@@ -413,8 +440,12 @@ ActiveMQ, and NiFi.
 
     $ /opt/thinkbig/setup/dev/cleanup-env.sh
 
-IMPORTANT Only run this in a DEV environment. This will delete all
-application and the MySQL schema
+..
+
++---------------+-------------------------------------------------------------------------------------------+
+|**IMPORTANT!** | Only run this in a DEV environment. This will delete all application and the MySQL schema.|
++---------------+-------------------------------------------------------------------------------------------+
+
 
 In addition there is a script for cleaning up the hive schema and HDFS
 folders that are related to a specific "category" that is defined in the
@@ -424,7 +455,9 @@ UI.
 
     $ /opt/thinkbig/setup/dev/cleanupCategory.sh [categoryName]
 
-Example: /opt/thinkbig/setup/dev/cleanupCategory.sh customers
+    Example: /opt/thinkbig/setup/dev/cleanupCategory.sh customers
+
+..
 
 Appendix: Postgres Integration
 ==============================
@@ -445,7 +478,3 @@ using the 0.7.1 version of this icon package.
 
 **icon-colors.json** This is an array of objects indicating the display
 name and respective Hex color code.
-
-.. |image0| image:: media/common/thinkbig-logo.png
-   :width: 3.04822in
-   :height: 2.00392in

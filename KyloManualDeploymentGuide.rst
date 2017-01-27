@@ -422,7 +422,7 @@ This method downloads and installs NiFi, and also installs and configures the Th
 
     a. Install NiFi
 
-       **Online Mode**
+    **Online Mode**
 
 .. code-block:: shell
 
@@ -430,7 +430,7 @@ This method downloads and installs NiFi, and also installs and configures the Th
 
 ..
 
-       **Offline Mode**
+    **Offline Mode**
 
 .. code-block:: shell
 

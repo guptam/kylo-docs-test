@@ -263,7 +263,11 @@ Prepare the NiFi Edge Node
     | [hdfs]$ hdfs dfs -chown nifi:nifi /user/nifi
     | [hdfs]$ hdfs dfs -ls /user   
 
-  **TIP:** If you don't know the HDFS Kerberos principal name run "klist -kt /etc/security/keytabs/hdfs.headless.keytab"  .
+..
+
++--------+---------------------------------------------------------------------------------------------------------------+
+|**TIP:**| If you don't know the HDFS Kerberos principal name run "klist -kt /etc/security/keytabs/hdfs.headless.keytab"  .|
++--------+---------------------------------------------------------------------------------------------------------------+
 
 Create the Keytabs for "nifi" and "thinkbig" Users
 ==================================================

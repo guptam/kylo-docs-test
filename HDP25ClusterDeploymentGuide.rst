@@ -286,10 +286,10 @@ Create the Keytabs for "nifi" and "thinkbig" Users
 
 .. code-block:: shell
 
-    | # Write down the principal name for hive for the KDC node
-    | kadmin.local: listprincs   
+    # Write down the principal name for hive for the KDC node
+    kadmin.local: listprincs   
 
-    | kadmin.local: exit  
+    kadmin.local: exit  
 
 3. Move the keytabs to the correct edge nodes.
 
@@ -299,28 +299,28 @@ Create the Keytabs for "nifi" and "thinkbig" Users
 
 .. code-block:: shell
 
-    | [root opt]# mv /tmp/thinkbig.service.keytab /etc/security/keytabs/
-    | [root keytabs]# chown thinkbig:thinkbig/etc/security/keytabs/thinkbig.service.keytab
-    | [root opt]# chmod 400/etc/security/keytabs/thinkbig.service.keytab  
+    [root opt]# mv /tmp/thinkbig.service.keytab /etc/security/keytabs/
+    [root keytabs]# chown thinkbig:thinkbig/etc/security/keytabs/thinkbig.service.keytab
+    [root opt]# chmod 400/etc/security/keytabs/thinkbig.service.keytab  
 
 5. Test the keytab on the Kylo edge node. 
 
 .. code-block:: shell
 
-    | [root keytabs]# su - thinkbig
-    | [thinkbig ~]$ kinit -kt /etc/security/keytabs/thinkbig.service.keytab thinkbig/<KYLO\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL
-    | [thinkbig ~]$ klist
-    | [thinkbig ~]$ klist
-    | Ticket cache: FILE:/tmp/krb5cc\_496
-    | Default principal: thinkbig/ip-172-31-42-133.us-west-2.compute.internal@US-WEST-2.COMPUTE.INTERNAL
-    | Valid starting Expires Service principal
-    | 11/29/2016 22:37:57 11/30/2016 22:37:57 krbtgt/US-WEST-2.COMPUTE.INTERNAL@US-WEST-2.COMPUTE.INTERNAL   
+    [root keytabs]# su - thinkbig
+    [thinkbig ~]$ kinit -kt /etc/security/keytabs/thinkbig.service.keytab thinkbig/<KYLO\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL
+    [thinkbig ~]$ klist
+    [thinkbig ~]$ klist
+    Ticket cache: FILE:/tmp/krb5cc\_496
+    Default principal: thinkbig/ip-172-31-42-133.us-west-2.compute.internal@US-WEST-2.COMPUTE.INTERNAL
+    Valid starting Expires Service principal
+    11/29/2016 22:37:57 11/30/2016 22:37:57 krbtgt/US-WEST-2.COMPUTE.INTERNAL@US-WEST-2.COMPUTE.INTERNAL   
 
-    | [thinkbig ~]$ hdfs dfs -ls /
-    | Found 10 items ....   
+    [thinkbig ~]$ hdfs dfs -ls /
+    Found 10 items ....   
 
-    | # Now try hive
-    | [thinkbig ~]$ hive  
+    # Now try hive
+    [thinkbig ~]$ hive  
 
 6. Configure the NiFi edge node.
 
@@ -334,18 +334,18 @@ Create the Keytabs for "nifi" and "thinkbig" Users
 
 .. code-block:: shell
 
-    | [root keytabs]# su - nifi
-    | [nifi ~]$ kinit -kt /etc/security/keytabs/nifi.service.keytab nifi/i<NIFI\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL
-    | [nifi ~]$ klist
-    | Ticket cache: FILE:/tmp/krb5cc\_497
-    | Default principal: nifi/<NIFI\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL
-    | Valid starting Expires Service principal
-    | 11/29/2016 22:40:08 11/30/2016 22:40:08 krbtgt/US-WEST-2.COMPUTE.INTERNAL@US-WEST-2.COMPUTE.INTERNAL   
+    [root keytabs]# su - nifi
+    [nifi ~]$ kinit -kt /etc/security/keytabs/nifi.service.keytab nifi/i<NIFI\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL
+    [nifi ~]$ klist
+    Ticket cache: FILE:/tmp/krb5cc\_497
+    Default principal: nifi/<NIFI\_EDGE\_HOSTNAME>@US-WEST-2.COMPUTE.INTERNAL
+    Valid starting Expires Service principal
+    11/29/2016 22:40:08 11/30/2016 22:40:08 krbtgt/US-WEST-2.COMPUTE.INTERNAL@US-WEST-2.COMPUTE.INTERNAL   
 
-    | [nifi ~]$ hdfs dfs -ls /
-    | Found 10 items   
+    [nifi ~]$ hdfs dfs -ls /
+    Found 10 items   
 
-    | [nifi ~]$ hive  
+    [nifi ~]$ hive  
 
 8. Test with Kerberos test client. 
 
@@ -366,12 +366,12 @@ Install NiFi on the NiFi Edge Node
 
 .. code-block:: shell
 
-    | [root tmp]# mkdir tba-install
-    | [root tmp]# mv thinkbig-install.tar tba-install/
-    | [root tmp]# cd tba-install/
-    | [root tba-install]# tar -xvf thinkbig-install.tar   
+    [root tmp]# mkdir tba-install
+    [root tmp]# mv thinkbig-install.tar tba-install/
+    [root tmp]# cd tba-install/
+    [root tba-install]# tar -xvf thinkbig-install.tar   
 
-    | [root tba-install]# /tmp/tba-install/setup-wizard.sh -o  
+    [root tba-install]# /tmp/tba-install/setup-wizard.sh -o  
 
 3. Install the following using the wizard.
 
@@ -427,13 +427,13 @@ Install the Kylo Application on the Kylo Edge Node
 
 .. code-block:: shell
 
-    | [root tmp]# cd /tmp.
-    | [root tmp]# mkdir tba-install
-    | [root tmp]# mv thinkbig-install.tar tba-install/
-    | [root tmp]# cd tba-install/
-    | [root tba-install]# tar -xvf thinkbig-install.tar   
+    [root tmp]# cd /tmp.
+    [root tmp]# mkdir tba-install
+    [root tmp]# mv thinkbig-install.tar tba-install/
+    [root tmp]# cd tba-install/
+    [root tba-install]# tar -xvf thinkbig-install.tar   
 
-    | [root tba-install]# /tmp/tba-install/setup-wizard.sh -o  
+    [root tba-install]# /tmp/tba-install/setup-wizard.sh -o  
 
 4. Install the following using the wizard (everything but NiFi).
 
@@ -448,76 +448,76 @@ Install the Kylo Application on the Kylo Edge Node
 
    .. code-block:: shell
 
-    | $ vi /etc/elasticsearch/elasticsearch.yml
-    | network.host: localhost,<KYLO\_EDGE\_HOST>  
+    $ vi /etc/elasticsearch/elasticsearch.yml
+    network.host: localhost,<KYLO\_EDGE\_HOST>  
 
 6. Edit the thinbig-spark-shell configuration file. 
 
 .. code-block:: shell
 
-    | [root thinkbig]# vi /opt/thinkbig/thinkbig-services/conf/spark.properties   
+    [root thinkbig]# vi /opt/thinkbig/thinkbig-services/conf/spark.properties   
 
-    | kerberos.thinkbig.kerberosEnabled=true
-    | kerberos.thinkbig.hadoopConfigurationResources=/etc/hadoop/conf/core-site.xml,/etc/hadoop/conf/hdfs-site.xml
-    | kerberos.thinkbig.kerberosPrincipal=<thinkbig\_principal\_name>
-    | kerberos.thinkbig.keytabLocation=/etc/security/keytabs/thinkbig.service.keytab  
+    kerberos.thinkbig.kerberosEnabled=true
+    kerberos.thinkbig.hadoopConfigurationResources=/etc/hadoop/conf/core-site.xml,/etc/hadoop/conf/hdfs-site.xml
+    kerberos.thinkbig.kerberosPrincipal=<thinkbig\_principal\_name>
+    kerberos.thinkbig.keytabLocation=/etc/security/keytabs/thinkbig.service.keytab  
 
 7. Edit the thinkbig-services configuration file. 
 
 .. code-block:: shell
 
-    | [root /]# vi /opt/thinkbig/thinkbig-services/conf/application.properties   
-    |
-    | spring.datasource.url=jdbc:mysql://<MYSQL\_HOSTNAME>:3306/thinkbig?noAccessToProcedureBodies=true
-    | spring.datasource.username=kylo
-    | spring.datasource.password=password   
-    |
-    | ambariRestClientConfig.host=<AMBARI\_SERVER\_HOSTNAME>
-    | ambariRestClientConfig.username=kylo
-    | ambariRestClientConfig.password=password   
-    |
-    | metadata.datasource.url=jdbc:mysql://<MYSQL\_HOSTNAME>:3306/thinkbig?noAccessToProcedureBodies=true
-    | metadata.datasource.username=kylo
-    | metadata.datasource.password=password   
-    |
-    | hive.datasource.url=jdbc:hive2://<HIVE\_SERVER2\_HOSTNAME>:10000/default;principal=<HIVE\_PRINCIPAL\_NAME>   
-    |
-    | hive.metastore.datasource.url=jdbc:mysql://<MYSQL\_HOSTNAME>:3306/hive
-    | hive.metastore.datasource.username=kylo
-    | hive.metastore.datasource.password=password   
-    |
-    | modeshape.datasource.url=jdbc:mysql://<MYSQL\_HOSTNAME>:3306/thinkbig?noAccessToProcedureBodies=true
-    | modeshape.datasource.username=kylo
-    | modeshape.datasource.password=password   
-    |
-    | nifi.rest.host=<NIFI\_EDGE\_HOST>   
-    |
-    | kerberos.hive.kerberosEnabled=true
-    | kerberos.hive.hadoopConfigurationResources=/etc/hadoop/conf/core-site.xml,/etc/hadoop/conf/hdfs-site.xml
-    | kerberos.hive.kerberosPrincipal=<THINKBIG\_PRINCIPAL\_NAME>
-    | kerberos.hive.keytabLocation=/etc/security/keytabs/thinkbig.service.keytab   
-    |
-    | nifi.service.mysql.database\_user=kylo
-    | nifi.service.mysql.password=password
-    | nifi.service.mysql.database\_connection\_url=jdbc:mysql://<MYSQL\_HOSTNAME>   
-    |
-    | nifi.service.hive\_thrift\_service.database\_connection\_url=jdbc:hive2://<HIVE\_SERVER2\_HOSTNAME>:10000/default;principal=<HIVE\_PRINCIPAL\_NAME>
-    | nifi.service.hive\_thrift\_service.kerberos\_principal=<NIFI\_PRINCIPAL\_NAME>
-    | nifi.service.hive\_thrift\_service.kerberos\_keytab=/etc/security/keytabs/nifi.service.keytab
-    | nifi.service.hive\_thrift\_service.hadoop\_configuration\_resources=/etc/hadoop/conf/core-site.xml,/etc/hadoop/conf/hdfs-site.xml
-    |
-       | nifi.service.think\_big\_metadata\_service.rest\_client\_url=http://<KYLO\_EDGE\_HOSTNAME>:8400/proxy/metadata   
-    |
-    | nifi.executesparkjob.sparkmaster=yarn-cluster
-    | nifi.executesparkjob.extra\_jars=/usr/hdp/current/spark-client/lib/datanucleus-api-jdo-3.2.6.jar,/usr/hdp/current/spark-client/lib/datanucleus-core-3.2.10.jar,/usr/hdp/current/spark-client/lib/datanucleus-rdbms-3.2.9.jar
-    | nifi.executesparkjob.extra\_files=/usr/hdp/current/spark-client/conf/hive-site.xml   
-    |
-    | nifi.all\_processors.kerberos\_principal=<NIFI\_PRINCIPAL\_NAME>
-    | nifi.all\_processors.kerberos\_keytab=/etc/security/keytabs/nifi.service.keytab
-    | nifi.all\_processors.hadoop\_configuration\_resources=/etc/hadoop/conf/core-site.xml,/etc/hadoop/conf/hdfs-site.xml   
-    |
-    | Set the JMS server hostname for the Kylo hosted JMS server
-    | config.elasticsearch.jms.url=tcp://<KYLO\_EDGE\_HOST>:61616  
+    [root /]# vi /opt/thinkbig/thinkbig-services/conf/application.properties   
+
+    spring.datasource.url=jdbc:mysql://<MYSQL\_HOSTNAME>:3306/thinkbig?noAccessToProcedureBodies=true
+    spring.datasource.username=kylo
+    spring.datasource.password=password   
+
+    ambariRestClientConfig.host=<AMBARI\_SERVER\_HOSTNAME>
+    ambariRestClientConfig.username=kylo
+    ambariRestClientConfig.password=password   
+
+    metadata.datasource.url=jdbc:mysql://<MYSQL\_HOSTNAME>:3306/thinkbig?noAccessToProcedureBodies=true
+    metadata.datasource.username=kylo
+    metadata.datasource.password=password   
+
+    hive.datasource.url=jdbc:hive2://<HIVE\_SERVER2\_HOSTNAME>:10000/default;principal=<HIVE\_PRINCIPAL\_NAME>   
+
+    hive.metastore.datasource.url=jdbc:mysql://<MYSQL\_HOSTNAME>:3306/hive
+    hive.metastore.datasource.username=kylo
+    hive.metastore.datasource.password=password   
+
+    modeshape.datasource.url=jdbc:mysql://<MYSQL\_HOSTNAME>:3306/thinkbig?noAccessToProcedureBodies=true
+    modeshape.datasource.username=kylo
+    modeshape.datasource.password=password   
+
+    nifi.rest.host=<NIFI\_EDGE\_HOST>   
+
+    kerberos.hive.kerberosEnabled=true
+    kerberos.hive.hadoopConfigurationResources=/etc/hadoop/conf/core-site.xml,/etc/hadoop/conf/hdfs-site.xml
+    kerberos.hive.kerberosPrincipal=<THINKBIG\_PRINCIPAL\_NAME>
+    kerberos.hive.keytabLocation=/etc/security/keytabs/thinkbig.service.keytab   
+
+    nifi.service.mysql.database\_user=kylo
+    nifi.service.mysql.password=password
+    nifi.service.mysql.database\_connection\_url=jdbc:mysql://<MYSQL\_HOSTNAME>   
+
+    nifi.service.hive\_thrift\_service.database\_connection\_url=jdbc:hive2://<HIVE\_SERVER2\_HOSTNAME>:10000/default;principal=<HIVE\_PRINCIPAL\_NAME>
+    nifi.service.hive\_thrift\_service.kerberos\_principal=<NIFI\_PRINCIPAL\_NAME>
+    nifi.service.hive\_thrift\_service.kerberos\_keytab=/etc/security/keytabs/nifi.service.keytab
+    nifi.service.hive\_thrift\_service.hadoop\_configuration\_resources=/etc/hadoop/conf/core-site.xml,/etc/hadoop/conf/hdfs-site.xml
+
+       nifi.service.think\_big\_metadata\_service.rest\_client\_url=http://<KYLO\_EDGE\_HOSTNAME>:8400/proxy/metadata   
+
+    nifi.executesparkjob.sparkmaster=yarn-cluster
+    nifi.executesparkjob.extra\_jars=/usr/hdp/current/spark-client/lib/datanucleus-api-jdo-3.2.6.jar,/usr/hdp/current/spark-client/lib/datanucleus-core-3.2.10.jar,/usr/hdp/current/spark-client/lib/datanucleus-rdbms-3.2.9.jar
+    nifi.executesparkjob.extra\_files=/usr/hdp/current/spark-client/conf/hive-site.xml   
+
+    nifi.all\_processors.kerberos\_principal=<NIFI\_PRINCIPAL\_NAME>
+    nifi.all\_processors.kerberos\_keytab=/etc/security/keytabs/nifi.service.keytab
+    nifi.all\_processors.hadoop\_configuration\_resources=/etc/hadoop/conf/core-site.xml,/etc/hadoop/conf/hdfs-site.xml   
+
+    Set the JMS server hostname for the Kylo hosted JMS server
+    config.elasticsearch.jms.url=tcp://<KYLO\_EDGE\_HOST>:61616  
 
 8. Install the Ranger Plugin.
 
@@ -527,21 +527,21 @@ Install the Kylo Application on the Kylo Edge Node
 
     .. code-block:: shell
 
-      | [root plugin]# mv /tmp/thinkbig-hadoop-authorization-ranger-<VERSION>.jar /opt/thinkbig/thinkbig-services/plugi
-      | [root plugin]# chown thinkbig:thinkbig /opt/thinkbig/thinkbig-services/plugin/thinkbig-hadoop-authorization-ranger-<VERSION>.jar
-      | [root plugin]# touch /opt/thinkbig/thinkbig-services/conf/authorization.ranger.properties
-      | [root plugin]# chown thinkbig:thinkbig /opt/thinkbig/thinkbig-services/conf/authorization.ranger.properties  
+      [root plugin]# mv /tmp/thinkbig-hadoop-authorization-ranger-<VERSION>.jar /opt/thinkbig/thinkbig-services/plugi
+      [root plugin]# chown thinkbig:thinkbig /opt/thinkbig/thinkbig-services/plugin/thinkbig-hadoop-authorization-ranger-<VERSION>.jar
+      [root plugin]# touch /opt/thinkbig/thinkbig-services/conf/authorization.ranger.properties
+      [root plugin]# chown thinkbig:thinkbig /opt/thinkbig/thinkbig-services/conf/authorization.ranger.properties  
 
     c. Edit the properties file.
 
     .. code-block:: shell
 
-      | vi /opt/thinkbig/thinkbig-services/conf/authorization.ranger.properties
+      vi /opt/thinkbig/thinkbig-services/conf/authorization.ranger.properties
 
-      | ranger.hostName=<RANGER\_HOST\_NAME>
-      | ranger.port=6080
-      | ranger.userName=admin
-      | ranger.password=admin  
+      ranger.hostName=<RANGER\_HOST\_NAME>
+      ranger.port=6080
+      ranger.userName=admin
+      ranger.password=admin  
 
 9. Start the Kylo applications.
 
@@ -579,18 +579,18 @@ Create Folders for NiFi standard-ingest Feed
 
   .. code-block:: shell
 
-    | [root]# su - hdfs
-    | [hdfs ~]$ kinit -kt /etc/security/keytabs/hdfs.service.keytab
-    | <HDFS\_PRINCIPAL\_NAME>
-    | [hdfs ~]$ hdfs dfs -mkdir /etl
-    | [hdfs ~]$ hdfs dfs -chown nifi:nifi /etl
-    | [hdfs ~]$ hdfs dfs -mkdir /model.db
-    | [hdfs ~]$ hdfs dfs -chown nifi:nifi /model.db
-    | [hdfs ~]$ hdfs dfs -mkdir /archive
-    | [hdfs ~]$ hdfs dfs -chown nifi:nifi /archive
-    | [hdfs ~]$ hdfs dfs -mkdir -p /app/warehouse
-    | [hdfs ~]$ hdfs dfs -chown nifi:nifi /app/warehouse
-    | [hdfs ~]$ hdfs dfs -ls /  
+    [root]# su - hdfs
+    [hdfs ~]$ kinit -kt /etc/security/keytabs/hdfs.service.keytab
+    <HDFS\_PRINCIPAL\_NAME>
+    [hdfs ~]$ hdfs dfs -mkdir /etl
+    [hdfs ~]$ hdfs dfs -chown nifi:nifi /etl
+    [hdfs ~]$ hdfs dfs -mkdir /model.db
+    [hdfs ~]$ hdfs dfs -chown nifi:nifi /model.db
+    [hdfs ~]$ hdfs dfs -mkdir /archive
+    [hdfs ~]$ hdfs dfs -chown nifi:nifi /archive
+    [hdfs ~]$ hdfs dfs -mkdir -p /app/warehouse
+    [hdfs ~]$ hdfs dfs -chown nifi:nifi /app/warehouse
+    [hdfs ~]$ hdfs dfs -ls /  
 
 Create Ranger Policies
 ======================

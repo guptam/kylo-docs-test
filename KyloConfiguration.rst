@@ -406,18 +406,18 @@ following structure:
 
 .. code-block:: shell
 
-| {
-|    "feedName": "string",
-|    "feedId": "string",
-|    "dependentFeedNames": [
-|    "string"
-|  ],
+  {
+     "feedName": "string",
+     "feedId": "string",
+     "dependentFeedNames": [
+     "string"
+   ],
 
-| "feedJobExecutionContexts": {},
+  "feedJobExecutionContexts": {},
 
-| "latestFeedJobExecutionContext": {}
+  "latestFeedJobExecutionContext": {}
 
-| }
+  }
 
 ..
 
@@ -425,34 +425,34 @@ JSON structure with  field description:
 
 .. code-block:: shell
 
-| {
-|    "feedName":"<THE NAME OF THIS FEED>",
-|    "feedId":"<THE UUID OF THIS FEED>",
-|    "dependentFeedNames":[<array of the dependent feed names],
-|    "feedJobExecutionContexts":{<dependent\_feed\_name>:[
-| {
-| "jobExecutionId":<Long ops mgr job id>,
-|             "startTime":<millis>,
-|             "endTime":<millis>,
-|             "executionContext":{
-| <key,value> matching any of the keys defined as being "exported" in
+  {
+     "feedName":"<THE NAME OF THIS FEED>",
+     "feedId":"<THE UUID OF THIS FEED>",
+     "dependentFeedNames":[<array of the dependent feed names],
+     "feedJobExecutionContexts":{<dependent\_feed\_name>:[
+  {
+  "jobExecutionId":<Long ops mgr job id>,
+              "startTime":<millis>,
+              "endTime":<millis>,
+              "executionContext":{
+  <key,value> matching any of the keys defined as being "exported" in
   this trigger feed
-|             }
-|          }
-|       ]
-|    },
-|    "latestFeedJobExecutionContext":{
-|       <dependent\_feed\_name>:{  
-|         "jobExecutionId":<Long ops mgr job id>,
-|             "startTime":<millis>,
-|             "endTime":<millis>,
-|             "executionContext":{
-| <key,value> matching any of the keys defined as being "exported" in
+              }
+           }
+        ]
+     },
+     "latestFeedJobExecutionContext":{
+        <dependent\_feed\_name>:{  
+          "jobExecutionId":<Long ops mgr job id>,
+              "startTime":<millis>,
+              "endTime":<millis>,
+              "executionContext":{
+  <key,value> matching any of the keys defined as being "exported" in
   this trigger feed
-|             }
-| }
-| }
-| }
+              }
+  }
+  }
+  }
 
 ..
 

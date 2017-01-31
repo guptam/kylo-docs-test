@@ -65,7 +65,7 @@ Wizard. You will then copy, configure, and start the new NiFi cluster.
 5. Edit /opt/nifi-2/current/bin/nifi-env.sh by changing the log
    directory to:
 
-..code-block:: shell
+.. code-block:: shell
 
     /var/log/nifi-2
 

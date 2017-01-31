@@ -121,7 +121,19 @@ Datasource Types
 ----------------
 
 A datasource is made unique by using its 'identityString' and its 'datasourceType'. The predefined types shipping with Kylo are:
-"HiveDatasource","JMSDatasource","KafkaDatasource","DirectoryDatasource","HDFSDatasource","S3Datasource","FTPDatasource","HBaseDatasource","HTTPDatasource", and "DatabaseDatasource". Refer to the datasource-definitions.json file for more details 
+
+  - "HiveDatasource"
+  - "JMSDatasource"
+  - "KafkaDatasource"
+  - "DirectoryDatasource"
+  - "HDFSDatasource"
+  - "S3Datasource"
+  - "FTPDatasource"
+  - "HBaseDatasource"
+  - "HTTPDatasource"
+  - "DatabaseDatasource" 
+
+Refer to the datasource-definitions.json file for more details 
 
 Registering Datasources with a Template
 =======================================

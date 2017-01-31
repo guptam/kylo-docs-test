@@ -6,14 +6,14 @@ Frequently Asked Questions
 Is NiFi compatible with Cloudera, Hortonworks, Map R, EMR, and vanilla Hadoop distributions?
 --------------------------------------------------------------------------------
 
-Yes. Kylo generally relies on standard Hadoop APIs and common technologies like HDFS/S3, Hive, and Spark. NiFi operates on the "edge" and isn't bound to any particular
-Hadoop distribution It is therefore compatible with \ **any** distribution we choose to support. We include install instructions for Cloudera and Hortonworks.
+Yes. Kylo generally relies on standard Hadoop APIs and common technologies like HDFS/S3, Hive, and Spark. NiFi operates on the "edge" so isn't bound to any particular
+Hadoop distribution It is therefore compatible with most Hadoop distributions although we only provide install instructions for Cloudera and Hortonworks.
 
-Does Kylo support Apache NiFi and Hortonworks DataFlow (HDF)? 
+Does Kylo support Apache NiFi and Hortonworks DataFlow (HDF)? What is the difference?
 ------------------------------------------------------
 
-We support vanilla Apache NiFi or NiFi bundled with Hortonworks DataFlow. HDF bundles Apache NiFi, Storm, and Kafka within a distribution. Apache NiFi within HDF contains the same codebase as the
-open-source project.
+Yes, Kylo support vanilla Apache NiFi or NiFi bundled with Hortonworks DataFlow. HDF bundles Apache NiFi, Storm, and Kafka within a distribution. Apache NiFi within HDF contains the same codebase as
+ the open-source project.
 
 
 What is Kylo's value-add over plain Apache NiFi?

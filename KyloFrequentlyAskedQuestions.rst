@@ -92,11 +92,6 @@ and Apache NiFi.
 It uses open source to manage data pipelines called “feeds” configured in Kylo UI and executed
 within Apache NiFi.
 
-Kylo requires Postgres or MySQL. It requires Java 8 or later. It is regularly
- tested on Cloudera or Hortonworks Hadoop distributions and compatibile with cloud platform such as AWS. It is
-installed via RPM but can be manually installed as well.
-See \ *`Deployment Architecture
-diagram <https://wiki.thinkbiganalytics.com/display/RD/Data+Lake+Accelerator+Architecture+Diagram>`__.*
 
 Metadata
 ========

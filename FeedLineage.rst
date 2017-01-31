@@ -22,9 +22,9 @@ Feed Connections
 Connected by Preconditions
 ==========================
 
-When a feed depends upon another feed(s) via a precondition (i.e. a
-TriggerFeed) then it will be assigned as a "depends on" relationship in
-the Feed Lineage graph
+When a feed depends upon another feed(s) via a precondition (a
+TriggerFeed), then it will be assigned as "depends on" relationship in
+the Feed Lineage graph.
 
 Connected through Datasources
 =============================

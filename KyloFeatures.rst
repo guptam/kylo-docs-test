@@ -4,7 +4,7 @@ Kylo Feature Overview
 =====================
 
 +--------------------------------------------+---------------+
-| .. rubric:: Features                       | Kylo          |
+| .. rubric:: Features                       | **Kylo**      |
 |    :name: features                         |               |
 +--------------------------------------------+---------------+
 | License                                    | Open Source   |

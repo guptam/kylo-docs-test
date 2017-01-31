@@ -131,9 +131,9 @@ A datasource is made unique by using its 'identityString' and its 'datasourceTyp
   - "FTPDatasource"
   - "HBaseDatasource"
   - "HTTPDatasource"
-  - "DatabaseDatasource" 
+  - "DatabaseDatasource"
 
-Refer to the datasource-definitions.json file for more details 
+Refer to the datasource-definitions.json file for more details. 
 
 Registering Datasources with a Template
 =======================================
@@ -151,7 +151,7 @@ and select those datasources for tracking.
 
 This step is necessary because you may have a variety of processors in
 the flow that match a processor type in the datasource definition (i.e.
-PutFile for failed flows), but those dont define the true destination of
+PutFile for failed flows), but those don't define the true destination of
 the flow.
 
 |image1|

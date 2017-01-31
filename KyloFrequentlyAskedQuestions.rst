@@ -10,10 +10,10 @@ Yes. Kylo generally relies on standard Hadoop APIs and common technologies like 
 Hadoop distribution It is therefore compatible with most Hadoop distributions although we only provide install instructions for Cloudera and Hortonworks.
 
 Does Kylo support Apache NiFi and Hortonworks DataFlow (HDF)? What is the difference?
-------------------------------------------------------
+--------------------------------------------------------------------------------------
 
-Yes, Kylo support vanilla Apache NiFi or NiFi bundled with Hortonworks DataFlow. HDF bundles Apache NiFi, Storm, and Kafka within a distribution. Apache NiFi within HDF contains the same codebase as
- the open-source project.
+Yes, Kylo support vanilla Apache NiFi or NiFi bundled with Hortonworks DataFlow. HDF bundles Apache NiFi, Storm, and Kafka within a distribution. Apache NiFi within HDF contains the same codebase
+as the open-source project.
 
 
 What is Kylo's value-add over plain Apache NiFi?
@@ -60,7 +60,7 @@ solution.
 What license does Kylo include?
 ===========
 
-Think Big/Teradata offers Kylo underthe Apache 2.0 license
+Think Big/Teradata offers Kylo underthe Apache 2.0 license.
 
 
 Is paid commercial support available for Kylo?
@@ -68,10 +68,10 @@ Is paid commercial support available for Kylo?
 
 Yes, Think Big offers support subscription at the standard and enterprise level. Please visit the Think Big Analytics website for more information.
 
-How are we positioning this platform vs. commercial products?
+How is Kylo differentiated against similar commercial products?
 ---------------------------------------------------------------
 
-Kylo has similiar capabilities to Podium and Zaloni Bedrock. Kylo is an open-source option. One differentiator is Kylo's extensibility. Kylo provides
+Kylo has similar capabilities to Podium and Zaloni Bedrock. Kylo is an open-source option. One differentiator is Kylo's extensibility. Kylo provides
 plug-in architecture and makes powerful use of NiFi templates.
 
 What does Kylo mean?

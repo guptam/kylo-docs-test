@@ -104,8 +104,8 @@ Template
 NiFi 1.0 (HDF 2.0) SSL Configuration
 =====================================
 
-The instructions provided here, regardingSSL configuration for NiFi and
-Kylo, are specific to Kylo 0.4.2.
+The instructions provided here, regarding SSL configuration for NiFi and
+Kylo, are specific to Kylo.
 
 This link provides additional instruction for enabling SSL for NiFi:
 
@@ -358,7 +358,7 @@ TriggerFeed
 Trigger Feed Overview
 ---------------------
 
-In Kylo 0.4.2, the TriggerFeed Processor allows feeds to be configured
+In Kylo, the TriggerFeed Processor allows feeds to be configured
 in such a way that a feed depending upon other feeds is automatically
 triggered when the dependent feed(s) complete successfully.
 
@@ -518,7 +518,7 @@ both HDP and Cloudera clusters.
 Requirements
 ============
 
-You must have Kylo 0.4.3 or later installed.
+You must have Kylo installed.
 
 Step 1: Add the data nucleus Jars
 =================================

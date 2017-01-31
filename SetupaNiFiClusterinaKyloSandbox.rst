@@ -23,7 +23,7 @@ Wizard. You will then copy, configure, and start the new NiFi cluster.
 
 1. Rename an existing /opt/nifi:
 
-..code-block:: shell
+.. code-block:: shell
 
     Example:
 
@@ -39,7 +39,7 @@ Wizard. You will then copy, configure, and start the new NiFi cluster.
 
 2. Rename the newly installed /opt/nifi:
 
-..code-block:: shell
+.. code-block:: shell
 
     Example:
 
@@ -56,7 +56,7 @@ Wizard. You will then copy, configure, and start the new NiFi cluster.
 
 4. Edit /etc/init.d/nifi-2 by changing the NiFi path (at the top) to:
 
-..code-block:: shell
+.. code-block:: shell
 
     /opt/nifi-2
 
@@ -73,7 +73,7 @@ Wizard. You will then copy, configure, and start the new NiFi cluster.
 
 6. Make the directory:
 
-..code-block:: shell
+.. code-block:: shell
 
     /var/log/nifi-2
 
@@ -90,7 +90,7 @@ Wizard. You will then copy, configure, and start the new NiFi cluster.
 -  Update the cluster-wide settings (all NiFi installations will have
    the same values).
 
-..code-block:: shell
+.. code-block:: shell
 
     nifi.cluster.is.node=true
     nifi.clusdter.node.address=localhost
@@ -101,7 +101,7 @@ Wizard. You will then copy, configure, and start the new NiFi cluster.
 8. Update the instance specific settings (port numbers unique to this
    instance).
 
-..code-block:: shell
+.. code-block:: shell
 
     nifi.web.http.port=8077
 
@@ -115,7 +115,7 @@ Wizard. You will then copy, configure, and start the new NiFi cluster.
 
 9. Copy/overwrite  /opt/nifi/data/conf/flow.xml.gz to:
 
-..code-block:: shell
+.. code-block:: shell
 
     /opt/nifi-2/conf/flow
 
@@ -132,7 +132,7 @@ Start Each NiFi
 
 Now that your instance is created and configured, start the services:
 
-..code-block:: shell
+.. code-block:: shell
 
     $ service nifi start
     $ service nifi-2 start  (if you created it in /etc/init.d)

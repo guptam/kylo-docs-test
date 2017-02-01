@@ -63,7 +63,7 @@ Configure CreateHDFSFolder Processor
     Directory To Be Encrypted : /model.db/${source}
                                 /app/warehouse/${source}
                                 /etl/${source}
-    /archive/${source}
+                                /archive/${source}
     Encryption Key : nifikey
     Encryption Required : Y
 
@@ -71,12 +71,9 @@ Configure CreateHDFSFolder Processor
 
 3. Click **OK** and start the processor.
 
-You have successfully configured Nifi DataLake Platform for HDFS
-Encryption.
+   You have successfully configured NiFi DataLake Platform for HDFS Encryption.
 
-.. |image0| image:: media/common/thinkbig-logo.png
-   :width: 3.09375in
-   :height: 2.03385in
+
 .. |image1| image:: media/Config_NiFi/E1.png
    :width: 2.86302in
    :height: 2.48958in

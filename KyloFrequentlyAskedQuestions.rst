@@ -1,23 +1,23 @@
 
-=================================================
+==========================
 Frequently Asked Questions
-=================================================
+==========================
 
 Is Kylo compatible with Cloudera, Hortonworks, Map R, EMR, and vanilla Hadoop distributions?
---------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
 Yes. Kylo generally relies on standard Hadoop APIs and common technologies like HDFS or S3, Hive, and Spark. NiFi operates on the "edge" so isn't bound to any particular
 Hadoop distribution It is therefore compatible with most Hadoop distributions although we only provide install instructions for Cloudera and Hortonworks.
 
 Does Kylo support either Apache NiFi and Hortonworks DataFlow (HDF)? What is the difference?
---------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
 Yes, Kylo support vanilla Apache NiFi or NiFi bundled with Hortonworks DataFlow. HDF bundles Apache NiFi, Storm, and Kafka within a distribution. Apache NiFi within HDF contains the same codebase
 as the open-source project.
 
 
 What is Kylo's value-add over plain Apache NiFi?
--------------------------------------------------------
+------------------------------------------------
 
 NiFi acts as Kylo's pipeline orchestration engine, but NiFi itself does not provide all the tooling required for a Data Lake solution. Some of Kylo's distinct benefits over vanilla NiFi and Hadoop:
 
@@ -57,7 +57,7 @@ Think Big/Teradata offers Kylo underthe Apache 2.0 license.
 
 
 Is enterprise support available for Kylo?
-----------------------
+-----------------------------------------
 
 Yes, Think Big offers support subscription at the standard and enterprise level. Please visit the Think Big Analytics website for more information.
 
@@ -68,7 +68,7 @@ Kylo has similar capabilities most comparable to Podium and Zaloni Bedrock. Kylo
 plug-in architecture with a variety of extension points available to developers and use of NiFi templates provides incredible flexibility for batch and streaming use cases.
 
 What does Kylo mean?
-----------------------------------
+--------------------
 
 Kylo is a play on the greek word meaning "flow".
 
@@ -94,7 +94,7 @@ Metadata
 ========
 
 What type of metadata does Kylo capture?
-------------------------------------
+----------------------------------------
 
 Kylo captures extensive business and technical (for example, schema) metadata
 defined during the creation of feeds and categories.  Process lineage
@@ -104,7 +104,7 @@ performance metadata and SLA metrics. We also generate data profile
 statistics and samples. We capture feed versions.
 
 How does Kylo support metadata exchange with 3rd party metadata servers
--------------------------------------------------------------------
+-----------------------------------------------------------------------
 
 Kylo's metadata server has REST APIs that could be used to do metadata
 exchange fully documented in Swagger.
@@ -114,7 +114,7 @@ exchange, but how we would map our metadata model to the 3rd party
 model.
 
 What is Kylo's metadata server?
-----------------------------
+-------------------------------
 
 A key part of Kylo's metadata architecture relies on the open-source JBoss ModeShape
 framework. ModeShape is a JCR compliant store. Modeshape supports dynamic schemas providing the ability to easily extend Kylo's own data
@@ -153,7 +153,7 @@ What does the REST API look like?
 Please access the REST documentation through a running Kylo instance  http://kylo-host:8400/api-docs/index.html
 
 Does the Kylo application provide a visual lineage?
------------------------------------
+---------------------------------------------------
 
 Yes, Kylo provides a visual process lineage feature for exploring relationships between feeds and shared sources and sinks.  Job instance level lineage is stored as "steps" visible in the feed job
 history.
@@ -189,7 +189,7 @@ Object lineage: ability to perform impact analysis on backward and
 forward at object level (table level,attribute level).
 
 Does Kylo track table attribute-level lineage?
--------------------------------------------------------
+----------------------------------------------
 
 Kylo does not automatically capture metadata for each transform at the
 lowest level, and does not currently perform impact analysis on table
@@ -258,7 +258,7 @@ Development Lifecycle
 =====================
 
 What's the pipeline development process using Kylo? 
--------------------------------------------
+---------------------------------------------------
 
 Pipelines developed with Apache NiFi can be developed in one environment
 and then imported into UAT and production after testing. Once
@@ -286,7 +286,7 @@ Tool Comparisons
 ================
 
 Is Kylo's metadata support similar to Cloudera Navigator, Apache Atlas
--------------------------------------------------
+----------------------------------------------------------------------
 
 In some ways. Kylo is not trying to compete with these and could certainly
 imagine integration with these tools. However, we also have an extensible
@@ -337,13 +337,13 @@ Timer is fixed interval, “every 5 min or 10 seconds”. Cron can be
 configured to do that as well but can handle more complex cases like
 “every tues at 8AM and 4PM”.
 
-Do we support message-trigger schedule strategy
------------------------------------------------
+Do we support message-trigger schedule strategy?
+------------------------------------------------
 
 Yes, typically JMS or HTTP-based. Kylo can also trigger feeds based on preconditions (rules).
 
-Does Kylo support chaining feeds? One data feed consumed by another data feed.
-----------------------------------------------------------------------------------
+Does Kylo support chaining feeds? One data feed consumed by another data feed?
+------------------------------------------------------------------------------
 
 Kylo supports event-based triggering of feeds based on preconditions or rules. One can define rules in the UI that determine when to run a
 feed such as “run when data has been processed by feed a and feed b and
@@ -354,7 +354,7 @@ Security
 ========
 
 Does Kylo have roles, users and privileges management function?
--------------------------------------------------------------------
+---------------------------------------------------------------
 
 Kylo uses Spring Security. It can integrate with Active Directory, Kerberos, LDAP,
 or most any authentication provider.
@@ -371,23 +371,22 @@ Kylo supports a simple incremental extract component. We maintain a
 high-water mark for each load using a date field in the source record.
 
 Can we generate data feeds for relational databases?
----------------------------------------------------------------------------------------------------
+----------------------------------------------------
 
 Yes, Kylo inspects the source schema and exposes it through our user
 interface for the user to be able to configure feeds.
 
 What kinds of database can be supported in Kylo?
----------------------------------------------------------------------------------------------------------
+------------------------------------------------
 
 We store metadata and job history in MySQL or Postgres. For sourcing
 data, any JDBC supported driver. It has been tested with data sources such as Teradata, SQL Server, Oracle, Postgres, and MySQL.
 
 
 Does Kylo support creating Hive table automatically after the source data is put into Hadoop?
--------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
 
 Yes. We have a stepper “wizard” that is used to configure feeds and can
 define a table schema in Hive. The stepper infers the schema looking at
 a sample file or from the database source. It automatically creates the
 Hive table on the first run of the feed.
-

@@ -72,9 +72,9 @@ The main documentation for the site is organized into a few sections:
    ConfigNififorHDFSEncryption
    SuseConfigurationChanges
 
-   KyloConfigurationforaKerborosCluster
+   KylosConfigurationforaKerborosCluster
    NiFiConfigurationforaKerberosCluster
-   KerberosInstallationExampleHDP
+   KerberosHDP
 
    EnableRangerAuthorizationGuide
    EnableSentryAuthorizationGuide
@@ -88,7 +88,7 @@ The main documentation for the site is organized into a few sections:
    :titlesonly:
 
    KyloDeveloperGuide
-   SetupNifFiClusterinaKyloSandbox
+   SetupNiFiClusterinaKyloSandbox
 
 Indices and tables
 ==================

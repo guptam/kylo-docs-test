@@ -36,7 +36,7 @@ The main documentation for the site is organized into a few sections:
    :caption: User Documentation
    :titlesonly:
 
-
+   FeedLineage
 
 .. _designer-docs:
 
@@ -66,16 +66,19 @@ The main documentation for the site is organized into a few sections:
    :titlesonly:
 
    KyloDeploymentChecklist
+   KyloDeploymentGuide
+   NiFiKyloProvenanceReportingTask
+
+   ConfigNififorHDFSEncryption
+   SuseConfigurationChanges
+
+   KyloConfigurationforaKerborosCluster
+   NiFiConfigurationforaKerberosCluster
+   KerberosInstallationExampleHDP
+
    EnableRangerAuthorizationGuide
    EnableSentryAuthorizationGuide
    SentryInstallationGuide
-
-   ClouderaDockerSandboxDeploymentGuide
-   HDP25ClusterDeploymentGuide
-   KyloManualDeploymentGuide
-   KyloDeploymentGuide
-   KyloSetupWizardDeploymentGuide
-   KyloTARFileInstallation
 
 .. _developer-docs:
 
@@ -85,6 +88,7 @@ The main documentation for the site is organized into a few sections:
    :titlesonly:
 
    KyloDeveloperGuide
+   SetupNifFiClusterinaKyloSandbox
 
 Indices and tables
 ==================

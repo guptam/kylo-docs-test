@@ -104,9 +104,6 @@ Template
 NiFi 1.0 (HDF 2.0) SSL Configuration
 =====================================
 
-The instructions provided here, regardingSSL configuration for NiFi and
-Kylo, are specific to Kylo 0.4.2.
-
 This link provides additional instruction for enabling SSL for NiFi:
 
     `*https://docs.hortonworks.com/HDPDocuments/HDF2/HDF-2.0.0/bk\_ambari-installation/content/ch\_enabling-ssl-for-nifi.html* <https://docs.hortonworks.com/HDPDocuments/HDF2/HDF-2.0.0/bk_ambari-installation/content/ch_enabling-ssl-for-nifi.html>`__
@@ -194,42 +191,43 @@ Creating a Self-signed Cert
 
       Below is an example.  Do not copy this text directly, as your keystore/truststore passwords will be different!
 
-    | # Site to Site properties
-Configuration.rst
-    | nifi.remote.input.host=localhost
-    | nifi.remote.input.secure=true
-    | nifi.remote.input.socket.port=10443
-    | nifi.remote.input.http.enabled=true
-    | nifi.remote.input.http.transaction.ttl=30 sec
+.. code-block:: shell
 
-    | # web properties #
-    | nifi.web.war.directory=./lib
-    | nifi.web.http.host=
-    | nifi.web.http.port=
-    | **nifi.web.https.host=**
-    | **nifi.web.https.port=9443**
-    | nifi.web.jetty.working.directory=./work/jetty
-    | nifi.web.jetty.threads=200
+    # Site to Site properties
+    nifi.remote.input.host=localhost
+    nifi.remote.input.secure=true
+    nifi.remote.input.socket.port=10443
+    nifi.remote.input.http.enabled=true
+    nifi.remote.input.http.transaction.ttl=30 sec
 
-    | # security properties #
-    | nifi.sensitive.props.key=
-    | nifi.sensitive.props.key.protected=
-    | nifi.sensitive.props.algorithm=PBEWITHMD5AND256BITAES-CBC-OPENSSL
-    | nifi.sensitive.props.provider=BC
-    | nifi.sensitive.props.additional.keys=
+    # web properties #
+    nifi.web.war.directory=./lib
+    nifi.web.http.host=
+    nifi.web.http.port=
+    **nifi.web.https.host=**
+    **nifi.web.https.port=9443**
+    nifi.web.jetty.working.directory=./work/jetty
+    nifi.web.jetty.threads=200
 
-    | **nifi.security.keystore=/opt/nifi/data/ssl/localhost/keystore.jks**
-    | nifi.security.keystoreType=jks
-    | nifi.security.keystorePasswd=fCrusEdGOKdik7P5UORRegQOILoZTBQ+9kyhf8D+PUU
-    | nifi.security.keyPasswd=fCrusEdGOKdik7P5UORRegQOILoZTBQ+9kyhf8D+PUU
-    | **nifi.security.truststore=/opt/nifi/data/ssl/localhost/truststore.jks**
-    | nifi.security.truststoreType=jks
-    | nifi.security.truststorePasswd=DHJS0+HIaUMRkhrbqlK/ys5j7iL/ef9mnGJIDRlFokA
-    | nifi.security.needClientAuth=
-    | nifi.security.user.authorizer=file-provider
-    | nifi.security.user.login.identity.provider=
-    | nifi.security.ocsp.responder.url=
-    | nifi.security.ocsp.responder.certificate=
+    # security properties #
+    nifi.sensitive.props.key=
+    nifi.sensitive.props.key.protected=
+    nifi.sensitive.props.algorithm=PBEWITHMD5AND256BITAES-CBC-OPENSSL
+    nifi.sensitive.props.provider=BC
+    nifi.sensitive.props.additional.keys=
+
+    **nifi.security.keystore=/opt/nifi/data/ssl/localhost/keystore.jks**
+    nifi.security.keystoreType=jks
+    nifi.security.keystorePasswd=fCrusEdGOKdik7P5UORRegQOILoZTBQ+9kyhf8D+PUU
+    nifi.security.keyPasswd=fCrusEdGOKdik7P5UORRegQOILoZTBQ+9kyhf8D+PUU
+    **nifi.security.truststore=/opt/nifi/data/ssl/localhost/truststore.jks**
+    nifi.security.truststoreType=jks
+    nifi.security.truststorePasswd=DHJS0+HIaUMRkhrbqlK/ys5j7iL/ef9mnGJIDRlFokA
+    nifi.security.needClientAuth=
+    nifi.security.user.authorizer=file-provider
+    nifi.security.user.login.identity.provider=
+    nifi.security.ocsp.responder.url=
+    nifi.security.ocsp.responder.certificate=
 
 9. Edit the /opt/nifi/data/conf/authorizers.xml file to add the initial
    admin identity.  This entry needs to match the phrase you used to
@@ -242,8 +240,8 @@ Configuration.rst
 
 ..
 
-    | Example Screenshot of file
-    | |image4|
+    Example Screenshot of file
+    |image4|
 
     For reference:  This will create a record in the
     /opt/nifi/current/conf/users.xml.  Should you need to regenerate
@@ -252,22 +250,21 @@ Configuration.rst
 
 10. Set the following parameters in application.properties for the NiFi connection. Change the Bolded lines to reflect your correct passwords.
 
-    | nifi.rest.host=localhost
-    | nifi.rest.https=true
-    | ### The port should match the port found in the
-      /opt/nifi/current/conf/nifi.properties (nifi.web.https.port)
-    | nifi.rest.port=9443
-    | nifi.rest.useConnectionPooling=false
-    | nifi.rest.truststorePath=/opt/nifi/data/ssl/localhost/truststore.jks
-    | ##the truststore password below needs to match that found in the
-      nifi.properties file (nifi.security.truststorePasswd)
-    | **nifi.rest.truststorePassword=UsqLPVksIe/taZbfpVIsYElF8qFLhXbeVGRgB0pLjKE**
-    | nifi.rest.truststoreType=JKS
-    | nifi.rest.keystorePath=/opt/nifi/data/ssl/CN=kylo\_OU=NIFI.p12
-    | ###value found in the .password file
-      /opt/nifi/data/ssl/CN=kylo\_OU=NIFI.password
-    | **nifi.rest.keystorePassword=mw5ePri**
-    | nifi.rest.keystoreType=PKCS12
+.. code-block:: shell
+
+    nifi.rest.host=localhost
+    nifi.rest.https=true
+    ### The port should match the port found in the /opt/nifi/current/conf/nifi.properties (nifi.web.https.port)
+    nifi.rest.port=9443
+    nifi.rest.useConnectionPooling=false
+    nifi.rest.truststorePath=/opt/nifi/data/ssl/localhost/truststore.jks
+    ##the truststore password below needs to match that found in the nifi.properties file (nifi.security.truststorePasswd)
+    **nifi.rest.truststorePassword=UsqLPVksIe/taZbfpVIsYElF8qFLhXbeVGRgB0pLjKE**
+    nifi.rest.truststoreType=JKS
+    nifi.rest.keystorePath=/opt/nifi/data/ssl/CN=kylo\_OU=NIFI.p12
+    ###value found in the .password file /opt/nifi/data/ssl/CN=kylo\_OU=NIFI.password
+    **nifi.rest.keystorePassword=mw5ePri**
+    nifi.rest.keystoreType=PKCS12
 
 Importing the Client Cert on the Mac
 ------------------------------------
@@ -335,22 +332,23 @@ TBD Provenance Repo SSL configuration
 Make the same changes to the /opt/nifi/ext-config/config.properties for
 connecting to NiFi, changing the thinkbig.nifi.rest properties to match:
 
-    | thinkbig.nifi.rest.host=localhost
-    | thinkbig.nifi.rest.https=true
-    | ### The port should match the port found in the
-      /opt/nifi/current/conf/nifi.properties (nifi.web.https.port)
-    | thinkbig.nifi.rest.port=9443
-    | thinkbig.nifi.rest.useConnectionPooling=false
-    | thinkbig.nifi.rest.truststorePath=/opt/nifi/data/ssl/localhost/truststore.jks
-    | ##the truststore password below needs to match that found in the
-      nifi.properties file (nifi.security.truststorePasswd)
-    | **thinkbig.nifi.rest.truststorePassword=UsqLPVksIe/taZbfpVIsYElF8qFLhXbeVGRgB0pLjKE**
-    | thinkbig.nifi.rest.truststoreType=JKS
-    | thinkbig.nifi.rest.keystorePath=/opt/nifi/data/ssl/CN=kylo\_OU=NIFI.p12
-    | ###value found in the .password file
-      /opt/nifi/data/ssl/CN=kylo\_OU=NIFI.password
-    | **thinkbig.nifi.rest.keystorePassword=mw5ePri**
-    | thinkbig.nifi.rest.keystoreType=PKCS12
+.. code-block:: shell
+
+    thinkbig.nifi.rest.host=localhost
+    thinkbig.nifi.rest.https=true
+    ### The port should match the port found in the /opt/nifi/current/conf/nifi.properties (nifi.web.https.port)
+    thinkbig.nifi.rest.port=9443
+    thinkbig.nifi.rest.useConnectionPooling=false
+    thinkbig.nifi.rest.truststorePath=/opt/nifi/data/ssl/localhost/truststore.jks
+    ##the truststore password below needs to match that found in the nifi.properties file (nifi.security.truststorePasswd)
+    **thinkbig.nifi.rest.truststorePassword=UsqLPVksIe/taZbfpVIsYElF8qFLhXbeVGRgB0pLjKE**
+    thinkbig.nifi.rest.truststoreType=JKS
+    thinkbig.nifi.rest.keystorePath=/opt/nifi/data/ssl/CN=kylo\_OU=NIFI.p12
+    ###value found in the .password file /opt/nifi/data/ssl/CN=kylo\_OU=NIFI.password
+    **thinkbig.nifi.rest.keystorePassword=mw5ePri**
+    thinkbig.nifi.rest.keystoreType=PKCS12
+
+..
 
 TriggerFeed
 ===========
@@ -358,7 +356,7 @@ TriggerFeed
 Trigger Feed Overview
 ---------------------
 
-In Kylo 0.4.2, the TriggerFeed Processor allows feeds to be configured
+In Kylo, the TriggerFeed Processor allows feeds to be configured
 in such a way that a feed depending upon other feeds is automatically
 triggered when the dependent feed(s) complete successfully.
 
@@ -518,7 +516,7 @@ both HDP and Cloudera clusters.
 Requirements
 ============
 
-You must have Kylo 0.4.3 or later installed.
+You must have Kylo installed.
 
 Step 1: Add the data nucleus Jars
 =================================

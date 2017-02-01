@@ -88,7 +88,7 @@ The main documentation for the site is organized into a few sections:
    :titlesonly:
 
    KyloDeveloperGuide
-   SetupNiFiClusterinaKyloSandbox
+   SetupaNiFiClusterinaKyloSandbox
 
 Indices and tables
 ==================
